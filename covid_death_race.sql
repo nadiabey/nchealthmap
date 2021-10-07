@@ -1,4 +1,4 @@
-CREATE TABLE covid_death
+CREATE TABLE covid_death_race
 (county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
  total INTEGER NOT NULL REFERENCES covid(deaths),
  white INTEGER NOT NULL,
