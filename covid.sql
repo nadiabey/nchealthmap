@@ -3,7 +3,7 @@ CREATE TABLE covid(
   cases INTEGER NOT NULL,
   deaths INTEGER NOT NULL, 
   hospitalizations INTEGER NOT NULL,
-  one_vaccine_or_more INTEGER NOT NULL,
-  fully_vaccinated INTEGER NOT NULL,
+  vaccinated_at_least_1 INTEGER NOT NULL,
+  vaccinated_fully INTEGER NOT NULL,
 );
 
