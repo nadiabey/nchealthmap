@@ -148,9 +148,8 @@ longitude VARCHAR(30) NOT NULL
 
 -- diseases 
 
-
 CREATE TABLE DiabetesData (
-(CountyName VARCHAR(50) NOT NULL REFERENCES County(county),
+(county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
 Year INTEGER NOT NULL,
 DiagnosedDiabetesPrevalence FLOAT CHECK DiagnosedDiabetesPrevalence >= 0 AND DiagnosedDiabetesPrevalence <= 100,
 UndiagnosedDiabetesPrevalence FLOAT CHECK UndiagnosedDiabetesPrevalence >= 0 AND UndiagnosedDiabetesPrevalence <= 100,
@@ -159,16 +158,13 @@ Control FLOAT CHECK Control >= 0 AND Control <= 100,
 Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
 PRIMARY KEY(CountyName, Year, Sex));
 
-
-
-
-
-CREATE TABLE DiabetesData (
-(CountyName VARCHAR(50) NOT NULL REFERENCES County(county),
+CREATE TABLE AlcoholData(
+(county_id INTEGER NOT NULL REFERENCES county(id),
 Year INTEGER NOT NULL,
 AlcoholPrevalence FLOAT CHECK AlcoholPrevalence >= 0 AND AlcoholPrevalence <= 100,
 Type VARCHAR(15) NOT NULL CHECK (Type = 'Any' or Type = 'Binge' or Type = 'Heavy'),
 Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
-PRIMARY KEY(CountyName, Year, Type, Sex));
+PRIMARY KEY(county_id, Year, Type, Sex));
 
+  
 
