@@ -1,5 +1,4 @@
---general 
-
+--GENERAL
 
 -- into birth genders 
 INSERT INTO births_gender VALUES (1,968045, 52, 47);
@@ -132,6 +131,10 @@ INSERT INTO county VALUES(98, 'Wilson');
 INSERT INTO county VALUES(99, 'Yadkin');
 INSERT INTO county VALUES(100, 'Yancey');
 
+--HEALTH PROFESSIONALS
+INSERT INTO HealthProfessionals VALUES (1, 2020, 170483, ‘Registered Nurse’, 66.52);
+INSERT INTO HealthProfessionals VALUES (2, 2020, 38530, ‘Registered Nurse’, 36.08);
+INSERT INTO HealthProfessionals VALUES (3, 2020, 11466, ‘Registered Nurse’, 36.63);
 
 -- COVID 
 
