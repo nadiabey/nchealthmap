@@ -166,5 +166,15 @@ Type VARCHAR(15) NOT NULL CHECK (Type = 'Any' or Type = 'Binge' or Type = 'Heavy
 Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
 PRIMARY KEY(county_id, Year, Type, Sex));
 
+-- health professionals
   
+CREATE TABLE HealthProfessionals(
+(County_id INTEGER NOT NULL REFERENCES County(id),
+Year INTEGER NOT NULL CHECK Year >= 1990 AND Year <= 2020,
+County_Population INTEGER CHECK County_Population >= 0,
+Professional_Type VARCHAR(50) NOT NULL,
+Total_Professionals FLOAT CHECK Total_Professionals >= 0,
+PRIMARY KEY(County_id, Year, Professional_Type)
+);
+
 
