@@ -1,38 +1,6 @@
 --GENERAL
 
--- into birth genders 
-INSERT INTO births_gender VALUES (1,968045, 52, 47);
-
--- births_prenatalcare
-INSERT INTO births_prenatalcare VALUES (1,32.9, 23.2, 11.5, 45);
-
--- education 
-INSERT INTO education VALUES (1,1100000, 43, 36);
-
--- ethnicity
-INSERT INTO ethnicity VALUES (1,1100000, 300000, 220000, 400050,78000,110000);
-
--- infant mortality
-INSERT INTO infant_mortality VALUES (1,4.5);
-
--- insurance
-INSERT INTO insurance VALUES (1, 43.2, 55.7);
-
--- life expectancy
-INSERT INTO life_expectancy VALUES (1, 78, 4.2, 33.8, 23.1, 45.1);
-
--- population per county 
-
-INSERT INTO population_c VALUES (1,2414235, 43242, 5223, 2365770);
-INSERT INTO population_c VALUES (3,534646, 3425, 53534,  477687);
-INSERT INTO population_c VALUES (7,5346467, 645646, 89946, 4610875);
-
--- location type
-INSERT INTO location_type VALUES('cty', 'county');
-INSERT INTO location_type VALUES('mun', 'city');
-INSERT INTO location_type VALUES('zip', 'zip code');
-
--- counties 
+-- counties
 
 INSERT INTO county VALUES(1, 'Alamance');
 INSERT INTO county VALUES(2, 'Alexander');
@@ -606,7 +574,6 @@ INSERT INTO neighbors VALUES(98, 64);
 INSERT INTO neighbors VALUES(98, 51);
 INSERT INTO neighbors VALUES(98, 96);
 INSERT INTO neighbors VALUES(98, 40);
-INSERT INTO neighbors VALUES(98, 64);
 INSERT INTO neighbors VALUES(99, 86);
 INSERT INTO neighbors VALUES(99, 34);
 INSERT INTO neighbors VALUES(99, 30);
@@ -617,10 +584,44 @@ INSERT INTO neighbors VALUES(100, 59);
 INSERT INTO neighbors VALUES(100, 57);
 INSERT INTO neighbors VALUES(100, 11);
 
+-- into birth genders 
+INSERT INTO births_gender VALUES (1,968045, 52, 47);
+
+-- births_prenatalcare
+INSERT INTO births_prenatalcare VALUES (1,32.9, 23.2, 11.5, 45);
+
+-- education 
+INSERT INTO education VALUES (1,1100000, 43, 36);
+
+-- ethnicity
+INSERT INTO ethnicity VALUES (1,1100000, 300000, 220000, 400050,78000,110000);
+
+-- infant mortality
+INSERT INTO infant_mortality VALUES (1,4.5);
+
+-- insurance
+INSERT INTO insurance VALUES (1, 43.2, 55.7);
+
+-- life expectancy
+INSERT INTO life_expectancy VALUES (1, 78, 4.2, 33.8, 23.1, 45.1);
+
+-- population per county 
+
+INSERT INTO population_c VALUES (1,2414235, 43242, 5223, 2365770);
+INSERT INTO population_c VALUES (3,534646, 3425, 53534,  477687);
+INSERT INTO population_c VALUES (7,5346467, 645646, 89946, 4610875);
+
+-- location type
+INSERT INTO location_type VALUES('cty', 'county');
+INSERT INTO location_type VALUES('mun', 'city');
+INSERT INTO location_type VALUES('zip', 'zip code');
+
+
+
 --HEALTH PROFESSIONALS
-INSERT INTO HealthProfessionals VALUES (1, 2020, 170483, ‘Registered Nurse’, 66.52);
-INSERT INTO HealthProfessionals VALUES (2, 2020, 38530, ‘Registered Nurse’, 36.08);
-INSERT INTO HealthProfessionals VALUES (3, 2020, 11466, ‘Registered Nurse’, 36.63);
+INSERT INTO HealthProfessionals VALUES (1, 2020, 170483, 'Registered Nurse', 66.52);
+INSERT INTO HealthProfessionals VALUES (2, 2020, 38530, 'Registered Nurse', 36.08);
+INSERT INTO HealthProfessionals VALUES (3, 2020, 11466, 'Registered Nurse', 36.63);
 
 -- COVID 
 
@@ -641,8 +642,8 @@ INSERT INTO covid VALUES(10,78240, 132, 2901, 149011, 102980);
 -- covid deaths and race 
 
 INSERT INTO covid_death_race VALUES(1, 300, 150, 100, 30, 10, 2);
-INSERT INTO covid_death_race VALUES(2, 123, 50,  40,  10, 10, 4 );
-INSERT INTO covid_death_race VALUES(3, 300, 120, 80, 50, 15, 15 );
+INSERT INTO covid_death_race VALUES(2, 123, 50,  40,  10, 10, 4);
+INSERT INTO covid_death_race VALUES(3, 300, 120, 80, 50, 15, 15);
 
 
 -- covid cases by race 
@@ -669,7 +670,7 @@ INSERT INTO facility_type VALUES('ED', 'emergency department');
 INSERT INTO facility_type VALUES('RH', 'rehabilitation');
 INSERT INTO facility_type VALUES('VA', 'Veterans Affairs');
 INSERT INTO facility_type VALUES('UC', 'urgent care');
-INSERT INTO faclity_type VALUES('LTC', 'long term care');
+INSERT INTO facility_type VALUES('LTC', 'long term care');
 
 -- health facilities 
 INSERT INTO health_facilities VALUES(1, 'Alamance Regional Medical Center',
@@ -830,9 +831,9 @@ INSERT INTO health_facilities VALUES(77, 'Harris Regional Hospital', 'HL',
 50, '35.3859427', '-83.2046477');
 INSERT INTO health_facilities VALUES(78, 'Johnston Health', 'HL', 51,
 '35.5141581', '-78.3361592');
-INSERT INTO health_facilities VALUES(79, 'Johnston Health Clayton', 51,
+INSERT INTO health_facilities VALUES(79, 'Johnston Health Clayton', 'HL', 51,
 '35.6311617', '-78.5055958');
-INSERT INTO health_facilities VALUES(80, 'Central Carolina Hospital', 53,
+INSERT INTO health_facilities VALUES(80, 'Central Carolina Hospital', 'HL', 53,
 '35.4688921', '-79.1893523');
 INSERT INTO health_facilities VALUES(81, 'Lenoir Memorial Hospital', 'HL',
 54, '35.2903724', '-77.5842354');
@@ -849,152 +850,152 @@ INSERT INTO health_facilities VALUES(86, 'Mission Hospital McDowell', 'HL', 59,
 INSERT INTO health_facilities VALUES(87,
   'Atrium Health SouthPark Emergency Department', 'ED', 60, '35.1473266',
   '-80.8234189');
-INSERT INTO health_facilities VALUES(87,
+INSERT INTO health_facilities VALUES(88,
   'Novant Health Presbyterian Medical Center', 'HL', 60, '35.2117505',
   '-80.8244289');
-INSERT INTO health_facilities VALUES(88,
+INSERT INTO health_facilities VALUES(89,
   'Novant Health Huntersville Medical Center', 'HL', 60,
 '35.4061254', '-80.8606231');
-INSERT INTO health_facilities VALUES(89,
+INSERT INTO health_facilities VALUES(90,
 'Novant Health Matthews Medical Center', 'HL', 60,
 '35.1197845', '-80.7146208');
-INSERT INTO health_facilities VALUES(90, 'Atrium Health Mercy', 'HL', 60,
+INSERT INTO health_facilities VALUES(91, 'Atrium Health Mercy', 'HL', 60,
 '35.21005', '-80.8209545');
-INSERT INTO health_facilities VALUES(91, 'Atrium Health University City', 'HL',
+INSERT INTO health_facilities VALUES(92, 'Atrium Health University City', 'HL',
 60, '35.3066306', '-80.7472512');
-INSERT INTO health_facilities VALUES(92, 'Atrium Health Carolinas Medical Center',
+INSERT INTO health_facilities VALUES(93, 'Atrium Health Carolinas Medical Center',
 'HL', 60, '35.2034162', '-80.8385574');
-INSERT INTO health_facilities VALUES(93, 'Atrium Health Carolinas Rehabilitation',
+INSERT INTO health_facilities VALUES(94, 'Atrium Health Carolinas Rehabilitation',
 'RH', 60, '35.2013346', '-80.8383606');
-INSERT INTO health_facilities VALUES(94, 'Novant Health Charlotte Orthopedic Hospital',
+INSERT INTO health_facilities VALUES(95, 'Novant Health Charlotte Orthopedic Hospital',
 'RH', 60, '35.2105991', '-80.8234795');
-INSERT INTO health_facilities VALUES(95, 'Atrium Health Pineville', 'HL', 60,
+INSERT INTO health_facilities VALUES(96, 'Atrium Health Pineville', 'HL', 60,
 '35.0922312', '-80.8725901');
-INSERT INTO health_facilities VALUES(96, 'Atrium Health Steele Creek Emergency Department',
+INSERT INTO health_facilities VALUES(97, 'Atrium Health Steele Creek Emergency Department',
 'ED', 60, '35.0992771', '-80.9923688');
-INSERT INTO health_facilities VALUES(97, 'Carolinas ContinueCARE Hospital at Pineville',
+INSERT INTO health_facilities VALUES(98, 'Carolinas ContinueCARE Hospital at Pineville',
 'LTC', 60, '35.0941051', '-80.8733846');
-INSERT INTO health_facilities VALUES(98, 'Carolinas ContinueCARE Hospital at University',
+INSERT INTO health_facilities VALUES(99, 'Carolinas ContinueCARE Hospital at University',
 'LTC', 60, '35.3071773','-80.7476669');
-INSERT INTO health_facilities VALUES(99, 'Blue Ridge Regional Hospital', 'HL',
+INSERT INTO health_facilities VALUES(100, 'Blue Ridge Regional Hospital', 'HL',
 61, '35.910967', '-84.3042989');
-INSERT INTO health_facilities VALUES(100, 'FirstHealth Montgomery Memorial Hospital',
+INSERT INTO health_facilities VALUES(101, 'FirstHealth Montgomery Memorial Hospital',
 'HL', 62, '35.364886', '-79.8903732');
-INSERT INTO health_facilities VALUES(101, 'FirstHealth Moore Regional Hospital',
+INSERT INTO health_facilities VALUES(102, 'FirstHealth Moore Regional Hospital',
 'HL', 63, '35.2063118', '-79.4566882');
-INSERT INTO health_facilities VALUES(102, 'Nash General Hospital', 'HL', 64,
+INSERT INTO health_facilities VALUES(103, 'Nash General Hospital', 'HL', 64,
 '35.9761945', '-77.8523536');
-INSERT INTO health_facilities VALUES(103, 'LifeCare Hospitals of North Carolina',
+INSERT INTO health_facilities VALUES(104, 'LifeCare Hospitals of North Carolina',
 'LTC', 64, '35.9752036', '-77.8188902');
-INSERT INTO health_facilities VALUES(104, 'New Hanover Regional Medical Center',
+INSERT INTO health_facilities VALUES(105, 'New Hanover Regional Medical Center',
 'HL', 65, '34.2060065','-77.9237126');
-INSERT INTO health_facilities VALUES(105, 'NHRMC ED North', 'ED', 65,
+INSERT INTO health_facilities VALUES(106, 'NHRMC ED North', 'ED', 65,
 '34.3157862', '-77.7680294');
-INSERT INTO health_facilities VALUES(106, 'NHRMC Orthopedic Hospital', 'ED',
+INSERT INTO health_facilities VALUES(107, 'NHRMC Orthopedic Hospital', 'ED',
 65, '34.2124933', '-77.862712');
-INSERT INTO health_facilities VALUES(107, 'Wilmington Treatment Center', 'PSY',
+INSERT INTO health_facilities VALUES(108, 'Wilmington Treatment Center', 'PSY',
 65, '34.1941245', '-77.929468');
-INSERT INTO health_facilities VALUES(108, 'Onslow Memorial Hospital', 'HL',
+INSERT INTO health_facilities VALUES(109, 'Onslow Memorial Hospital', 'HL',
 67, '34.7633285', '-77.3849499');
-INSERT INTO health_facilities VALUES(109, 'Naval Medical Center Camp Lejeune',
+INSERT INTO health_facilities VALUES(110, 'Naval Medical Center Camp Lejeune',
 'HL', 67, '34.722851', '-77.3585374');
-INSERT INTO health_facilities VALUES(110, 'Brynn Marr Hospital', 'PSY',
+INSERT INTO health_facilities VALUES(111, 'Brynn Marr Hospital', 'PSY',
 67, '34.7458938', '-77.3745515');
-INSERT INTO health_facilities VALUES(111, 'UNC Hospitals', 'HL', 68,
+INSERT INTO health_facilities VALUES(112, 'UNC Hospitals', 'HL', 68,
 '35.9039461', '-79.0494775');
-INSERT INTO health_facilities VALUES(112, 'Sentara Albemarle Medical Center',
+INSERT INTO health_facilities VALUES(113, 'Sentara Albemarle Medical Center',
 'HL', 70, '36.3234527', '-76.2183609');
-INSERT INTO health_facilities VALUES(113, 'Pender Memorial Hospital', 'HL',
+INSERT INTO health_facilities VALUES(114, 'Pender Memorial Hospital', 'HL',
 71, '34.550705', '-77.91987');
-INSERT INTO health_facilities VALUES(114, 'Person Memorial Hospital', 'HL',
+INSERT INTO health_facilities VALUES(115, 'Person Memorial Hospital', 'HL',
 73, '36.4083378', '-78.9852948');
-INSERT INTO health_facilities VALUES(115, 'Vidant Medical Center Emergency Room',
+INSERT INTO health_facilities VALUES(116, 'Vidant Medical Center Emergency Room',
 'ED', 74, '35.6087512', '-77.4036193');
-INSERT INTO health_facilities VALUES(116, 'St. Lukes Hospital', 'HL', 75,
+INSERT INTO health_facilities VALUES(117, 'St. Lukes Hospital', 'HL', 75,
 '35.239697', '-86.6951319');
-INSERT INTO health_facilities VALUES(117, 'Randolph Health', 'HL', 76,
+INSERT INTO health_facilities VALUES(118, 'Randolph Health', 'HL', 76,
 '35.7116861', '-79.8162521');
-INSERT INTO health_facilities VALUES(118, 'FirstHealth Moore Regional Hospital - Richmond',
+INSERT INTO health_facilities VALUES(119, 'FirstHealth Moore Regional Hospital - Richmond',
 'HL', 77, '34.9286471', '-79.7507273');
-INSERT INTO health_facilities VALUES(119, 'UNC Health Southeastern', 'HL',
+INSERT INTO health_facilities VALUES(120, 'UNC Health Southeastern', 'HL',
 78, '34.637004','-79.5710478');
-INSERT INTO health_facilities VALUES(120, 'UNC Rockingham Health Care', 'HL',
+INSERT INTO health_facilities VALUES(121, 'UNC Rockingham Health Care', 'HL',
 79, '36.4946836', '-79.7390599');
-INSERT INTO health_facilities VALUES(121, 'Cone Health Annie Penn Hospital', 'HL',
+INSERT INTO health_facilities VALUES(122, 'Cone Health Annie Penn Hospital', 'HL',
 79, '36.3532813', '-79.6700257');
-INSERT INTO health_facilities VALUES(122, 'Novant Health Rowan Medical Center',
+INSERT INTO health_facilities VALUES(123, 'Novant Health Rowan Medical Center',
 'HL', 80, '35.6816917','-80.4706748');
-INSERT INTO health_facilities VALUES(123, 'W.G. (Bill) Hefner VA Medical Center',
+INSERT INTO health_facilities VALUES(124, 'W.G. (Bill) Hefner VA Medical Center',
 'VA', 80, '35.6839359', '-80.4908588');
-INSERT INTO health_facilities VALUES(124, 'Rutherford Regional Health System',
+INSERT INTO health_facilities VALUES(125, 'Rutherford Regional Health System',
 'HL', 81, '35.3626958', '-81.9661339');
-INSERT INTO health_facilities VALUES(125, 'Sampson Regional Medical Center',
+INSERT INTO health_facilities VALUES(126, 'Sampson Regional Medical Center',
 'HL', 82, '35.006838', '-78.3243458');
-INSERT INTO health_facilities VALUES(126, 'Scotland Memorial Hospital', 'HL',
+INSERT INTO health_facilities VALUES(127, 'Scotland Memorial Hospital', 'HL',
 83, '34.7740494', '-79.4628248');
-INSERT INTO health_facilities VALUES(127, 'Atrium Health Stanly', 'HL', 84,
+INSERT INTO health_facilities VALUES(128, 'Atrium Health Stanly', 'HL', 84,
 '35.3644974', '-80.1950037');
-INSERT INTO health_facilities VALUES(128, 'Pioneer Community Hospital of Stokes ER',
+INSERT INTO health_facilities VALUES(129, 'Pioneer Community Hospital of Stokes ER',
 'ED', 85, '36.4180006','-80.3009532');
-INSERT INTO health_facilities VALUES(129, 'Pioneer Community Hospital of Stokes Behavioral Health',
+INSERT INTO health_facilities VALUES(130, 'Pioneer Community Hospital of Stokes Behavioral Health',
 'PSY', 85, '36.2954099','-80.1767316');
-INSERT INTO health_facilities VALUES(130, 'Northern Regional Hospital ER', 'ED',
+INSERT INTO health_facilities VALUES(131, 'Northern Regional Hospital ER', 'ED',
 86, '36.4893726', '-80.6116665');
-INSERT INTO health_facilities VALUES(131, 'Northern Regional Hospital', 'HL',
+INSERT INTO health_facilities VALUES(132, 'Northern Regional Hospital', 'HL',
 86, '36.488967','-80.611891');
-INSERT INTO health_facilities VALUES(132, 'Hugh Chatham Memorial Hospital', 'HL',
+INSERT INTO health_facilities VALUES(133, 'Hugh Chatham Memorial Hospital', 'HL',
 86, '36.2619062','-80.8385502');
-INSERT INTO health_facilities VALUES(133, 'Swain Community Hospital', 'HL',
+INSERT INTO health_facilities VALUES(134, 'Swain Community Hospital', 'HL',
 87, '35.434481','-83.4440541');
-INSERT INTO health_facilities VALUES(134, 'Cherokee Indian Hospital', 'HL',
+INSERT INTO health_facilities VALUES(135, 'Cherokee Indian Hospital', 'HL',
 87, '35.4841903','-83.3232054');
-INSERT INTO health_facilities VALUES(135, 'Transylvania Regional Hospital', 'HL',
+INSERT INTO health_facilities VALUES(136, 'Transylvania Regional Hospital', 'HL',
 88, '35.2559271','-82.7120587');
-INSERT INTO health_facilities VALUES(136, 'MedStar Union Memorial Hospital', 'HL',
+INSERT INTO health_facilities VALUES(137, 'MedStar Union Memorial Hospital', 'HL',
 90, '39.3293571','-76.6147422');
-INSERT INTO health_facilities VALUES(137, 'Atrium Health Waxhaw', 'HL', 90,
+INSERT INTO health_facilities VALUES(138, 'Atrium Health Waxhaw', 'HL', 90,
 '34.9639381','-80.7639623');
-INSERT INTO health_facilities VALUES(138, 'Atrium Health Waxhaw ED', 'ED', 90,
+INSERT INTO health_facilities VALUES(139, 'Atrium Health Waxhaw ED', 'ED', 90,
 '34.9639381','-80.7639623');
-INSERT INTO health_facilities VALUES(139, 'Maria Parham Medical Center', 'HL',
+INSERT INTO health_facilities VALUES(140, 'Maria Parham Medical Center', 'HL',
 91, '36.3310373','-78.449185');
-INSERT INTO health_facilities VALUES(140, 'Duke Raleigh Hospital', 'HL', 92,
+INSERT INTO health_facilities VALUES(141, 'Duke Raleigh Hospital', 'HL', 92,
 '35.8282966','-78.618179');
-INSERT INTO health_facilities VALUES(141, 'Duke Raleigh Hospital ER', 'ED', 92,
+INSERT INTO health_facilities VALUES(142, 'Duke Raleigh Hospital ER', 'ED', 92,
 '35.8283564','-78.6181388');
-INSERT INTO health_facilities VALUES(142, 'UNC REX Hospital', 'HL', 92,
+INSERT INTO health_facilities VALUES(143, 'UNC REX Hospital', 'HL', 92,
 '35.8180806','-78.7028387');
-INSERT INTO health_facilities VALUES(143, 'WakeMed Raleigh Campus', 'HL', 92,
+INSERT INTO health_facilities VALUES(144, 'WakeMed Raleigh Campus', 'HL', 92,
 '35.7830871','-78.5880855');
-INSERT INTO health_facilities VALUES(144, 'WakeMed Cary Hospital', 'HL', 92,
+INSERT INTO health_facilities VALUES(145, 'WakeMed Cary Hospital', 'HL', 92,
 '35.7402973','-78.7815705');
-INSERT INTO health_facilities VALUES(145, 'WakeMed Apex Healthplex', 'HL', 92,
+INSERT INTO health_facilities VALUES(146, 'WakeMed Apex Healthplex', 'HL', 92,
 '35.7389142','-78.8677328');
-INSERT INTO health_facilities VALUES(146, 'WakeMed North Hospital', 'HL', 92,
+INSERT INTO health_facilities VALUES(147, 'WakeMed North Hospital', 'HL', 92,
 '35.9090086','-78.6003449');
-INSERT INTO health_facilities VALUES(147, 'WakeMed Brier Creek Healthplex', 'HL',
+INSERT INTO health_facilities VALUES(148, 'WakeMed Brier Creek Healthplex', 'HL',
 92, '35.9184765','-78.7832007');
-INSERT INTO health_facilities VALUES(148, 'WakeMed Garner Healthplex', 'HL',
+INSERT INTO health_facilities VALUES(149, 'WakeMed Garner Healthplex', 'HL',
 92, '35.699433','-78.596061');
-INSERT INTO health_facilities VALUES(149, 'Holly Hill Hospital', 'PSY', 92,
+INSERT INTO health_facilities VALUES(150, 'Holly Hill Hospital', 'PSY', 92,
 '35.782772','-78.5839164');
-INSERT INTO health_facilities VALUES(150, 'Strategic Behavioral Center Raleigh',
+INSERT INTO health_facilities VALUES(151, 'Strategic Behavioral Center Raleigh',
 'PSY', 92, '35.677956','-78.561017');
-INSERT INTO health_facilities VALUES(151, 'UNC Hospitals at WakeBrook', 'PSY',
+INSERT INTO health_facilities VALUES(152, 'UNC Hospitals at WakeBrook', 'PSY',
 92, '35.7828833','-78.5814216');
-INSERT INTO health_facilities VALUES(152, 'Washington Regional Medical Center',
+INSERT INTO health_facilities VALUES(153, 'Washington Regional Medical Center',
 'HL', 94, '35.8625682','-78.9704424');
-INSERT INTO health_facilities VALUES (153, 'Watauga Medical Center', 'HL',
+INSERT INTO health_facilities VALUES (154, 'Watauga Medical Center', 'HL',
 95, '36.1977979','-81.6518391');
-INSERT INTO health_facilities VALUES(154, 'Watauga Medical Center Emergency Room',
+INSERT INTO health_facilities VALUES(155, 'Watauga Medical Center Emergency Room',
 'ED', 95, '36.1979097','-81.6510987');
-INSERT INTO health_facilities VALUES(155, 'Wayne Memorial Hospital', 'HL', 96,
+INSERT INTO health_facilities VALUES(156, 'Wayne Memorial Hospital', 'HL', 96,
 '34.2320054','-81.7720045');
-INSERT INTO health_facilities VALUES(156, 'Cherry Hospital', 'PSY', 96,
+INSERT INTO health_facilities VALUES(157, 'Cherry Hospital', 'PSY', 96,
 '35.394363','-78.0203811');
-INSERT INTO health_facilities VALUES(157, 'Wilkes Regional Medical Center', 'HL',
+INSERT INTO health_facilities VALUES(158, 'Wilkes Regional Medical Center', 'HL',
 97, '36.1592077','-81.1581176');
-INSERT INTO health_facilities VALUES(158, 'Wilson Medical Center', 'HL',
+INSERT INTO health_facilities VALUES(159, 'Wilson Medical Center', 'HL',
 98, '35.7205648','-77.946084');
  
  
@@ -1002,13 +1003,13 @@ INSERT INTO health_facilities VALUES(158, 'Wilson Medical Center', 'HL',
  
  -- diabetes data 
  
-INSERT INTO DiabetesData VALUES (1, 2012, 10.85, 3.13, 77.63, 30.31, 'Female');
-INSERT INTO DiabetesData VALUES (2, 2012, 10.18, 2.83, 78.23, 30.07, 'Female');
+INSERT INTO DiabetesData VALUES(1, 2012, 10.85, 3.13, 77.63, 30.31, 'Female');
+INSERT INTO DiabetesData VALUES(2, 2012, 10.18, 2.83, 78.23, 30.07, 'Female');
 
  -- Alcohol Data
  
-INSERT INTO AlcoholData (1, 2012, 20.9, 'Binge', 'Male');
-INSERT INTO AlcoholData (2, 2012, 17.9, 'Binge', 'Male');
+INSERT INTO AlcoholData VALUES(1, 2012, 20.9, 'Binge', 'Male');
+INSERT INTO AlcoholData VALUES(2, 2012, 17.9, 'Binge', 'Male');
 
 
 
