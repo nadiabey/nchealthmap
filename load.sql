@@ -640,9 +640,9 @@ INSERT INTO covid VALUES(10,78240, 132, 2901, 149011, 102980);
 
 -- covid deaths and race 
 
-INSERT INTO covid_death_race VALUES(1, 300, 150, 100, 30, 10, 2, 8);
-INSERT INTO covid_death_race VALUES(2, 123, 50,  40,  10, 10, 4, 9 );
-INSERT INTO covid_death_race VALUES(3, 300, 120, 80, 50, 15, 15, 20 );
+INSERT INTO covid_death_race VALUES(1, 300, 150, 100, 30, 10, 2);
+INSERT INTO covid_death_race VALUES(2, 123, 50,  40,  10, 10, 4 );
+INSERT INTO covid_death_race VALUES(3, 300, 120, 80, 50, 15, 15 );
 
 
 -- covid cases by race 
