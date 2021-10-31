@@ -167,7 +167,7 @@ UndiagnosedDiabetesPrevalence FLOAT CHECK UndiagnosedDiabetesPrevalence >= 0 AND
 Awareness FLOAT CHECK Awareness >= 0 AND Awareness <= 100,
 Control FLOAT CHECK Control >= 0 AND Control <= 100,
 Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
-PRIMARY KEY(CountyName, Year, Sex));
+PRIMARY KEY(county_id, Year, Sex));
 
 CREATE TABLE AlcoholData(
 county_id INTEGER NOT NULL REFERENCES county(id),
