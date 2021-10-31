@@ -1,6 +1,21 @@
 
 -- general info
 
+CREATE TABLE county(
+id INTEGER NOT NULL PRIMARY KEY,
+county VARCHAR(30) NOT NULL UNIQUE
+);
+
+CREATE TABLE neighbors(
+cty INTEGER REFERENCES county(id),
+neighbor INTEGER REFERENCES county(id),
+PRIMARY KEY(cty, neighbor)
+);
+
+CREATE TABLE location_type(
+short VARCHAR(3) NOT NULL PRIMARY KEY,
+type VARCHAR(10) NOT NULL UNIQUE);
+
 CREATE TABLE births_gender(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   no_of_births_tot INTEGER NOT NULL,
@@ -24,25 +39,9 @@ CREATE TABLE births_prenatalcare(
   none_prenatalcare FLOAT NOT NULL
 );
 
-
-CREATE TABLE county(
-id INTEGER NOT NULL PRIMARY KEY,
-county VARCHAR(30) NOT NULL UNIQUE
-);
-
-CREATE TABLE neighbors(
-cty VARCHAR(30) REFERENCES county(id),
-neighbor VARCHAR(30) REFERENCES county(id),
-PRIMARY KEY(cty, neighbor)
-);
-
-CREATE TABLE location_type(
-short VARCHAR(3) NOT NULL PRIMARY KEY,
-type VARCHAR(10) NOT NULL UNIQUE);
-
 CREATE TABLE education(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
-  adults_no INTEGER NOT NULL FOREIGN KEY REFERENCES population(population_adults),
+  adults_no INTEGER NOT NULL, -- REFERENCES population_c(population_adults),
   college_education FLOAT NOT NULL, --% of adults receiving higher education
   highschool_education FLOAT NOT NULL
 );
@@ -106,7 +105,7 @@ CREATE TABLE covid(
 
 CREATE TABLE covid_death_race
 (county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
- total INTEGER NOT NULL REFERENCES covid(deaths),
+ total INTEGER NOT NULL, -- REFERENCES covid(deaths),
  white INTEGER NOT NULL,
  black INTEGER NOT NULL,
  AAPI INTEGER NOT NULL,
@@ -118,7 +117,7 @@ CREATE TABLE covid_death_race
 
 CREATE TABLE covid_race
 (county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
- total INTEGER NOT NULL REFERENCES covid(cases),
+ total INTEGER NOT NULL, -- REFERENCES covid(cases),
  white INTEGER NOT NULL,
  black INTEGER NOT NULL,
  AAPI INTEGER NOT NULL,
@@ -129,7 +128,7 @@ CREATE TABLE covid_race
 
 CREATE TABLE vaccine(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
-  total_vaccinations INTEGER NOT NULL REFERENCES covid(vaccinated_at_least_1),
+  total_vaccinations INTEGER NOT NULL, -- REFERENCES covid(vaccinated_at_least_1),
   pfizer INTEGER NOT NULL,
   moderna INTEGER NOT NULL,
   jnj INTEGER NOT NULL,
@@ -160,19 +159,19 @@ longitude VARCHAR(30) NOT NULL
 -- diseases 
 
 CREATE TABLE DiabetesData (
-county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+county_id INTEGER NOT NULL REFERENCES county(id),
 Year INTEGER NOT NULL,
-DiagnosedDiabetesPrevalence FLOAT CHECK DiagnosedDiabetesPrevalence >= 0 AND DiagnosedDiabetesPrevalence <= 100,
-UndiagnosedDiabetesPrevalence FLOAT CHECK UndiagnosedDiabetesPrevalence >= 0 AND UndiagnosedDiabetesPrevalence <= 100,
-Awareness FLOAT CHECK Awareness >= 0 AND Awareness <= 100,
-Control FLOAT CHECK Control >= 0 AND Control <= 100,
+DiagnosedDiabetesPrevalence FLOAT CHECK (DiagnosedDiabetesPrevalence >= 0 AND DiagnosedDiabetesPrevalence <= 100),
+UndiagnosedDiabetesPrevalence FLOAT CHECK (UndiagnosedDiabetesPrevalence >= 0 AND UndiagnosedDiabetesPrevalence <= 100),
+Awareness FLOAT CHECK (Awareness >= 0 AND Awareness <= 100),
+Control FLOAT CHECK (Control >= 0 AND Control <= 100),
 Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
 PRIMARY KEY(county_id, Year, Sex));
 
 CREATE TABLE AlcoholData(
 county_id INTEGER NOT NULL REFERENCES county(id),
 Year INTEGER NOT NULL,
-AlcoholPrevalence FLOAT CHECK AlcoholPrevalence >= 0 AND AlcoholPrevalence <= 100,
+AlcoholPrevalence FLOAT CHECK (AlcoholPrevalence >= 0 AND AlcoholPrevalence <= 100),
 Type VARCHAR(15) NOT NULL CHECK (Type = 'Any' or Type = 'Binge' or Type = 'Heavy'),
 Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
 PRIMARY KEY(county_id, Year, Type, Sex));
@@ -181,10 +180,10 @@ PRIMARY KEY(county_id, Year, Type, Sex));
   
 CREATE TABLE HealthProfessionals(
 County_id INTEGER NOT NULL REFERENCES County(id),
-Year INTEGER NOT NULL CHECK Year >= 1990 AND Year <= 2020,
-County_Population INTEGER CHECK County_Population >= 0,
+Year INTEGER NOT NULL,
+County_Population INTEGER CHECK (County_Population >= 0),
 Professional_Type VARCHAR(50) NOT NULL,
-Total_Professionals FLOAT CHECK Total_Professionals >= 0,
+Total_Professionals FLOAT CHECK (Total_Professionals >= 0),
 PRIMARY KEY(County_id, Year, Professional_Type)
 );
 
