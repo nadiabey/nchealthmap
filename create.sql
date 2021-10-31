@@ -30,6 +30,15 @@ id INTEGER NOT NULL PRIMARY KEY,
 county VARCHAR(30) NOT NULL UNIQUE
 );
 
+CREATE TABLE neighbors(
+cty VARCHAR(30) REFERENCES county(id),
+neighbor VARCHAR(30) REFERENCES county(id),
+PRIMARY KEY(cty, neighbor)
+);
+
+CREATE TABLE location_type(
+short VARCHAR(3) NOT NULL PRIMARY KEY,
+type VARCHAR(10) NOT NULL UNIQUE);
 
 CREATE TABLE education(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
