@@ -11,7 +11,7 @@ CREATE TABLE births_gender(
 CREATE TABLE zips(
 zip_code INTEGER NOT NULL PRIMARY KEY,
 city VARCHAR(50) NOT NULL,
-county_id INTEGER NOT NULL REFERENCES county(id)
+county_id INTEGER NOT NULL REFERENCES county(id),
 latitude VARCHAR(50) NOT NULL,
 longitude VARCHAR(50) NOT NULL
 );
@@ -100,7 +100,7 @@ CREATE TABLE covid(
   deaths INTEGER NOT NULL, 
   hospitalizations INTEGER NOT NULL,
   vaccinated_at_least_1 INTEGER NOT NULL,
-  vaccinated_fully INTEGER NOT NULL,
+  vaccinated_fully INTEGER NOT NULL
 );
 
 
@@ -111,7 +111,7 @@ CREATE TABLE covid_death_race
  black INTEGER NOT NULL,
  AAPI INTEGER NOT NULL,
  native INTEGER NOT NULL,
- other INTEGER NOT NULL,
+ other INTEGER NOT NULL
 );
 
 
@@ -123,7 +123,7 @@ CREATE TABLE covid_race
  black INTEGER NOT NULL,
  AAPI INTEGER NOT NULL,
  native INTEGER NOT NULL,
- other INTEGER NOT NULL,
+ other INTEGER NOT NULL
 );
 
 
@@ -133,7 +133,7 @@ CREATE TABLE vaccine(
   pfizer INTEGER NOT NULL,
   moderna INTEGER NOT NULL,
   jnj INTEGER NOT NULL,
-  other INTEGER NOT NULL,
+  other INTEGER NOT NULL
 );
 
 
@@ -160,7 +160,7 @@ longitude VARCHAR(30) NOT NULL
 -- diseases 
 
 CREATE TABLE DiabetesData (
-(county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
 Year INTEGER NOT NULL,
 DiagnosedDiabetesPrevalence FLOAT CHECK DiagnosedDiabetesPrevalence >= 0 AND DiagnosedDiabetesPrevalence <= 100,
 UndiagnosedDiabetesPrevalence FLOAT CHECK UndiagnosedDiabetesPrevalence >= 0 AND UndiagnosedDiabetesPrevalence <= 100,
@@ -170,7 +170,7 @@ Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
 PRIMARY KEY(CountyName, Year, Sex));
 
 CREATE TABLE AlcoholData(
-(county_id INTEGER NOT NULL REFERENCES county(id),
+county_id INTEGER NOT NULL REFERENCES county(id),
 Year INTEGER NOT NULL,
 AlcoholPrevalence FLOAT CHECK AlcoholPrevalence >= 0 AND AlcoholPrevalence <= 100,
 Type VARCHAR(15) NOT NULL CHECK (Type = 'Any' or Type = 'Binge' or Type = 'Heavy'),
@@ -180,7 +180,7 @@ PRIMARY KEY(county_id, Year, Type, Sex));
 -- health professionals
   
 CREATE TABLE HealthProfessionals(
-(County_id INTEGER NOT NULL REFERENCES County(id),
+County_id INTEGER NOT NULL REFERENCES County(id),
 Year INTEGER NOT NULL CHECK Year >= 1990 AND Year <= 2020,
 County_Population INTEGER CHECK County_Population >= 0,
 Professional_Type VARCHAR(50) NOT NULL,
