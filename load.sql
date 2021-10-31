@@ -23,9 +23,9 @@ INSERT INTO life_expectancy VALUES (1, 78, 4.2, 33.8, 23.1, 45.1);
 
 -- population per county 
 
-INSERT INTO population_c VALUES (1,2414235, 43242, 5223);
-INSERT INTO population_c VALUES (3,53534, 3425, 534646);
-INSERT INTO population_c VALUES (7,346467, 645646, 89946);
+INSERT INTO population_c VALUES (1,2414235, 43242, 5223, 2365770);
+INSERT INTO population_c VALUES (3,534646, 3425, 53534,  477687);
+INSERT INTO population_c VALUES (7,5346467, 645646, 89946, 4610875);
 
 -- location type
 INSERT INTO location_type VALUES('cty', 'county');
