@@ -4,8 +4,8 @@
 CREATE TABLE births_gender(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   no_of_births_tot INTEGER NOT NULL,
-  no_of_males INTEGER NOT NULL.
-  no_of_females INTEGER NOT NULL.
+  no_of_males INTEGER NOT NULL,
+  no_of_females INTEGER NOT NULL
 );
 
 CREATE TABLE zips(
@@ -19,8 +19,8 @@ longitude VARCHAR(50) NOT NULL
 CREATE TABLE births_prenatalcare(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   first_trimester FLOAT NOT NULL, -- % of people receiving prenatal care since their first trimester
-  second_trimester FLOAT NOT NULL.
-  third_trimester FLOAT NOT NULL.
+  second_trimester FLOAT NOT NULL,
+  third_trimester FLOAT NOT NULL,
   none_prenatalcare FLOAT NOT NULL
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE education(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   adults_no INTEGER NOT NULL FOREIGN KEY REFERENCES population(population_adults),
   college_education FLOAT NOT NULL, --% of adults receiving higher education
-  highschool_education FLOAT NOT NULL.
+  highschool_education FLOAT NOT NULL
 );
 
 
@@ -53,7 +53,7 @@ CREATE TABLE ethnicity(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   white INTEGER NOT NULL,
   latinx INTEGER NOT NULL,
-  african_american INTEGER NOT NULL.
+  african_american INTEGER NOT NULL,
   asian INTEGER NOT NULL,
   pacific_islander INTEGER NOT NULL,
   two_or_more INTEGER NOT NULL
@@ -77,7 +77,7 @@ CREATE TABLE life_expectancy(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   life_exp_years INTEGER NOT NULL,
   poverty_rate FLOAT NOT NULL, -- % of people living in poverty
-  unemployement_rate FLOAT NOT NULL, -- % of people unemployed
+  unemployment_rate FLOAT NOT NULL, -- % of people unemployed
   food_insecurity FLOAT NOT NULL, -- % of people suffering of food insecurity
   violent_crime FLOAT NOT NULL -- % of people affected by violent crimes
 );
@@ -132,7 +132,7 @@ CREATE TABLE vaccine(
   total_vaccinations INTEGER NOT NULL REFERENCES covid(vaccinated_at_least_1),
   pfizer INTEGER NOT NULL,
   moderna INTEGER NOT NULL,
-  johnson_&_johnson INTEGER NOT NULL,
+  jnj INTEGER NOT NULL,
   other INTEGER NOT NULL,
 );
 
@@ -151,7 +151,7 @@ CREATE TABLE health_facilities(
 facility_id INTEGER PRIMARY KEY NOT NULL,
 name VARCHAR(256) NOT NULL,
 type VARCHAR(30) NOT NULL REFERENCES facility_type(short),
-county_id INTEGER NOT NULL REFERENCES county(id)
+county_id INTEGER NOT NULL REFERENCES county(id),
 latitude VARCHAR(30) NOT NULL,
 longitude VARCHAR(30) NOT NULL
 );
