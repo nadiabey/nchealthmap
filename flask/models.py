@@ -1,4 +1,11 @@
 from app import db
+from flask_sqlalchemy import orm
+
+
+class LocationType(db.Model):
+    __tablename__ = 'location_type'
+    short = db.Column(db.String(3), primary_key=True, nullable=False)
+    type = db.Column(db.String(10), nullable=False, unique=True)
 
 
 class County(db.Model):
@@ -14,8 +21,8 @@ class County(db.Model):
         nullable=False
     )
 
-    def __repr__(self):
-        return '{}'.format(self.name)
+    zips = orm.relationship('Zips')
+    neighbors = orm.relationship('Neighbors')
 
 
 class Zips(db.Model):
@@ -31,7 +38,7 @@ class Zips(db.Model):
     )
     county_id = db.Column(
         db.Integer,
-        foreign_key=County.cid,
+        db.ForeignKey(County.cid),
         nullable=False
     )
     latitude = db.Column(
@@ -48,11 +55,13 @@ class Neighbors(db.Model):
     __tablename__ = 'neighbors'
     county = db.Column(
         db.Integer,
-        foreign_key=County.cid
+        db.ForeignKey(County.cid),
+        primary_key=True
     )
     neighbor = db.Column(
         db.Integer,
-        foreign_key=County.cid
+        db.ForeignKey(County.cid),
+        primary_key=True,
     )
 
 
@@ -60,8 +69,8 @@ class Births(db.Model):
     __tablename__ = 'births_gender'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         primary_key=True,
-        foreign_key=County.cid,
         nullable=False
     )
     no_of_births_tot = db.Column(
@@ -82,8 +91,8 @@ class Prenatal(db.Model):
     __tablename__ = 'births_prenatalcare'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         primary_key=True,
-        foreign_key=County.cid,
         nullable=False
     )
     first_trimester = db.Column(
@@ -108,9 +117,9 @@ class Population(db.Model):
     __tablename__ = 'population'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
         primary_key=True,
-        foreign_key=County.cid
     )
     population_tot = db.Column(
         db.Integer,
@@ -134,14 +143,13 @@ class Education(db.Model):
     __tablename__ = 'education'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     adults_no = db.Column(
         db.Integer,
-        nullable=False,
-        foreign_key=Population.population_adults
+        nullable=False
     )
     college_education = db.Column(
         db.Float,
@@ -157,9 +165,9 @@ class Ethnicity(db.Model):
     __tablename__ = 'ethnicity'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     white = db.Column(
         db.Integer,
@@ -191,9 +199,9 @@ class InfantMortality(db.Model):
     __tablename__ = 'infant_mortality'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     mortality_rate = db.Column(
         db.Float,
@@ -205,9 +213,9 @@ class Insurance(db.Model):
     __tablename__ = 'insurance'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     not_insured = db.Column(
         db.Float,
@@ -223,9 +231,9 @@ class LifeExpectancy(db.Model):
     __tablename__ = 'life_expectancy'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     life_exp_years = db.Column(
         db.Integer,
@@ -253,9 +261,9 @@ class COVID(db.Model):
     __tablename__ = 'covid'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     cases = db.Column(
         db.Integer,
@@ -283,14 +291,13 @@ class CovidDeathRace(db.Model):
     __tablename__ = 'covid_death_race'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     total = db.Column(
         db.Integer,
-        nullable=False,
-        foreign_key=COVID.deaths
+        nullable=False
     )
     white = db.Column(
         db.Integer,
@@ -318,14 +325,13 @@ class Covid_Race(db.Model):
     __tablename__ = 'covid_race'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     total = db.Column(
         db.Integer,
-        nullable=False,
-        foreign_key=COVID.cases
+        nullable=False
     )
     white = db.Column(
         db.Integer,
@@ -353,14 +359,13 @@ class Vaccine(db.Model):
     __tablename__ = 'vaccine'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     total_vaccinations = db.Column(
         db.Integer,
-        nullable=False,
-        foreign_key=COVID.vaccinated_at_least_one
+        nullable=False
     )
     pfizer = db.Column(
         db.Integer,
@@ -407,13 +412,13 @@ class HealthFacilities(db.Model):
     )
     type = db.Column(
         db.String(30),
-        nullable=False,
-        foreign_key=FacilityType.short
+        db.ForeignKey(FacilityType.short),
+        nullable=False
     )
     county_id = db.Column(
         db.Integer,
-        nullable=False,
-        foreign_key=County.cid
+        db.ForeignKey(County.cid),
+        nullable=False
     )
     latitude = db.Column(
         db.Float,
@@ -429,33 +434,30 @@ class DiabetesData(db.Model):
     __tablename__ = 'diabetes_data'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     year = db.Column(
         db.Integer,
-        nullable=False
+        nullable=False,
+        primary_key=True
     )
     diagnosed = db.Column(
         db.Float
-        # not sure how to add check
     )
     undiagnosed = db.Column(
         db.Float
-        # not sure how to add check
     )
     awareness = db.Column(
         db.Float
-        # not sure how to add check
     )
     control = db.Column(
         db.Float
-        # not sure how to add check
     )
     sex = db.Column(
-        db.String(15)
-        # check
+        db.String(15),
+        primary_key=True
     )
 
 
@@ -463,25 +465,24 @@ class AlcoholData(db.Model):
     __tablename__ = 'alcohol_data'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     year = db.Column(
         db.Integer,
-        nullable=False
+        nullable=False,
+        primary_key=True
     )
     prevalence = db.Column(
         db.Float
-        # check
     )
     type = db.Column(
         db.String(15)
-        # check
     )
     sex = db.Column(
-        db.String(15)
-        # check
+        db.String(15),
+        primary_key=True
     )
 
 
@@ -489,17 +490,16 @@ class HealthProfessionals(db.Model):
     __tablename__ = 'health_professionals'
     county_id = db.Column(
         db.Integer,
+        db.ForeignKey(County.cid),
         nullable=False,
-        primary_key=True,
-        foreign_key=County.cid
+        primary_key=True
     )
     year = db.Column(
         db.Integer,
         nullable=False
     )
     county_population = db.Column(
-        db.Integer,
-        foreign_key=Population.population_tot
+        db.Integer
     )
     professional_type = db.Column(
         db.String(50),
@@ -510,3 +510,73 @@ class HealthProfessionals(db.Model):
         nullable=False
     )
 
+"""
+class Drinker(db.Model):
+    __tablename__ = 'drinker'
+    name = db.Column('name', db.String(20), primary_key=True)
+    address = db.Column('address', db.String(20))
+    likes = orm.relationship('Likes')
+    frequents = orm.relationship('Frequents')
+    @staticmethod
+    def edit(old_name, name, address, beers_liked, bars_frequented):
+        try:
+            db.session.execute('DELETE FROM likes WHERE drinker = :name',
+                               dict(name=old_name))
+            db.session.execute('DELETE FROM frequents WHERE drinker = :name',
+                               dict(name=old_name))
+            db.session.execute('UPDATE drinker SET name = :name, address = :address'
+                               ' WHERE name = :old_name',
+                               dict(old_name=old_name, name=name, address=address))
+            for beer in beers_liked:
+                db.session.execute('INSERT INTO likes VALUES(:drinker, :beer)',
+                                   dict(drinker=name, beer=beer))
+            for bar, times_a_week in bars_frequented:
+                db.session.execute('INSERT INTO frequents'
+                                   ' VALUES(:drinker, :bar, :times_a_week)',
+                                   dict(drinker=name, bar=bar,
+                                        times_a_week=times_a_week))
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            raise e
+
+class Beer(db.Model):
+    __tablename__ = 'beer'
+    name = db.Column('name', db.String(20), primary_key=True)
+    brewer = db.Column('brewer', db.String(20))
+
+class Bar(db.Model):
+    __tablename__ = 'bar'
+    name = db.Column('name', db.String(20), primary_key=True)
+    address = db.Column('address', db.String(20))
+    serves = orm.relationship('Serves')
+
+class Likes(db.Model):
+    __tablename__ = 'likes'
+    drinker = db.Column('drinker', db.String(20),
+                        db.ForeignKey('drinker.name'),
+                        primary_key=True)
+    beer = db.Column('beer', db.String(20),
+                     db.ForeignKey('beer.name'),
+                     primary_key=True)
+
+class Serves(db.Model):
+    __tablename__ = 'serves'
+    bar = db.Column('bar', db.String(20),
+                    db.ForeignKey('bar.name'),
+                    primary_key=True)
+    beer = db.Column('beer', db.String(20),
+                     db.ForeignKey('beer.name'),
+                     primary_key=True)
+    price = db.Column('price', db.Float())
+
+class Frequents(db.Model):
+    __tablename__ = 'frequents'
+    drinker = db.Column('drinker', db.String(20),
+                        db.ForeignKey('drinker.name'),
+                        primary_key=True)
+    bar = db.Column('bar', db.String(20),
+                    db.ForeignKey('bar.name'),
+                    primary_key=True)
+    times_a_week = db.Column('times_a_week', db.Integer())
+    """
