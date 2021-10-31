@@ -73,11 +73,13 @@ CREATE TABLE life_expectancy(
   violent_crime FLOAT NOT NULL -- % of people affected by violent crimes
 );
 
+
 CREATE TABLE population_c(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   population_tot INTEGER NOT NULL,
   population_children INTEGER NOT NULL,
-  population_elderly INTEGER NOT NULL
+  population_elderly INTEGER NOT NULL, 
+  population_adults INTEGER NOT NULL
 );
 
 
