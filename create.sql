@@ -187,4 +187,12 @@ Total_Professionals FLOAT CHECK (Total_Professionals >= 0),
 PRIMARY KEY(County_id, Year, Professional_Type)
 );
 
+-- table for storing feedback
+CREATE TABLE comments(
+cid SERIAL PRIMARY KEY,
+name VARCHAR(256),
+email VARCHAR(256),
+comment VARCHAR(1000)
+);
+
 
