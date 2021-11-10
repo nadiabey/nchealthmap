@@ -5,4 +5,5 @@ Team HealthCarolina is building an interactive website to visualize health stati
 Set-Up:
 1. pull create.sql, load.sql and .env
 2. bash setup.sh
-3. python app.py
+3. set password manually to match .env
+4. python app.py
