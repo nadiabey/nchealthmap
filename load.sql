@@ -588,13 +588,13 @@ INSERT INTO neighbors VALUES(100, 11);
 INSERT INTO cities
 SELECT DISTINCT county_id, city FROM zips;
 
--- into birth genders 
+-- into birth genders
 INSERT INTO births_gender VALUES (1,968045, 52, 47);
 
 -- births_prenatalcare
 INSERT INTO births_prenatalcare VALUES (1,32.9, 23.2, 11.5, 45);
 
--- education 
+-- education
 INSERT INTO education VALUES (1,1100000, 43, 36);
 
 -- ethnicity
@@ -609,16 +609,17 @@ INSERT INTO insurance VALUES (1, 43.2, 55.7);
 -- life expectancy
 INSERT INTO life_expectancy VALUES (1, 78, 4.2, 33.8, 23.1, 45.1);
 
--- population per county 
+-- population per county
 
 INSERT INTO population_c VALUES (1,2414235, 43242, 5223, 2365770);
 INSERT INTO population_c VALUES (3,534646, 3425, 53534,  477687);
 INSERT INTO population_c VALUES (7,5346467, 645646, 89946, 4610875);
 
 -- location type
-INSERT INTO location_type VALUES('cty', 'county');
-INSERT INTO location_type VALUES('mun', 'city');
-INSERT INTO location_type VALUES('zip', 'zip code');
+INSERT INTO location_type VALUES('cty', 'County');
+INSERT INTO location_type VALUES('mun', 'City');
+INSERT INTO location_type VALUES('zip', 'Zip Code');
+INSERT INTO location_type VALUES('NC', 'State')
 
 
 
@@ -627,9 +628,9 @@ INSERT INTO HealthProfessionals VALUES (1, 2020, 170483, 'Registered Nurse', 66.
 INSERT INTO HealthProfessionals VALUES (2, 2020, 38530, 'Registered Nurse', 36.08);
 INSERT INTO HealthProfessionals VALUES (3, 2020, 11466, 'Registered Nurse', 36.63);
 
--- COVID 
+-- COVID
 
--- covid general table 
+-- covid general table
 
 INSERT INTO covid VALUES(1, 40000, 300, 1900, 149011, 102980);
 INSERT INTO covid VALUES(2, 30000, 123, 1242, 149011, 102980);
@@ -643,14 +644,14 @@ INSERT INTO covid VALUES(9, 43628, 124, 3100, 149011, 102980);
 INSERT INTO covid VALUES(10,78240, 132, 2901, 149011, 102980);
 
 
--- covid deaths and race 
+-- covid deaths and race
 
 INSERT INTO covid_death_race VALUES(1, 300, 150, 100, 30, 10, 2);
 INSERT INTO covid_death_race VALUES(2, 123, 50,  40,  10, 10, 4);
 INSERT INTO covid_death_race VALUES(3, 300, 120, 80, 50, 15, 15);
 
 
--- covid cases by race 
+-- covid cases by race
 
 
 INSERT INTO covid_race VALUES(1, 40000, 29000, 8000, 2000, 250, 750);
@@ -665,7 +666,7 @@ INSERT INTO vaccine VALUES(3, 149011, 112980, 20000, 15000, 1531);
 
 --  FACILITIES
 
--- facility type 
+-- facility type
 INSERT INTO facility_type VALUES('HL', 'hospital');
 INSERT INTO facility_type VALUES('HC', 'health center');
 INSERT INTO facility_type VALUES('OP', 'outpatient office');
@@ -676,7 +677,7 @@ INSERT INTO facility_type VALUES('VA', 'Veterans Affairs');
 INSERT INTO facility_type VALUES('UC', 'urgent care');
 INSERT INTO facility_type VALUES('LTC', 'long term care');
 
--- health facilities 
+-- health facilities
 INSERT INTO health_facilities VALUES(1, 'Alamance Regional Medical Center',
  'HL', 1, '35.9900787', '-79.4916938');
 INSERT INTO health_facilities VALUES(2, 'Alleghany Memorial Hospital', 'HL',
@@ -1001,24 +1002,24 @@ INSERT INTO health_facilities VALUES(158, 'Wilkes Regional Medical Center', 'HL'
 97, '36.1592077','-81.1581176');
 INSERT INTO health_facilities VALUES(159, 'Wilson Medical Center', 'HL',
 98, '35.7205648','-77.946084');
- 
- 
+
+
  -- DISEASES
- 
- -- diabetes data 
- 
+
+ -- diabetes data
+
 INSERT INTO DiabetesData VALUES(1, 2012, 10.85, 3.13, 77.63, 30.31, 'Female');
 INSERT INTO DiabetesData VALUES(2, 2012, 10.18, 2.83, 78.23, 30.07, 'Female');
 
  -- Alcohol Data
- 
+
 INSERT INTO AlcoholData VALUES(1, 2012, 20.9, 'Binge', 'Male');
 INSERT INTO AlcoholData VALUES(2, 2012, 17.9, 'Binge', 'Male');
 
 
 
 
--- Zips 
+-- Zips
 
 
 INSERT INTO zips VALUES(27006, 'Advance', 30, '35.9390037', '-80.440264');
