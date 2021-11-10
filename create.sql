@@ -31,6 +31,11 @@ latitude VARCHAR(50) NOT NULL,
 longitude VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE cities(
+county_id INTEGER NOT NULL REFERENCES zip(county_id),
+city VARCHAR(50) NOT NULL PRIMARY KEY
+);
+
 CREATE TABLE births_prenatalcare(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   first_trimester FLOAT NOT NULL, -- % of people receiving prenatal care since their first trimester
