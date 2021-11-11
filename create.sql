@@ -34,7 +34,7 @@ longitude VARCHAR(50) NOT NULL
 CREATE TABLE cities(
 entry SERIAL PRIMARY KEY,
 county_id INTEGER NOT NULL,
-city VARCHAR(50) NOT NULL UNIQUE
+city VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE births_prenatalcare(
@@ -198,5 +198,11 @@ CREATE TABLE comments(
 comment_id SERIAL PRIMARY KEY,
 name VARCHAR(256),
 email VARCHAR(256),
-comment VARCHAR(1000)
+comment VARCHAR(1000) NOT NULL
+);
+
+-- pull from stats tables
+CREATE TABLE statistics(
+  name VARCHAR(50) PRIMARY KEY,
+  displayname VARCHAR(256) NOT NULL
 );
