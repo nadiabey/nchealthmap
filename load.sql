@@ -585,7 +585,7 @@ INSERT INTO neighbors VALUES(100, 57);
 INSERT INTO neighbors VALUES(100, 11);
 
 --cities from zips
-INSERT INTO cities
+INSERT INTO cities(county_id, city)
 SELECT DISTINCT county_id, city FROM zips;
 
 -- into birth genders
@@ -616,10 +616,10 @@ INSERT INTO population_c VALUES (3,534646, 3425, 53534,  477687);
 INSERT INTO population_c VALUES (7,5346467, 645646, 89946, 4610875);
 
 -- location type
+INSERT INTO location_type VALUES('NC', 'State');
 INSERT INTO location_type VALUES('cty', 'County');
 INSERT INTO location_type VALUES('mun', 'City');
 INSERT INTO location_type VALUES('zip', 'Zip Code');
-INSERT INTO location_type VALUES('NC', 'State');
 
 
 
