@@ -619,7 +619,7 @@ INSERT INTO population_c VALUES (7,5346467, 645646, 89946, 4610875);
 INSERT INTO location_type VALUES('cty', 'County');
 INSERT INTO location_type VALUES('mun', 'City');
 INSERT INTO location_type VALUES('zip', 'Zip Code');
-INSERT INTO location_type VALUES('NC', 'State')
+INSERT INTO location_type VALUES('NC', 'State');
 
 
 
