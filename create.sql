@@ -73,7 +73,7 @@ CREATE TABLE infant_mortality(
 CREATE TABLE insurance(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   not_insured FLOAT NOT NULL, -- % of people not having insurance,
-  insured FLOAT NOT NULL -- % of people being enrolled in Medicaid or CHIP 
+  insured FLOAT NOT NULL -- % of people being enrolled in Medicaid or CHIP
 );
 
 
@@ -91,7 +91,7 @@ CREATE TABLE population_c(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   population_tot INTEGER NOT NULL,
   population_children INTEGER NOT NULL,
-  population_elderly INTEGER NOT NULL, 
+  population_elderly INTEGER NOT NULL,
   population_adults INTEGER NOT NULL
 );
 
@@ -101,7 +101,7 @@ CREATE TABLE population_c(
 CREATE TABLE covid(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   cases INTEGER NOT NULL,
-  deaths INTEGER NOT NULL, 
+  deaths INTEGER NOT NULL,
   hospitalizations INTEGER NOT NULL,
   vaccinated_at_least_1 INTEGER NOT NULL,
   vaccinated_fully INTEGER NOT NULL
@@ -161,7 +161,7 @@ longitude VARCHAR(30) NOT NULL
 );
 
 
--- diseases 
+-- diseases
 
 CREATE TABLE DiabetesData (
 county_id INTEGER NOT NULL REFERENCES county(id),
@@ -182,7 +182,7 @@ Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
 PRIMARY KEY(county_id, Year, Type, Sex));
 
 -- health professionals
-  
+
 CREATE TABLE HealthProfessionals(
 County_id INTEGER NOT NULL REFERENCES County(id),
 Year INTEGER NOT NULL,
@@ -194,10 +194,8 @@ PRIMARY KEY(County_id, Year, Professional_Type)
 
 -- table for storing feedback
 CREATE TABLE comments(
-cid SERIAL PRIMARY KEY,
+comment_id SERIAL PRIMARY KEY,
 name VARCHAR(256),
 email VARCHAR(256),
 comment VARCHAR(1000)
 );
-
-
