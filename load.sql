@@ -585,8 +585,9 @@ INSERT INTO neighbors VALUES(100, 57);
 INSERT INTO neighbors VALUES(100, 11);
 
 --cities from zips
-INSERT INTO cities(county_id, city)
-SELECT DISTINCT county_id, city FROM zips;
+INSERT INTO cities (county_id, city)
+(SELECT DISTINCT county_id, city FROM zips)
+ORDER BY city ASC;
 
 -- into birth genders
 INSERT INTO births_gender VALUES (1,968045, 52, 47);
