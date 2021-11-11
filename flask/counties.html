@@ -1,0 +1,9 @@
+{% extends 'landing.html' %}
+{% block heading %}{{county.name}} County{% endblock %}
+{% block content %}
+<img src="static/img/{{county.name}}_County.png}" style="float:left"/>
+<tbody>{% for row in stat %}
+<tr>{{ row }}</tr>
+{% endfor %}
+</tbody>
+{% endblock %}

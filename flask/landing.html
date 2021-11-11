@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthCarolina - Determinants of Health in North Carolina</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<form method="POST" action="/">
+    {{ form.csrf_token }}
+    {{ form.location_type }}
+    {{ form.county }}
+    {{ form.city }}
+    {{ form.zip }}
+    {{ form.stats }}
+    {{ form.ft }}
+    {{ form.submit }}
+</form>
+<script>
+    let type_select = document.getElementById('lt')
+    let county = document.getElementById('cty')
+    let zip = document.getElementById('zip')
+    let city = document.getElementById('mun')
+    let stat = document.getElementById('stat')
+    let facilities = document.getElementById('fac')
+
+    city.style.display = 'none';
+    zip.style.display = 'none';
+    county.style.display = 'none';
+    facilities.style.display = 'none';
+
+    type_select.onchange = function() {
+        t = type_select.value;
+        if (t === 'NC') {
+            city.style.display = 'none';
+            zip.style.display = 'none';
+            county.style.display = 'none';
+        }
+        if (t === 'cty') {
+            county.style.display = 'block';
+            zip.style.display = 'none';
+            city.style.display = 'none';
+        }
+        if (t === 'zip') {
+            zip.style.display = 'block';
+            county.style.display = 'none';
+            city.style.display = 'none';
+        }
+        if (t === 'mun') {
+            city.style.display = 'block';
+            zip.style.display = 'none';
+            county.style.display = 'none';
+        }
+        if (stat.value === 'HealthFacilities') {
+            facilities.style.display = 'block';
+        }
+    }
+</script>
+<div style="text-align: center;"><img src="/static/img/healthcarolina.png"></div>
+{% block content %}{% endblock %}
+</body>
+</html>
