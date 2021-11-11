@@ -585,9 +585,7 @@ INSERT INTO neighbors VALUES(100, 57);
 INSERT INTO neighbors VALUES(100, 11);
 
 --cities from zips
-INSERT INTO cities (county_id, city)
-(SELECT DISTINCT county_id, city FROM zips)
-ORDER BY city ASC;
+INSERT INTO cities (county_id, city) SELECT DISTINCT zips.county_id, zips.city FROM zips ORDER BY zips.city;
 
 -- into birth genders
 INSERT INTO births_gender VALUES (1,968045, 52, 47);
@@ -1876,3 +1874,21 @@ INSERT INTO zips VALUES(28904, 'Hayesville', 22, '35.0686298', '-83.7335934');
 INSERT INTO zips VALUES(28905, 'Marble', 20, '35.1630643', '-83.9409356');
 INSERT INTO zips VALUES(28906, 'Murphy', 20, '35.0872445', '-84.1366351');
 INSERT INTO zips VALUES(28909, 'Warne', 22, '35.0011378', '-83.9032633');
+
+--insert stats
+INSERT INTO statistics VALUES('AlcoholData', 'Alcohol Use');
+INSERT INTO statistics VALUES('Births', 'Births by Gender');
+INSERT INTO statistics VALUES('Covid_Race', 'COVID-19 Cases by Race');
+INSERT INTO statistics VALUES('COVID', 'COVID-19 Overview');
+INSERT INTO statistics VALUES('Vaccine', 'COVID-19 Vaccines');
+INSERT INTO statistics VALUES('CovidDeathRace', 'Deaths from COVID-19 by Race');
+INSERT INTO statistics VALUES('DiabetesData', 'Diabetes');
+INSERT INTO statistics VALUES('Education', 'Education');
+INSERT INTO statistics VALUES('Ethnicity', 'Ethnicity');
+INSERT INTO statistics VALUES('HealthFacilities', 'Health Facilities');
+INSERT INTO statistics VALUES('HealthProfessionals', 'Health Professionals');
+INSERT INTO statistics VALUES('InfantMortality', 'Infant Mortality');
+INSERT INTO statistics VALUES('Insurance', 'Insurance');
+INSERT INTO statistics VALUES('LifeExpectancy', 'Life Expectancy');
+INSERT INTO statistics VALUES('Population', 'Population');
+INSERT INTO statistics VALUES('Prenatal', 'Prenatal Care');
