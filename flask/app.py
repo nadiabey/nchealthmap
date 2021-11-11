@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
-from wtforms.validators import AnyOf
 
 import models, forms
 
@@ -15,9 +14,13 @@ def choose_search():
     form.location_type.choices = [(obj.short, obj.type) for obj in models.LocationType.query.all()]
     form.county.choices = [(obj.id, obj.county) for obj in models.County.query.all()]
     form.city.choices = [(obj.county_id, obj.city) for obj in models.City.query.all()]
+    form.stats.choices = [(obj.name, obj.displayname) for obj in models.Statistics.query.all()]
+    form.hf.choices = [(obj.short, obj.type) for obj in models.HealthFacilities.query.all()]
     if request.method == 'POST':    # post because input needs to be sent to sql
-        if form.location_type.data == 'cty':
-            return redirect(url_for('county', cid=form.county.data))
+        if form.location_type.data == 'cty' and form.stats.data != "HealthFacilities":
+            return redirect(url_for('county', cid=form.county.data, stat=form.stats.data))
+        if form.location_type.data == 'cty' and form.stats.data == "HealthFacilities":
+            return redirect(url_for('facilities',cty=form.county.data, hf=form.hf.data))
         if form.location_type.data == 'mun':
             return redirect(url_for('city', cty=form.city.data))
         if form.location_type.data == 'zip':
@@ -30,10 +33,29 @@ def state():
     return render_template('state.html')
 
 
-@app.route('/county/<cid>', methods=['GET', 'POST'])
-def county(cid):
-    obj = db.session.query(models.County).filter(models.County.id == cid).one()
-    return render_template('counties.html', county=obj)
+@app.route('/county/<cid>/<stat>', methods=['GET', 'POST'])
+def county(cid, stat):
+    cty = db.session.query(models.County).filter(models.County.id == cid).one()
+    src = getattr(models, stat)
+    info = db.session.query(src).filter(src.county_id == cid).get()
+    if info is None:
+        county = db.session.query(models.County).filter(models.County.id == cty).one()
+        name = db.session.query(models.Statistics).filter(models.Statistics.name == stat).one()
+        nbr = db.session.query(models.Neighbors).filter(models.Neighbors.county == cid).all()
+        return render_template('neighbors.html', county=county, what=name, neighbors=nbr, type=stat)
+    return render_template('counties.html', county=cty, stat=stat)
+
+
+@app.route('/facilities/<cty>/<hf>')
+def county_facilities(cty, hf):
+    which = db.session.query(models.HealthFacilities).\
+        filter(models.HealthFacilities.type == hf, models.HealthFacilities.county_id == cty).all()
+    if which is None:
+        county = db.session.query(models.County).filter(models.County.id == cty).one()
+        name = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.short == hf).one()
+        nbr = db.session.query(models.Neighbors).filter(models.Neighbors.county == cty).all()
+        return render_template('neighbors.html', county=county, what=name, neighbors=nbr, type=hf)
+    return render_template('counties.html',county=cty, stat=which)
 
 
 @app.route('/city/<cty>')
@@ -55,13 +77,14 @@ def feedback():
         info = models.Comment(name=form.name.data, email=form.email.data, comment=form.comment.data)
         db.session.add(info)
         db.session.commit()
-        return redirect(url_for('feedbacksent'))
+        return redirect(url_for('success'))
     return render_template('comment.html', form=form)
 
 
-@app.route('/feedbacksent')
+@app.route('/success')
 def success():
     return render_template('done.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
