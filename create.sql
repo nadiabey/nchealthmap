@@ -32,7 +32,7 @@ longitude VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE cities(
-county_id INTEGER NOT NULL REFERENCES zips(county_id),
+county_id INTEGER NOT NULL,
 city VARCHAR(50) NOT NULL PRIMARY KEY
 );
 
