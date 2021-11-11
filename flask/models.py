@@ -7,22 +7,25 @@ class LocationType(db.Model):
     short = db.Column(db.String(3), primary_key=True, nullable=False)
     type = db.Column(db.String(10), nullable=False, unique=True)
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class County(db.Model):
     __tablename__ = 'county'
-    cid = db.Column(
+    id = db.Column(
         db.Integer,
         nullable=False,
         primary_key=True
     )
-    name = db.Column(
+    county = db.Column(
         db.String(30),
         unique=True,
         nullable=False
     )
 
-    zips = orm.relationship('Zips')
-    neighbors = orm.relationship('Neighbors')
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 
 class Zips(db.Model):
@@ -38,7 +41,7 @@ class Zips(db.Model):
     )
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False
     )
     latitude = db.Column(
@@ -50,26 +53,46 @@ class Zips(db.Model):
         nullable=False
     )
 
+    cty = orm.relationship('County', foreign_keys=[county_id])
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Neighbors(db.Model):
     __tablename__ = 'neighbors'
     county = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         primary_key=True
     )
     neighbor = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
-        primary_key=True,
+        # db.ForeignKey(County.cid),
+        primary_key=True
     )
+
+    cty = orm.relationship('County', foreign_keys=[county])
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+
+class City(db.Model):
+    __tablename__ = 'cities'
+    county_id = db.Column(db.Integer, db.ForeignKey(Zips.county_id), nullable=False)
+    city = db.Column(db.String(50), primary_key=True, nullable=False)
+    zip = orm.relationship('Zips', foreign_keys=[county_id])
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 
 class Births(db.Model):
     __tablename__ = 'births_gender'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         primary_key=True,
         nullable=False
     )
@@ -86,12 +109,15 @@ class Births(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Prenatal(db.Model):
     __tablename__ = 'births_prenatalcare'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         primary_key=True,
         nullable=False
     )
@@ -112,12 +138,15 @@ class Prenatal(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Population(db.Model):
     __tablename__ = 'population'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True,
     )
@@ -138,12 +167,15 @@ class Population(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Education(db.Model):
     __tablename__ = 'education'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -160,12 +192,15 @@ class Education(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Ethnicity(db.Model):
     __tablename__ = 'ethnicity'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -194,12 +229,15 @@ class Ethnicity(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class InfantMortality(db.Model):
     __tablename__ = 'infant_mortality'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -208,12 +246,15 @@ class InfantMortality(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Insurance(db.Model):
     __tablename__ = 'insurance'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -226,12 +267,15 @@ class Insurance(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class LifeExpectancy(db.Model):
     __tablename__ = 'life_expectancy'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -256,12 +300,15 @@ class LifeExpectancy(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class COVID(db.Model):
     __tablename__ = 'covid'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -286,12 +333,15 @@ class COVID(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class CovidDeathRace(db.Model):
     __tablename__ = 'covid_death_race'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -319,13 +369,16 @@ class CovidDeathRace(db.Model):
         db.Integer,
         nullable=False
     )
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 
 class Covid_Race(db.Model):
     __tablename__ = 'covid_race'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -354,12 +407,15 @@ class Covid_Race(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class Vaccine(db.Model):
     __tablename__ = 'vaccine'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -384,6 +440,9 @@ class Vaccine(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class FacilityType(db.Model):
     __tablename__ = 'facility_type'
@@ -397,6 +456,9 @@ class FacilityType(db.Model):
         nullable=False,
         unique=True
     )
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
 
 class HealthFacilities(db.Model):
@@ -417,7 +479,7 @@ class HealthFacilities(db.Model):
     )
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False
     )
     latitude = db.Column(
@@ -429,12 +491,15 @@ class HealthFacilities(db.Model):
         nullable=False
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class DiabetesData(db.Model):
     __tablename__ = 'diabetes_data'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -460,12 +525,15 @@ class DiabetesData(db.Model):
         primary_key=True
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class AlcoholData(db.Model):
     __tablename__ = 'alcohol_data'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -485,12 +553,15 @@ class AlcoholData(db.Model):
         primary_key=True
     )
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
 
 class HealthProfessionals(db.Model):
     __tablename__ = 'health_professionals'
     county_id = db.Column(
         db.Integer,
-        db.ForeignKey(County.cid),
+        db.ForeignKey(County.id),
         nullable=False,
         primary_key=True
     )
@@ -510,73 +581,18 @@ class HealthProfessionals(db.Model):
         nullable=False
     )
 
-"""
-class Drinker(db.Model):
-    __tablename__ = 'drinker'
-    name = db.Column('name', db.String(20), primary_key=True)
-    address = db.Column('address', db.String(20))
-    likes = orm.relationship('Likes')
-    frequents = orm.relationship('Frequents')
-    @staticmethod
-    def edit(old_name, name, address, beers_liked, bars_frequented):
-        try:
-            db.session.execute('DELETE FROM likes WHERE drinker = :name',
-                               dict(name=old_name))
-            db.session.execute('DELETE FROM frequents WHERE drinker = :name',
-                               dict(name=old_name))
-            db.session.execute('UPDATE drinker SET name = :name, address = :address'
-                               ' WHERE name = :old_name',
-                               dict(old_name=old_name, name=name, address=address))
-            for beer in beers_liked:
-                db.session.execute('INSERT INTO likes VALUES(:drinker, :beer)',
-                                   dict(drinker=name, beer=beer))
-            for bar, times_a_week in bars_frequented:
-                db.session.execute('INSERT INTO frequents'
-                                   ' VALUES(:drinker, :bar, :times_a_week)',
-                                   dict(drinker=name, bar=bar,
-                                        times_a_week=times_a_week))
-            db.session.commit()
-        except Exception as e:
-            db.session.rollback()
-            raise e
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
-class Beer(db.Model):
-    __tablename__ = 'beer'
-    name = db.Column('name', db.String(20), primary_key=True)
-    brewer = db.Column('brewer', db.String(20))
 
-class Bar(db.Model):
-    __tablename__ = 'bar'
-    name = db.Column('name', db.String(20), primary_key=True)
-    address = db.Column('address', db.String(20))
-    serves = orm.relationship('Serves')
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    comment_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(256))
+    email = db.Column(db.String(256))
+    comment = db.Column(db.String(1000))
 
-class Likes(db.Model):
-    __tablename__ = 'likes'
-    drinker = db.Column('drinker', db.String(20),
-                        db.ForeignKey('drinker.name'),
-                        primary_key=True)
-    beer = db.Column('beer', db.String(20),
-                     db.ForeignKey('beer.name'),
-                     primary_key=True)
-
-class Serves(db.Model):
-    __tablename__ = 'serves'
-    bar = db.Column('bar', db.String(20),
-                    db.ForeignKey('bar.name'),
-                    primary_key=True)
-    beer = db.Column('beer', db.String(20),
-                     db.ForeignKey('beer.name'),
-                     primary_key=True)
-    price = db.Column('price', db.Float())
-
-class Frequents(db.Model):
-    __tablename__ = 'frequents'
-    drinker = db.Column('drinker', db.String(20),
-                        db.ForeignKey('drinker.name'),
-                        primary_key=True)
-    bar = db.Column('bar', db.String(20),
-                    db.ForeignKey('bar.name'),
-                    primary_key=True)
-    times_a_week = db.Column('times_a_week', db.Integer())
-    """
+    def __init__(self, name, email, comment):
+        self.name = name
+        self.email = email
+        self.comment = comment
