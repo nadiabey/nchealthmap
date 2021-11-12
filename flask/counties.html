@@ -1,9 +1,17 @@
-{% extends 'landing.html' %}
-{% block heading %}{{county.name}} County{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HealthCarolina - Determinants of Health in North Carolina</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+{% block heading %}{{county.county}} County{% endblock %}
 {% block content %}
-<img src="static/img/{{county.name}}_County.png}" style="float:left"/>
-<tbody>{% for row in stat %}
-<tr>{{ row }}</tr>
+    <p><img src="/static/img/{{county.county}}_County.png" style="float:left;width:500px;"/></p>
+{% for row in query %}
+<p>{{ row }}</p>
 {% endfor %}
-</tbody>
 {% endblock %}
+</body>
+</html>
