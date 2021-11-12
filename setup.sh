@@ -4,12 +4,14 @@ mypath=`realpath $0`
 mybase=`dirname $mypath`
 cd $mybase
 
-DB_NAME='healthmap'
+source .env
+dbname=$DB_NAME
 
 if [[ -n 'psql -lqt | cut -d \| -f 1 | grep -w "$dbname"' ]]; then
-    dropdb $DB_NAME
+    dropdb $dbname
 fi
-createdb $DB_NAME
+createdb $dbname
 
-psql -af create.sql $DB_NAME
-psql -af load.sql $DB_NAME
+psql -af create.sql $dbname
+psql -af load.sql $dbname
+psql -c '\password'
