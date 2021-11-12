@@ -133,11 +133,9 @@ CREATE TABLE covid_race
 
 CREATE TABLE vaccine(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
-  total_vaccinations INTEGER NOT NULL, -- REFERENCES covid(vaccinated_at_least_1),
-  pfizer INTEGER NOT NULL,
-  moderna INTEGER NOT NULL,
-  jnj INTEGER NOT NULL,
-  other INTEGER NOT NULL
+  one_vaccination INTEGER NOT NULL,
+  full_vaccination INTEGER NOT NULL, -- REFERENCES covid(vaccinated_at_least_1),
+  total_vaccinations INTEGER NOT NULL,
 );
 
 
