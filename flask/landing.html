@@ -31,6 +31,7 @@
 
     type_select.onchange = function() {
         t = type_select.value;
+        s = stat.value;
         if (t === 'NC') {
             city.style.display = 'none';
             zip.style.display = 'none';
@@ -51,7 +52,8 @@
             zip.style.display = 'none';
             county.style.display = 'none';
         }
-        if (stat.value === 'HealthFacilities') {
+        if (s === 'HealthFacilities') {
+            alert(s)
             facilities.style.display = 'block';
         }
     }
@@ -59,4 +61,5 @@
 <div style="text-align: center;"><img src="/static/img/healthcarolina.png"></div>
 {% block content %}{% endblock %}
 </body>
+<footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
 </html>
