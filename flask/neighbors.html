@@ -6,18 +6,12 @@
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-{% block heading %}We couldn't find any {{ name }} in {{ county }} County.{% endblock %}
+{% block heading %}We couldn't find any {{ what.type }} in {{ county.county }} County.{% endblock %}
 {% block content %}
     <p>You may want to check out nearby counties:</p>
-    {% if type == 'hf' %}
-        {% for nbr in neighbors %}
-        <p><a href="{{ url_for('facilities', cty=nbr.neighbor, hf=type)}})">{{ nbr }}</a></p>
-        {% endfor %}
-    {% elif %}
-        {% for nbr in neighbors %}
-        <p><a href="{{ url_for('county',cty=nbr.neighbor, stat=type)}}">{{ nbr }}</a></p>
-        {% endfor %}
-    {% endif %}
+    {% for nbr in neighbors %}
+        <p><a href="{{ url_for('facilities', cty=nbr.neighbor, ft=type)}})">{{ nbr.nbr }}</a></p>
+    {% endfor %}
 {% endblock %}
 </body>
 </html>
