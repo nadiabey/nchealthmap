@@ -163,36 +163,39 @@ longitude VARCHAR(30) NOT NULL
 
 -- diseases
 
-CREATE TABLE Diabetes_Data (
-county_id INTEGER NOT NULL REFERENCES county(id),
-Year INTEGER NOT NULL,
-DiagnosedDiabetesPrevalence FLOAT CHECK (DiagnosedDiabetesPrevalence >= 0 AND DiagnosedDiabetesPrevalence <= 100),
-UndiagnosedDiabetesPrevalence FLOAT CHECK (UndiagnosedDiabetesPrevalence >= 0 AND UndiagnosedDiabetesPrevalence <= 100),
-Awareness FLOAT CHECK (Awareness >= 0 AND Awareness <= 100),
-Control FLOAT CHECK (Control >= 0 AND Control <= 100),
-Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
-PRIMARY KEY(county_id, Year, Sex));
+CREATE TABLE diabetes(
+  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+  prevalence FLOAT NOT NULL
+);
 
-CREATE TABLE Alcohol_Data(
-county_id INTEGER NOT NULL REFERENCES county(id),
-Year INTEGER NOT NULL,
-AlcoholPrevalence FLOAT CHECK (AlcoholPrevalence >= 0 AND AlcoholPrevalence <= 100),
-Type VARCHAR(15) NOT NULL CHECK (Type = 'Any' or Type = 'Binge' or Type = 'Heavy'),
-Sex VARCHAR(15) NOT NULL CHECK (sex = 'Male' or sex = 'Female' or sex = 'Both'),
-PRIMARY KEY(county_id, Year, Type, Sex));
+CREATE TABLE heart_disease(
+  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+  deaths_per_100k FLOAT NOT NULL
+);
+
+
+-- conditions
+
+CREATE TABLE food_insecurity (
+  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+  food_insecurity_percentage FLOAT NOT NULL
+);
+
 
 -- health professionals
 
-CREATE TABLE Health_Professionals(
-County_id INTEGER NOT NULL REFERENCES County(id),
-Year INTEGER NOT NULL,
-County_Population INTEGER CHECK (County_Population >= 0),
-Professional_Type VARCHAR(50) NOT NULL,
-Total_Professionals FLOAT CHECK (Total_Professionals >= 0),
-PRIMARY KEY(County_id, Year, Professional_Type)
+CREATE TABLE dentists(
+  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+  dentists_count FLOAT NOT NULL
+);
+
+CREATE TABLE primary_care(
+  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+  primary_care_physicians_count FLOAT NOT NULL
 );
 
 -- table for storing feedback
+
 CREATE TABLE comments(
 comment_id SERIAL PRIMARY KEY,
 name VARCHAR(256),
