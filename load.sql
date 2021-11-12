@@ -623,9 +623,9 @@ INSERT INTO location_type VALUES('zip', 'Zip Code');
 
 
 --HEALTH PROFESSIONALS
-INSERT INTO HealthProfessionals VALUES (1, 2020, 170483, 'Registered Nurse', 66.52);
-INSERT INTO HealthProfessionals VALUES (2, 2020, 38530, 'Registered Nurse', 36.08);
-INSERT INTO HealthProfessionals VALUES (3, 2020, 11466, 'Registered Nurse', 36.63);
+INSERT INTO Health_Professionals VALUES (1, 2020, 170483, 'Registered Nurse', 66.52);
+INSERT INTO Health_Professionals VALUES (2, 2020, 38530, 'Registered Nurse', 36.08);
+INSERT INTO Health_Professionals VALUES (3, 2020, 11466, 'Registered Nurse', 36.63);
 
 -- COVID
 
@@ -1007,13 +1007,13 @@ INSERT INTO health_facilities VALUES(159, 'Wilson Medical Center', 'HL',
 
  -- diabetes data
 
-INSERT INTO DiabetesData VALUES(1, 2012, 10.85, 3.13, 77.63, 30.31, 'Female');
-INSERT INTO DiabetesData VALUES(2, 2012, 10.18, 2.83, 78.23, 30.07, 'Female');
+INSERT INTO Diabetes_Data VALUES(1, 2012, 10.85, 3.13, 77.63, 30.31, 'Female');
+INSERT INTO Diabetes_Data VALUES(2, 2012, 10.18, 2.83, 78.23, 30.07, 'Female');
 
  -- Alcohol Data
 
-INSERT INTO AlcoholData VALUES(1, 2012, 20.9, 'Binge', 'Male');
-INSERT INTO AlcoholData VALUES(2, 2012, 17.9, 'Binge', 'Male');
+INSERT INTO Alcohol_Data VALUES(1, 2012, 20.9, 'Binge', 'Male');
+INSERT INTO Alcohol_Data VALUES(2, 2012, 17.9, 'Binge', 'Male');
 
 
 
@@ -1878,7 +1878,7 @@ INSERT INTO zips VALUES(28909, 'Warne', 22, '35.0011378', '-83.9032633');
 --insert stats
 INSERT INTO statistics VALUES('AlcoholData', 'Alcohol Use');
 INSERT INTO statistics VALUES('Births', 'Births by Gender');
-INSERT INTO statistics VALUES('Covid_Race', 'COVID-19 Cases by Race');
+INSERT INTO statistics VALUES('CovidRace', 'COVID-19 Cases by Race');
 INSERT INTO statistics VALUES('COVID', 'COVID-19 Overview');
 INSERT INTO statistics VALUES('Vaccine', 'COVID-19 Vaccines');
 INSERT INTO statistics VALUES('CovidDeathRace', 'Deaths from COVID-19 by Race');
