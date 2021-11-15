@@ -584,9 +584,6 @@ INSERT INTO neighbors VALUES(100, 59);
 INSERT INTO neighbors VALUES(100, 57);
 INSERT INTO neighbors VALUES(100, 11);
 
---cities from zips
-INSERT INTO cities (county_id, city) SELECT DISTINCT zips.county_id, zips.city FROM zips ORDER BY zips.city;
-
 -- into birth genders
 INSERT INTO births_gender VALUES (1,968045, 52, 47);
 
@@ -619,13 +616,6 @@ INSERT INTO location_type VALUES('NC', 'State');
 INSERT INTO location_type VALUES('cty', 'County');
 INSERT INTO location_type VALUES('mun', 'City');
 INSERT INTO location_type VALUES('zip', 'Zip Code');
-
-
-
---HEALTH PROFESSIONALS
-INSERT INTO Health_Professionals VALUES (1, 2020, 170483, 'Registered Nurse', 66.52);
-INSERT INTO Health_Professionals VALUES (2, 2020, 38530, 'Registered Nurse', 36.08);
-INSERT INTO Health_Professionals VALUES (3, 2020, 11466, 'Registered Nurse', 36.63);
 
 -- COVID
 
@@ -749,120 +739,22 @@ INSERT INTO covid_race VALUES(3, 40500, 28000, 9000, 2500, 250, 750);
 
 -- vaccines by type
 
-INSERT INTO vaccine VALUES(1,96560,91525,169509);
-INSERT INTO vaccine VALUES(2,15861,15065,37497);
-INSERT INTO vaccine VALUES(3,6402,6002,11137);
-INSERT INTO vaccine VALUES(4,11129,10223,24446);
-INSERT INTO vaccine VALUES(5,14362,13449,27203);
-INSERT INTO vaccine VALUES(6,9445,8819,17557);
-INSERT INTO vaccine VALUES(7,25370,23695,46994);
-INSERT INTO vaccine VALUES(8,10301,9351,18947);
-INSERT INTO vaccine VALUES(9,16169,14987,32722);
-INSERT INTO vaccine VALUES(10,88695,84329,142820);
-INSERT INTO vaccine VALUES(11,165001,158249,261191);
-INSERT INTO vaccine VALUES(12,41760,39401,90485);
-INSERT INTO vaccine VALUES(13,114588,108030,216453);
-INSERT INTO vaccine VALUES(14,38037,35860,82178);
-INSERT INTO vaccine VALUES(15,5221,4990,10867);
-INSERT INTO vaccine VALUES(16,39639,37156,69473);
-INSERT INTO vaccine VALUES(17,10786,10012,22604);
-INSERT INTO vaccine VALUES(18,82994,78701,159551);
-INSERT INTO vaccine VALUES(19,41113,39149,74470);
-INSERT INTO vaccine VALUES(20,13230,12316,28612);
-INSERT INTO vaccine VALUES(21,7990,7104,13943);
-INSERT INTO vaccine VALUES(22,5123,4828,11231);
-INSERT INTO vaccine VALUES(23,47956,44576,97947);
-INSERT INTO vaccine VALUES(24,24461,22784,55508);
-INSERT INTO vaccine VALUES(25,60329,55973,102139);
-INSERT INTO vaccine VALUES(26,217160,192079,335509);
-INSERT INTO vaccine VALUES(27,11922,10622,27763);
-INSERT INTO vaccine VALUES(28,26242,25111,37009);
-INSERT INTO vaccine VALUES(29,78900,73549,167609);
-INSERT INTO vaccine VALUES(30,23547,22470,42846);
-INSERT INTO vaccine VALUES(31,25089,23048,58741);
-INSERT INTO vaccine VALUES(32,218298,207430,321488);
-INSERT INTO vaccine VALUES(33,24384,22477,51472);
-INSERT INTO vaccine VALUES(34,228600,214246,382295);
-INSERT INTO vaccine VALUES(35,35996,34079,69685);
-INSERT INTO vaccine VALUES(36,109957,101603,224529);
-INSERT INTO vaccine VALUES(37,4557,4208,11562);
-INSERT INTO vaccine VALUES(38,4060,3725,8441);
-INSERT INTO vaccine VALUES(39,37346,35269,60443);
-INSERT INTO vaccine VALUES(40,10877,10154,21069);
-INSERT INTO vaccine VALUES(41,317074,299352,537174);
-INSERT INTO vaccine VALUES(42,26425,24556,50010);
-INSERT INTO vaccine VALUES(43,54014,50079,135976);
-INSERT INTO vaccine VALUES(44,35107,33246,62317);
-INSERT INTO vaccine VALUES(45,65698,62824,117417);
-INSERT INTO vaccine VALUES(46,11213,10224,23677);
-INSERT INTO vaccine VALUES(47,18789,16833,55234);
-INSERT INTO vaccine VALUES(48,3207,3043,4937);
-INSERT INTO vaccine VALUES(49,92544,87533,181806);
-INSERT INTO vaccine VALUES(50,23251,21645,43938);
-INSERT INTO vaccine VALUES(51,108238,100756,209339);
-INSERT INTO vaccine VALUES(52,4777,4439,9419);
-INSERT INTO vaccine VALUES(53,33480,31074,61779);
-INSERT INTO vaccine VALUES(54,30107,27869,55949);
-INSERT INTO vaccine VALUES(55,41849,39403,86111);
-INSERT INTO vaccine VALUES(56,20929,19832,35858);
-INSERT INTO vaccine VALUES(57,12063,11621,21755);
-INSERT INTO vaccine VALUES(58,11680,10856,22440);
-INSERT INTO vaccine VALUES(59,23660,22052,45756);
-INSERT INTO vaccine VALUES(60,678774,635196,1110356);
-INSERT INTO vaccine VALUES(61,154725,160348,0);
-INSERT INTO vaccine VALUES(62,7168,6648,14964);
-INSERT INTO vaccine VALUES(63,11812,11066,27173);
-INSERT INTO vaccine VALUES(64,56403,53161,100880);
-INSERT INTO vaccine VALUES(65,53381,49928,94298);
-INSERT INTO vaccine VALUES(66,144698,137209,234473);
-INSERT INTO vaccine VALUES(67,9197,8518,19483);
-INSERT INTO vaccine VALUES(68,119073,103589,197938);
-INSERT INTO vaccine VALUES(69,108115,104469,148476);
-INSERT INTO vaccine VALUES(70,98524,87336,0);
-INSERT INTO vaccine VALUES(71,7175,6785,12726);
-INSERT INTO vaccine VALUES(72,21053,18654,39824);
-INSERT INTO vaccine VALUES(73,31901,29682,63060);
-INSERT INTO vaccine VALUES(74,6261,5710,13463);
-INSERT INTO vaccine VALUES(75,21642,20494,39490);
-INSERT INTO vaccine VALUES(76,93634,87810,180742);
-INSERT INTO vaccine VALUES(77,9430,8949,20724);
-INSERT INTO vaccine VALUES(78,61458,58003,143667);
-INSERT INTO vaccine VALUES(79,21336,19545,44829);
-INSERT INTO vaccine VALUES(80,55314,49317,130625);
-INSERT INTO vaccine VALUES(81,45202,42545,91010);
-INSERT INTO vaccine VALUES(82,62045,57737,142088);
-INSERT INTO vaccine VALUES(83,28078,25920,67029);
-INSERT INTO vaccine VALUES(84,32613,29950,63531);
-INSERT INTO vaccine VALUES(85,17081,15812,34823);
-INSERT INTO vaccine VALUES(86,27131,25255,62806);
-INSERT INTO vaccine VALUES(87,21097,19723,45591);
-INSERT INTO vaccine VALUES(88,36765,34670,71783);
-INSERT INTO vaccine VALUES(89,8198,7192,14271);
-INSERT INTO vaccine VALUES(90,18208,17599,34385);
-INSERT INTO vaccine VALUES(91,1949,1833,4016);
-INSERT INTO vaccine VALUES(92,126482,120414,239859);
-INSERT INTO vaccine VALUES(93,24775,22848,44535);
-INSERT INTO vaccine VALUES(94,770970,737122,1111761);
-INSERT INTO vaccine VALUES(95,10709,10069,19731);
-INSERT INTO vaccine VALUES(96,6006,5339,11580);
-INSERT INTO vaccine VALUES(97,31876,29814,56177);
-INSERT INTO vaccine VALUES(98,63810,57417,123131);
-INSERT INTO vaccine VALUES(99,32565,30040,68412);
-INSERT INTO vaccine VALUES(100,41155,38356,81801);
-
+INSERT INTO vaccine VALUES(1, 149011, 119208, 7450, 14353, 8000);
+INSERT INTO vaccine VALUES(2, 149011, 102980, 30000, 10000, 6531);
+INSERT INTO vaccine VALUES(3, 149011, 112980, 20000, 15000, 1531);
 
 --  FACILITIES
 
 -- facility type
-INSERT INTO facility_type VALUES('HL', 'hospital');
-INSERT INTO facility_type VALUES('HC', 'health center');
-INSERT INTO facility_type VALUES('OP', 'outpatient office');
-INSERT INTO facility_type VALUES('PSY', 'psychiatric');
-INSERT INTO facility_type VALUES('ED', 'emergency department');
-INSERT INTO facility_type VALUES('RH', 'rehabilitation');
+INSERT INTO facility_type VALUES('HL', 'Hospital');
+INSERT INTO facility_type VALUES('HC', 'Health Center');
+INSERT INTO facility_type VALUES('OP', 'Outpatient Office');
+INSERT INTO facility_type VALUES('PSY', 'Psychiatric');
+INSERT INTO facility_type VALUES('ED', 'Emergency Department');
+INSERT INTO facility_type VALUES('RH', 'Rehabilitation');
 INSERT INTO facility_type VALUES('VA', 'Veterans Affairs');
-INSERT INTO facility_type VALUES('UC', 'urgent care');
-INSERT INTO facility_type VALUES('LTC', 'long term care');
+INSERT INTO facility_type VALUES('UC', 'Urgent Care');
+INSERT INTO facility_type VALUES('LTC', 'Long Term Care');
 
 -- health facilities
 INSERT INTO health_facilities VALUES(1, 'Alamance Regional Medical Center',
@@ -1195,27 +1087,30 @@ INSERT INTO health_facilities VALUES(159, 'Wilson Medical Center', 'HL',
 
  -- diabetes data
 
-INSERT INTO diabetes (county_id, prevalence) VALUES (1, 9.2), (2, 15.1), (3, 9.7), (4, 11.6), (5, 10.6), (6, 10.1), (7, 7.3), (8, 19.0), (9, 19.6), (10, 10.2), (11, 7.0), (12, 6.6), (13, 11.2), (14, 13.8), (15, 8.7), (16, 11.1), (17, 12.4), (18, 10.8), (19, 8.7), (20, 8.8), (21, 13.5), (22, 3.5), (23, 12.3), (24, 16.9), (25, 11.7), (26, 12.3), (27, 8.8), (28, 9.1), (29, 13.6), (30, 9.4), (31, 13.7), (32, 7.2), (33, 16.7), (34, 10.1), (35, 10.0), (36, 9.5), (37, 12.7), (38, 4.8), (39, 10.2), (40, 13.5), (41, 10.1), (42, 20.2), (43, 14.6), (44, 8.7), (45, 8.4), (46, 22.4), (47, 12.9), (48, 16.6), (49, 10.2), (50, 9.0), (51, 11.4), (52, 24.7), (53, 9.4), (54, 12.8), (55, 7.8), (56, 11.4), (57, 5.4), (58, 18.4), (59, 9.8), (60, 8.3), (61, 9.3), (62, 19.6), (63, 6.1), (64, 13.6), (65, 6.4), (66, 18.6), (67, 10.8), (68, 6.9), (69, 16.6), (70, 11.0), (71, 13.4), (72, 9.1), (73, 9.5), (74, 10.5), (75, 11.1), (76, 10.1), (77, 21.2), (78, 14.2), (79, 13.1), (80, 9.7), (81, 11.9), (82, 15.8), (83, 17.4), (84, 8.6), (85, 13.5), (86, 9.1), (87, 10.9), (88, 9.6), (89, 17.0), (90, 8.6), (91, 16.0), (92, 8.5), (93, 9.5), (94, 14.9), (95, 7.4), (96, 15.5), (97, 13.9), (98, 9.3), (99, 9.6), (100, 12.3);
+ INSERT INTO diabetes (county_id, prevalence) VALUES (1, 9.2), (2, 15.1), (3, 9.7), (4, 11.6), (5, 10.6), (6, 10.1), (7, 7.3), (8, 19.0), (9, 19.6), (10, 10.2), (11, 7.0), (12, 6.6), (13, 11.2), (14, 13.8), (15, 8.7), (16, 11.1), (17, 12.4), (18, 10.8), (19, 8.7), (20, 8.8), (21, 13.5), (22, 3.5), (23, 12.3), (24, 16.9), (25, 11.7), (26, 12.3), (27, 8.8), (28, 9.1), (29, 13.6), (30, 9.4), (31, 13.7), (32, 7.2), (33, 16.7), (34, 10.1), (35, 10.0), (36, 9.5), (37, 12.7), (38, 4.8), (39, 10.2), (40, 13.5), (41, 10.1), (42, 20.2), (43, 14.6), (44, 8.7), (45, 8.4), (46, 22.4), (47, 12.9), (48, 16.6), (49, 10.2), (50, 9.0), (51, 11.4), (52, 24.7), (53, 9.4), (54, 12.8), (55, 7.8), (56, 11.4), (57, 5.4), (58, 18.4), (59, 9.8), (60, 8.3), (61, 9.3), (62, 19.6), (63, 6.1), (64, 13.6), (65, 6.4), (66, 18.6), (67, 10.8), (68, 6.9), (69, 16.6), (70, 11.0), (71, 13.4), (72, 9.1), (73, 9.5), (74, 10.5), (75, 11.1), (76, 10.1), (77, 21.2), (78, 14.2), (79, 13.1), (80, 9.7), (81, 11.9), (82, 15.8), (83, 17.4), (84, 8.6), (85, 13.5), (86, 9.1), (87, 10.9), (88, 9.6), (89, 17.0), (90, 8.6), (91, 16.0), (92, 8.5), (93, 9.5), (94, 14.9), (95, 7.4), (96, 15.5), (97, 13.9), (98, 9.3), (99, 9.6), (100, 12.3);
 
- -- heart disease data
+  -- heart disease data
 
-INSERT INTO heart_disease (county_id, deaths_per_100k) VALUES (1, 157.7),(2, 145.7),(3, 149.1),(4, 226.1),(5, 161.3),(6, 171.4),(7, 179.5),(8, 171.2),(9, 240.9),(10, 153.9),(11, 141.0),(12, 179.7),(13, 157.5),(14, 192.6),(15, 201.7), (16, 158.9),(17, 159.6),(18, 166.4),(19, 107.0),(20, 201.1),(21, 184.3),(22, 145.4),(23, 206.7),(24, 287.5),(25, 168.0),(26, 185.9),(27, 209.2),(28, 151.1),(29, 171.0),(30, 143.6),(31, 163.9),(32, 128.6),(33, 204.4),(34, 146.2),(35, 166.3),(36, 184.3),(37, 154.2),(38, 178.2),(39, 153.1),(40, 176.6),(41, 135.9),(42, 176.3),(43, 193.0),(44, 181.2),(45, 137.6),(46, 159.6),(47, 181.9),(48, 202.1),(49, 152.4),(50, 147.0),(51, 178.5),(52, 204.5),(53, 168.1),(54, 207.9),(55, 173.8),(56, 143.0),(57, 167.2),(58, 211.6),(59, 171.7),(60, 128.3),(61, 180.4),(62, 166.9),(63, 134.1),(64, 187.2),(65, 138.9),(66, 161.5),(67, 176.6),(68, 111.9),(69, 154.1),(70, 255.0),(71, 156.7),(72, 194.5),(73, 167.7),(74, 162.7),(75, 142.9),(76, 190.0),(77, 241.4),(78, 215.6),(79, 184.9),(80, 177.4),(81, 196.6),(82, 183.5),(83, 196.9),(84, 217.4),(85, 166.4),(86, 167.8),(87, 195.5),(88, 115.2),(89, 170.1),(90, 143.9),(91, 189.2),(92, 120.8),(93, 194.6),(94, 183.5),(95, 118.1),(96, 183.3),(97, 163.2),(98, 169.0),(99, 170.8),(100, 166.6);
+ INSERT INTO heart_disease (county_id, deaths_per_100k) VALUES (1, 157.7),(2, 145.7),(3, 149.1),(4, 226.1),(5, 161.3),(6, 171.4),(7, 179.5),(8, 171.2),(9, 240.9),(10, 153.9),(11, 141.0),(12, 179.7),(13, 157.5),(14, 192.6),(15, 201.7), (16, 158.9),(17, 159.6),(18, 166.4),(19, 107.0),(20, 201.1),(21, 184.3),(22, 145.4),(23, 206.7),(24, 287.5),(25, 168.0),(26, 185.9),(27, 209.2),(28, 151.1),(29, 171.0),(30, 143.6),(31, 163.9),(32, 128.6),(33, 204.4),(34, 146.2),(35, 166.3),(36, 184.3),(37, 154.2),(38, 178.2),(39, 153.1),(40, 176.6),(41, 135.9),(42, 176.3),(43, 193.0),(44, 181.2),(45, 137.6),(46, 159.6),(47, 181.9),(48, 202.1),(49, 152.4),(50, 147.0),(51, 178.5),(52, 204.5),(53, 168.1),(54, 207.9),(55, 173.8),(56, 143.0),(57, 167.2),(58, 211.6),(59, 171.7),(60, 128.3),(61, 180.4),(62, 166.9),(63, 134.1),(64, 187.2),(65, 138.9),(66, 161.5),(67, 176.6),(68, 111.9),(69, 154.1),(70, 255.0),(71, 156.7),(72, 194.5),(73, 167.7),(74, 162.7),(75, 142.9),(76, 190.0),(77, 241.4),(78, 215.6),(79, 184.9),(80, 177.4),(81, 196.6),(82, 183.5),(83, 196.9),(84, 217.4),(85, 166.4),(86, 167.8),(87, 195.5),(88, 115.2),(89, 170.1),(90, 143.9),(91, 189.2),(92, 120.8),(93, 194.6),(94, 183.5),(95, 118.1),(96, 183.3),(97, 163.2),(98, 169.0),(99, 170.8),(100, 166.6);
 
- -- CONDITIONS
+  -- CONDITIONS
 
--- food insecurity data
+ -- food insecurity data
 
-INSERT INTO food_insecurity (county_id, food_insecurity_percentage) VALUES (1, 14.0),(2, 14.0),(3, 18.0),(4, 16.6),(5, 14.4),(6, 14.5),(7, 16.2),(8, 18.4),(9, 19.1),(10, 13.7),(11, 12.4),(12, 15.5),(13, 11.1),(14, 14.9),(15, 11.7),(16, 13.8),(17, 15.9),(18, 12.8),(19, 11.9),(20, 15.3),(21, 15.9),(22, 14.9),(23, 16.2),(24, 18.1),(25, 15.0),(26, 16.9),(27, 11.4),(28, 11.8),(29, 14.1),(30, 12.6),(31, 17.1),(32, 13.5),(33, 19.6),(34, 13.8),(35, 13.7),(36, 14.4),(37, 14.2),(38, 16.5),(39, 13.4),(40, 18.5),(41, 13.9),(42, 19.9),(43, 14.5),(44, 13.6),(45, 11.8),(46, 18.9),(47, 16.7),(48, 18.1),(49, 12.1),(50, 14.4),(51, 12.6),(52, 19.5),(53, 14.2),(54, 18.9),(55, 12.9),(56, 14.5),(57, 14.7),(58, 16.7),(59, 15.5),(60, 12.0),(61, 14.5),(62, 14.5),(63, 12.8),(64, 15.4),(65, 14.1),(66, 18.5),(67, 15.2),(68, 10.8),(69, 15.1),(70, 15.3),(71, 13.6),(72, 14.6),(73, 15.5),(74, 16.1),(75, 12.6),(76, 13.8),(77, 18.4),(78, 19.4),(79, 15.2),(80, 14.3),(81, 16.4),(82, 16.9),(83, 20.9),(84, 13.4),(85, 13.0),(86, 15.0),(87, 15.5),(88, 13.6),(89, 20.3),(90, 9.5),(91, 19.0),(92, 10.4),(93, 17.6),(94, 19.5),(95, 13.8),(96, 16.6),(97, 15.8),(98, 17.8),(99, 13.4),(100, 15.4);
+ INSERT INTO food_insecurity (county_id, food_insecurity_percentage) VALUES (1, 14.0),(2, 14.0),(3, 18.0),(4, 16.6),(5, 14.4),(6, 14.5),(7, 16.2),(8, 18.4),(9, 19.1),(10, 13.7),(11, 12.4),(12, 15.5),(13, 11.1),(14, 14.9),(15, 11.7),(16, 13.8),(17, 15.9),(18, 12.8),(19, 11.9),(20, 15.3),(21, 15.9),(22, 14.9),(23, 16.2),(24, 18.1),(25, 15.0),(26, 16.9),(27, 11.4),(28, 11.8),(29, 14.1),(30, 12.6),(31, 17.1),(32, 13.5),(33, 19.6),(34, 13.8),(35, 13.7),(36, 14.4),(37, 14.2),(38, 16.5),(39, 13.4),(40, 18.5),(41, 13.9),(42, 19.9),(43, 14.5),(44, 13.6),(45, 11.8),(46, 18.9),(47, 16.7),(48, 18.1),(49, 12.1),(50, 14.4),(51, 12.6),(52, 19.5),(53, 14.2),(54, 18.9),(55, 12.9),(56, 14.5),(57, 14.7),(58, 16.7),(59, 15.5),(60, 12.0),(61, 14.5),(62, 14.5),(63, 12.8),(64, 15.4),(65, 14.1),(66, 18.5),(67, 15.2),(68, 10.8),(69, 15.1),(70, 15.3),(71, 13.6),(72, 14.6),(73, 15.5),(74, 16.1),(75, 12.6),(76, 13.8),(77, 18.4),(78, 19.4),(79, 15.2),(80, 14.3),(81, 16.4),(82, 16.9),(83, 20.9),(84, 13.4),(85, 13.0),(86, 15.0),(87, 15.5),(88, 13.6),(89, 20.3),(90, 9.5),(91, 19.0),(92, 10.4),(93, 17.6),(94, 19.5),(95, 13.8),(96, 16.6),(97, 15.8),(98, 17.8),(99, 13.4),(100, 15.4);
 
- -- HEALTHCARE PROFESSIONALS
+  -- HEALTHCARE PROFESSIONALS
 
- -- number of primary care physicians
+  -- number of primary care physicians
 
-INSERT INTO primary_care (county_id, primary_care_physicians_count) VALUES (1, 6),(2, 2.3),(3, 4.4),(4, 1.2),(5, 4.7),(6, 5),(7, 3.8),(8, 3.6),(9, 3.5),(10, 4.2),(11, 13),(12, 8.1),(13, 7.9),(14, 4.9),(15, 0.9),(16, 5.1),(17, 3),(18, 6.8),(19, 3),(20, 2.4),(21, 7.8),(22, 3.4),(23, 6.2),(24, 4.4),(25, 6.8),(26, 5.8),(27, 2.2),(28, 6.7),(29, 3.6),(30, 3.5),(31, 2.2),(32, 12.6),(33, 5.1),(34, 11.4),(35, 0.7),(36, 5.8),(37, 0),(38, 4.6),(39, 6),(40, 4.8),(41, 7.8),(42, 4.5),(43, 4.3),(44, 7.1),(45, 7.5),(46, 9.6),(47, 2.9),(48, 1.9),(49, 6.9),(50, 6.3),(51, 3),(52, 4.9),(53, 6.2),(54, 5.5),(55, 5),(56, 7.1),(57, 4.9),(58, 5.6),(59, 5.1),(60, 9.5),(61, 8.5),(62, 2.5),(63, 7),(64, 5.9),(65, 8.1),(66, 1.5),(67, 3),(68, 22.1),(69, 3.8),(70, 7.6),(71, 2.7),(72, 3.7),(73, 3.2),(74, 11.1),(75, 3.7),(76, 3.5),(77, 3.8),(78, 4.4),(79, 4.9),(80, 4.4),(81, 4.2),(82, 4.7),(83, 6.2),(84, 4.1),(85, 3.7),(86, 5.5),(87, 10.5),(88, 7.6),(89, 0),(90, 4.5),(91, 5.9),(92, 8.5),(93, 0.5),(94, 2.5),(95, 5.9),(96, 5.6),(97, 5),(98, 6.1),(99, 2.9),(100, 4.3);
+ INSERT INTO primary_care (county_id, primary_care_physicians_count) VALUES (1, 6),(2, 2.3),(3, 4.4),(4, 1.2),(5, 4.7),(6, 5),(7, 3.8),(8, 3.6),(9, 3.5),(10, 4.2),(11, 13),(12, 8.1),(13, 7.9),(14, 4.9),(15, 0.9),(16, 5.1),(17, 3),(18, 6.8),(19, 3),(20, 2.4),(21, 7.8),(22, 3.4),(23, 6.2),(24, 4.4),(25, 6.8),(26, 5.8),(27, 2.2),(28, 6.7),(29, 3.6),(30, 3.5),(31, 2.2),(32, 12.6),(33, 5.1),(34, 11.4),(35, 0.7),(36, 5.8),(37, 0),(38, 4.6),(39, 6),(40, 4.8),(41, 7.8),(42, 4.5),(43, 4.3),(44, 7.1),(45, 7.5),(46, 9.6),(47, 2.9),(48, 1.9),(49, 6.9),(50, 6.3),(51, 3),(52, 4.9),(53, 6.2),(54, 5.5),(55, 5),(56, 7.1),(57, 4.9),(58, 5.6),(59, 5.1),(60, 9.5),(61, 8.5),(62, 2.5),(63, 7),(64, 5.9),(65, 8.1),(66, 1.5),(67, 3),(68, 22.1),(69, 3.8),(70, 7.6),(71, 2.7),(72, 3.7),(73, 3.2),(74, 11.1),(75, 3.7),(76, 3.5),(77, 3.8),(78, 4.4),(79, 4.9),(80, 4.4),(81, 4.2),(82, 4.7),(83, 6.2),(84, 4.1),(85, 3.7),(86, 5.5),(87, 10.5),(88, 7.6),(89, 0),(90, 4.5),(91, 5.9),(92, 8.5),(93, 0.5),(94, 2.5),(95, 5.9),(96, 5.6),(97, 5),(98, 6.1),(99, 2.9),(100, 4.3);
 
---dentists
+ --dentists
 
-INSERT INTO dentists (county_id, dentists_count) VALUES (1, 4.2),(2, 1.3),(3, 1.7),(4, 1.2),(5, 4),(6, 6.1),(7, 3.8),(8, 0.5),(9, 2),(10, 3.9),(11, 7),(12, 3.9),(13, 4.8),(14, 2),(15, 0.9),(16, 3.9),(17, 0.9),(18, 5.6),(19, 2.1),(20, 2.4),(21, 5),(22, 3.4),(23, 3.4),(24, 1.6),(25, 5.2),(26, 5.4),(27, 2.5),(28, 5.9),(29, 1.8),(30, 3.5),(31, 1.8),(32, 7),(33, 1.1),(34, 5.8),(35, 2),(36, 4),(37, 0),(38, 2.3),(39, 2.4),(40, 3.3),(41, 5.6),(42, 2.3),(43, 1.5),(44, 4.9),(45, 4.8),(46, 2.1),(47, 1.3),(48, 0),(49, 5.3),(50, 3.2),(51, 2.2),(52, 1),(53, 5.4),(54, 4.6),(55, 3.7),(56, 4.4),(57, 1.3),(58, 2.2),(59, 1.7),(60, 7.4),(61, 4.6),(62, 1.5),(63, 7.9),(64, 4.4),(65, 8.2),(66, 1),(67, 4.8),(68, 17.5),(69, 3),(70, 3),(71, 3.8),(72, 1.5),(73, 2),(74, 8.3),(75, 2.3),(76, 2.4),(77, 2),(78, 2.4),(79, 2.7),(80, 3.9),(81, 2.8),(82, 1.6),(83, 2.2),(84, 1.9),(85, 1.5),(86, 3.8),(87, 3.5),(88, 4),(89, 0),(90, 3.7),(91, 3.5),(92, 8.3),(93, 2),(94, 1.7),(95, 6.1),(96, 3.7),(97, 2.3),(98, 3.5),(99, 2.4),(100, 2.7);
+ INSERT INTO dentists (county_id, dentists_count) VALUES (1, 4.2),(2, 1.3),(3, 1.7),(4, 1.2),(5, 4),(6, 6.1),(7, 3.8),(8, 0.5),(9, 2),(10, 3.9),(11, 7),(12, 3.9),(13, 4.8),(14, 2),(15, 0.9),(16, 3.9),(17, 0.9),(18, 5.6),(19, 2.1),(20, 2.4),(21, 5),(22, 3.4),(23, 3.4),(24, 1.6),(25, 5.2),(26, 5.4),(27, 2.5),(28, 5.9),(29, 1.8),(30, 3.5),(31, 1.8),(32, 7),(33, 1.1),(34, 5.8),(35, 2),(36, 4),(37, 0),(38, 2.3),(39, 2.4),(40, 3.3),(41, 5.6),(42, 2.3),(43, 1.5),(44, 4.9),(45, 4.8),(46, 2.1),(47, 1.3),(48, 0),(49, 5.3),(50, 3.2),(51, 2.2),(52, 1),(53, 5.4),(54, 4.6),(55, 3.7),(56, 4.4),(57, 1.3),(58, 2.2),(59, 1.7),(60, 7.4),(61, 4.6),(62, 1.5),(63, 7.9),(64, 4.4),(65, 8.2),(66, 1),(67, 4.8),(68, 17.5),(69, 3),(70, 3),(71, 3.8),(72, 1.5),(73, 2),(74, 8.3),(75, 2.3),(76, 2.4),(77, 2),(78, 2.4),(79, 2.7),(80, 3.9),(81, 2.8),(82, 1.6),(83, 2.2),(84, 1.9),(85, 1.5),(86, 3.8),(87, 3.5),(88, 4),(89, 0),(90, 3.7),(91, 3.5),(92, 8.3),(93, 2),(94, 1.7),(95, 6.1),(96, 3.7),(97, 2.3),(98, 3.5),(99, 2.4),(100, 2.7);
+
+
+
 
 -- Zips
 
@@ -2074,20 +1969,25 @@ INSERT INTO zips VALUES(28905, 'Marble', 20, '35.1630643', '-83.9409356');
 INSERT INTO zips VALUES(28906, 'Murphy', 20, '35.0872445', '-84.1366351');
 INSERT INTO zips VALUES(28909, 'Warne', 22, '35.0011378', '-83.9032633');
 
+--cities from zips
+INSERT INTO cities (county_id, city) SELECT DISTINCT zips.county_id, zips.city FROM zips ORDER BY zips.city;
+
 --insert stats
---INSERT INTO statistics VALUES('AlcoholData', 'Alcohol Use');
 INSERT INTO statistics VALUES('Births', 'Births by Gender');
 INSERT INTO statistics VALUES('CovidRace', 'COVID-19 Cases by Race');
 INSERT INTO statistics VALUES('COVID', 'COVID-19 Overview');
 INSERT INTO statistics VALUES('Vaccine', 'COVID-19 Vaccines');
 INSERT INTO statistics VALUES('CovidDeathRace', 'Deaths from COVID-19 by Race');
---INSERT INTO statistics VALUES('DiabetesData', 'Diabetes');
+INSERT INTO statistics VALUES('Dentists', 'Dentists')
+INSERT INTO statistics VALUES('Diabetes', 'Diabetes');
 INSERT INTO statistics VALUES('Education', 'Education');
 INSERT INTO statistics VALUES('Ethnicity', 'Ethnicity');
+INSERT INTO statistics VALUES('FoodInsecurity', 'Food Insecurity')
 INSERT INTO statistics VALUES('HealthFacilities', 'Health Facilities');
---INSERT INTO statistics VALUES('HealthProfessionals', 'Health Professionals');
+INSERT INTO statistics VALUES('HeartDisease', 'Heart Disease');
 INSERT INTO statistics VALUES('InfantMortality', 'Infant Mortality');
 INSERT INTO statistics VALUES('Insurance', 'Insurance');
 INSERT INTO statistics VALUES('LifeExpectancy', 'Life Expectancy');
 INSERT INTO statistics VALUES('Population', 'Population');
 INSERT INTO statistics VALUES('Prenatal', 'Prenatal Care');
+INSERT INTO statistics VALUES('PrimaryCare', 'Primary Care Physicians')
