@@ -2079,7 +2079,7 @@ INSERT INTO statistics VALUES('Dentists', 'Dentists')
 INSERT INTO statistics VALUES('Diabetes', 'Diabetes');
 INSERT INTO statistics VALUES('Education', 'Education');
 INSERT INTO statistics VALUES('Ethnicity', 'Ethnicity');
-INSERT INTO statistics VALUES('FoodInsecurity', 'Food Insecurity')
+INSERT INTO statistics VALUES('FoodInsecurity', 'Food Insecurity');
 INSERT INTO statistics VALUES('HealthFacilities', 'Health Facilities');
 INSERT INTO statistics VALUES('HeartDisease', 'Heart Disease');
 INSERT INTO statistics VALUES('InfantMortality', 'Infant Mortality');
