@@ -140,6 +140,7 @@ CREATE TABLE vaccine(
 
 
 
+
 -- Facilities
 
 
@@ -192,8 +193,8 @@ CREATE TABLE primary_care(
   primary_care_physicians_count FLOAT NOT NULL
 );
 
--- table for storing feedback
 
+-- table for storing feedback
 CREATE TABLE comments(
 comment_id SERIAL PRIMARY KEY,
 name VARCHAR(256),
@@ -205,4 +206,16 @@ comment VARCHAR(1000) NOT NULL
 CREATE TABLE statistics(
   name VARCHAR(50) PRIMARY KEY,
   displayname VARCHAR(256) NOT NULL
+);
+
+--table for storing closest Facilities
+CREATE TABLE distance(
+  entry SERIAL PRIMARY KEY,
+  origin_lat FLOAT NOT NULL,
+  origin_long FLOAT NOT NULL,
+  facility_id INTEGER NOT NULL REFERENCES health_facilities(facility_id),
+  facility_name VARCHAR(256) NOT NULL,
+  facility_lat FLOAT NOT NULL,
+  facility_long FLOAT NOT NULL,
+  distance_in_miles FLOAT NOT NULL
 );
