@@ -68,24 +68,17 @@ class Neighbors(db.Model):
     )
     neighbor = db.Column(
         db.Integer,
-        # db.ForeignKey(County.cid),
         primary_key=True
     )
 
     cty = orm.relationship('County', foreign_keys=[county])
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class City(db.Model):
     __tablename__ = 'cities'
-    county_id = db.Column(db.Integer, db.ForeignKey(Zips.county_id), nullable=False)
-    city = db.Column(db.String(50), primary_key=True, nullable=False)
-    zip = orm.relationship('Zips', foreign_keys=[county_id])
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    entry = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    county_id = db.Column(db.Integer, nullable=False)
+    city = db.Column(db.String(50), nullable=False)
 
 
 class Births(db.Model):
@@ -108,9 +101,6 @@ class Births(db.Model):
         db.Integer,
         nullable=False
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class Prenatal(db.Model):
@@ -138,9 +128,6 @@ class Prenatal(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class Population(db.Model):
     __tablename__ = 'population'
@@ -167,9 +154,6 @@ class Population(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class Education(db.Model):
     __tablename__ = 'education'
@@ -191,9 +175,6 @@ class Education(db.Model):
         db.Float,
         nullable=False
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class Ethnicity(db.Model):
@@ -229,9 +210,6 @@ class Ethnicity(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class InfantMortality(db.Model):
     __tablename__ = 'infant_mortality'
@@ -245,9 +223,6 @@ class InfantMortality(db.Model):
         db.Float,
         nullable=False
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class Insurance(db.Model):
@@ -266,9 +241,6 @@ class Insurance(db.Model):
         db.Float,
         nullable=False
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class LifeExpectancy(db.Model):
@@ -300,9 +272,6 @@ class LifeExpectancy(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class COVID(db.Model):
     __tablename__ = 'covid'
@@ -320,11 +289,7 @@ class COVID(db.Model):
         db.Integer,
         nullable=False
     )
-    hospitalizations = db.Column(
-        db.Integer,
-        nullable=False
-    )
-    vaccinated_at_least_one = db.Column(
+    vaccinated_at_least_1 = db.Column(
         db.Integer,
         nullable=False
     )
@@ -333,8 +298,6 @@ class COVID(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class CovidDeathRace(db.Model):
@@ -370,11 +333,9 @@ class CovidDeathRace(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
-class Covid_Race(db.Model):
+class CovidRace(db.Model):
     __tablename__ = 'covid_race'
     county_id = db.Column(
         db.Integer,
@@ -407,8 +368,6 @@ class Covid_Race(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class Vaccine(db.Model):
@@ -440,9 +399,6 @@ class Vaccine(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class FacilityType(db.Model):
     __tablename__ = 'facility_type'
@@ -456,9 +412,6 @@ class FacilityType(db.Model):
         nullable=False,
         unique=True
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class HealthFacilities(db.Model):
@@ -491,9 +444,6 @@ class HealthFacilities(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class DiabetesData(db.Model):
     __tablename__ = 'diabetes_data'
@@ -508,10 +458,10 @@ class DiabetesData(db.Model):
         nullable=False,
         primary_key=True
     )
-    diagnosed = db.Column(
+    diagnoseddiabetesprevalence = db.Column(
         db.Float
     )
-    undiagnosed = db.Column(
+    undiagnoseddiabetesprevalence = db.Column(
         db.Float
     )
     awareness = db.Column(
@@ -524,9 +474,6 @@ class DiabetesData(db.Model):
         db.String(15),
         primary_key=True
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class AlcoholData(db.Model):
@@ -542,7 +489,7 @@ class AlcoholData(db.Model):
         nullable=False,
         primary_key=True
     )
-    prevalence = db.Column(
+    alcoholprevalence = db.Column(
         db.Float
     )
     type = db.Column(
@@ -552,9 +499,6 @@ class AlcoholData(db.Model):
         db.String(15),
         primary_key=True
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class HealthProfessionals(db.Model):
@@ -581,18 +525,47 @@ class HealthProfessionals(db.Model):
         nullable=False
     )
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class Comment(db.Model):
     __tablename__ = 'comments'
     comment_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(256))
     email = db.Column(db.String(256))
-    comment = db.Column(db.String(1000))
+    comment = db.Column(db.String(1000), nullable=False)
 
     def __init__(self, name, email, comment):
         self.name = name
         self.email = email
         self.comment = comment
+
+
+class Statistics(db.Model):
+    __tablename__ = 'statistics'
+    name = db.Column(db.String(50), primary_key=True)
+    displayname = db.Column(db.String(256))
+
+
+class Distance(db.Model):
+    __tablename__ = 'distance'
+    entry = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    origin_lat = db.Column(db.Float, nullable=False)
+    origin_long = db.Column(db.Float, nullable=False)
+    facility_id = db.Column(db.Integer, db.ForeignKey(HealthFacilities.facility_id), nullable=False)
+    facility_name = db.Column(db.String(256), nullable=False)
+    facility_lat = db.Column(db.Float, nullable=False)
+    facility_long = db.Column(db.Float, nullable=False)
+    distance_in_miles = db.Column(db.Float, nullable=False)
+
+    fid = orm.relationship('HealthFacilities', foreign_keys=[facility_id])
+
+    def __init__(self, origin_lat, origin_long, facility_id, facility_name,
+                 facility_lat, facility_long, distance_in_miles):
+        self.origin_lat = origin_lat
+        self.origin_long = origin_long
+        self.facility_id = facility_id
+        self.facility_name = facility_name
+        self.facility_lat = facility_lat
+        self.facility_long = facility_long
+        self.distance_in_miles = distance_in_miles
+
+
