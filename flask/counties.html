@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>HealthCarolina - Determinants of Health in North Carolina</title>
+    <title>{{ county.county }} County, North Carolina - HealthCarolina</title>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-{% block heading %}{{county.county}} County{% endblock %}
+{% block heading %}{% if city %}{{ city }} - {% endif %}{{county.county}} County{% endblock %}
 {% block content %}
-    <p><img src="/static/img/{{county.county}}_County.png" style="float:left;width:500px;"/></p>
+    <p><img src="/static/img/{{county.county}}_County.png" style="width:500px;"/></p>
 {% for row in query %}
 <p>{{ row }}</p>
 {% endfor %}
