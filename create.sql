@@ -155,8 +155,8 @@ facility_id INTEGER PRIMARY KEY NOT NULL,
 name VARCHAR(256) NOT NULL,
 type VARCHAR(30) NOT NULL REFERENCES facility_type(short),
 county_id INTEGER NOT NULL REFERENCES county(id),
-latitude VARCHAR(30) NOT NULL,
-longitude VARCHAR(30) NOT NULL
+latitude REAL NOT NULL,
+longitude REAL NOT NULL
 );
 
 
