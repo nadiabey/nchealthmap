@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request
 from flask_sqlalchemy import SQLAlchemy
+from flask_jsglue import JSGlue
 
 import models, forms
 
 app = Flask(__name__)
+jsglue = JSGlue(app)
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 
@@ -61,6 +63,10 @@ def state(stat):
     cols = [item for item in src.__dict__.keys() if item[0] != '_']
     print("debug", query_dict(info, cols))
     return render_template('state.html', stat=stat, query=query_dict(info, cols), display=display)
+
+@app.route('/test', methods=['GET', 'POST'])
+def test():
+    return render_template("test.html")
 
 
 @app.route('/county/<cid>/<stat>', methods=['GET', 'POST'])

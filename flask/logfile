@@ -461,3 +461,216 @@
 2021-11-20 15:20:53.045 EST [12172] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
 	
 2021-11-20 15:20:53.046 EST [12172] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:27:36.967 EST [20904] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:27:36.967 EST [20904] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:27:36.967 EST [64076] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:27:36.967 EST [64076] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.680 EST [60648] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [67572] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [12720] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.680 EST [5868] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [67572] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.681 EST [10284] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [66684] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [60648] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.681 EST [69896] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [5868] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.681 EST [12720] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.681 EST [10696] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.681 EST [72528] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:49:44.682 EST [10696] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.681 EST [66684] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.682 EST [72528] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 15:49:44.681 EST [10284] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:02:13.233 EST [66764] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:02:13.233 EST [66764] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:02:13.233 EST [15792] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:02:13.233 EST [67192] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:02:13.233 EST [15792] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:02:13.233 EST [70892] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:02:13.233 EST [70892] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:02:13.233 EST [71812] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:02:13.234 EST [71812] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:02:13.234 EST [71948] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:02:13.234 EST [71948] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.401 EST [72180] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.402 EST [72180] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.402 EST [8780] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.402 EST [8780] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.402 EST [72384] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.402 EST [63420] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.403 EST [72384] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.403 EST [63420] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.402 EST [69864] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.402 EST [56784] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.403 EST [69864] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.403 EST [56784] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.403 EST [71108] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.403 EST [72356] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.403 EST [24824] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.403 EST [59732] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:17:19.403 EST [24824] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.403 EST [71108] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.403 EST [72356] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:17:19.403 EST [59732] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:37:21.286 EST [47364] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:37:21.286 EST [47364] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:37:21.286 EST [52932] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:37:21.286 EST [52932] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:37:21.287 EST [11748] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:37:21.287 EST [12312] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:37:21.287 EST [24884] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:37:21.287 EST [12312] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:37:21.287 EST [71108] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 16:37:21.287 EST [24884] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:37:21.287 EST [11748] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 16:56:03.184 EST [49144] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:11:48.043 EST [43660] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:11:48.043 EST [43660] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 17:11:48.043 EST [49580] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:11:48.043 EST [10940] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:11:48.043 EST [49356] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:11:48.043 EST [49356] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 17:11:48.043 EST [10940] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 17:11:48.043 EST [54128] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:11:48.044 EST [54128] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 17:12:39.094 EST [21780] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:12:39.094 EST [3872] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:12:39.094 EST [69228] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:12:39.094 EST [21780] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 17:12:39.094 EST [69228] LOG:  unexpected EOF on client connection with an open transaction
+2021-11-20 17:23:15.075 EST [6236] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 17:23:15.488 EST [71368] LOG:  background worker "logical replication launcher" (PID 48312) was terminated by exception 0xC000013A
+2021-11-20 17:23:15.488 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:15.488 EST [71368] LOG:  terminating any other active server processes
+2021-11-20 17:23:15.491 EST [72468] WARNING:  terminating connection because of crash of another server process
+2021-11-20 17:23:15.491 EST [72468] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2021-11-20 17:23:15.491 EST [72468] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2021-11-20 17:23:15.491 EST [71368] LOG:  statistics collector process (PID 46232) was terminated by exception 0xC000013A
+2021-11-20 17:23:15.491 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:15.494 EST [71368] LOG:  all server processes terminated; reinitializing
+2021-11-20 17:23:15.692 EST [69292] LOG:  database system was interrupted; last known up at 2021-11-20 15:22:32 EST
+2021-11-20 17:23:16.038 EST [69292] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-11-20 17:23:16.041 EST [69292] LOG:  redo starts at 0/186BB60
+2021-11-20 17:23:16.041 EST [69292] LOG:  invalid record length at 0/186BC48: wanted 24, got 0
+2021-11-20 17:23:16.041 EST [69292] LOG:  redo done at 0/186BC10
+2021-11-20 17:23:16.068 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 17:23:16.621 EST [71368] LOG:  background worker "logical replication launcher" (PID 58248) was terminated by exception 0xC000013A
+2021-11-20 17:23:16.621 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:16.621 EST [71368] LOG:  terminating any other active server processes
+2021-11-20 17:23:16.622 EST [60124] WARNING:  terminating connection because of crash of another server process
+2021-11-20 17:23:16.622 EST [60124] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2021-11-20 17:23:16.622 EST [60124] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2021-11-20 17:23:16.624 EST [71368] LOG:  statistics collector process (PID 22876) was terminated by exception 0xC000013A
+2021-11-20 17:23:16.624 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:16.625 EST [71368] LOG:  all server processes terminated; reinitializing
+2021-11-20 17:23:16.782 EST [72444] LOG:  database system was interrupted; last known up at 2021-11-20 17:23:16 EST
+2021-11-20 17:23:17.102 EST [72444] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-11-20 17:23:17.105 EST [72444] LOG:  invalid record length at 0/186BCC0: wanted 24, got 0
+2021-11-20 17:23:17.105 EST [72444] LOG:  redo is not required
+2021-11-20 17:23:17.132 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 17:23:18.656 EST [71368] LOG:  background worker "logical replication launcher" (PID 60648) was terminated by exception 0xC000013A
+2021-11-20 17:23:18.656 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:18.656 EST [71368] LOG:  terminating any other active server processes
+2021-11-20 17:23:18.657 EST [44060] WARNING:  terminating connection because of crash of another server process
+2021-11-20 17:23:18.657 EST [44060] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2021-11-20 17:23:18.657 EST [44060] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2021-11-20 17:23:18.659 EST [71368] LOG:  statistics collector process (PID 53268) was terminated by exception 0xC000013A
+2021-11-20 17:23:18.659 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:18.660 EST [71368] LOG:  all server processes terminated; reinitializing
+2021-11-20 17:23:18.806 EST [71380] LOG:  database system was interrupted; last known up at 2021-11-20 17:23:17 EST
+2021-11-20 17:23:19.141 EST [71380] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-11-20 17:23:19.144 EST [71380] LOG:  invalid record length at 0/186BD38: wanted 24, got 0
+2021-11-20 17:23:19.144 EST [71380] LOG:  redo is not required
+2021-11-20 17:23:19.170 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 17:23:42.646 EST [71368] LOG:  background worker "logical replication launcher" (PID 16296) was terminated by exception 0xC000013A
+2021-11-20 17:23:42.646 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:42.646 EST [71368] LOG:  terminating any other active server processes
+2021-11-20 17:23:42.647 EST [68904] WARNING:  terminating connection because of crash of another server process
+2021-11-20 17:23:42.647 EST [68904] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2021-11-20 17:23:42.647 EST [68904] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2021-11-20 17:23:42.648 EST [71368] LOG:  statistics collector process (PID 51308) was terminated by exception 0xC000013A
+2021-11-20 17:23:42.648 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:42.650 EST [71368] LOG:  all server processes terminated; reinitializing
+2021-11-20 17:23:42.945 EST [16812] LOG:  database system was interrupted; last known up at 2021-11-20 17:23:19 EST
+2021-11-20 17:23:43.301 EST [16812] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-11-20 17:23:43.303 EST [16812] LOG:  redo starts at 0/186BDB0
+2021-11-20 17:23:43.303 EST [16812] LOG:  invalid record length at 0/186BDE8: wanted 24, got 0
+2021-11-20 17:23:43.303 EST [16812] LOG:  redo done at 0/186BDB0
+2021-11-20 17:23:43.331 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 17:23:43.810 EST [71368] LOG:  background worker "logical replication launcher" (PID 71880) was terminated by exception 0xC000013A
+2021-11-20 17:23:43.810 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:43.810 EST [71368] LOG:  terminating any other active server processes
+2021-11-20 17:23:43.811 EST [15960] WARNING:  terminating connection because of crash of another server process
+2021-11-20 17:23:43.811 EST [15960] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2021-11-20 17:23:43.811 EST [15960] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2021-11-20 17:23:43.813 EST [71368] LOG:  statistics collector process (PID 9344) was terminated by exception 0xC000013A
+2021-11-20 17:23:43.813 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:43.814 EST [71368] LOG:  all server processes terminated; reinitializing
+2021-11-20 17:23:44.018 EST [19492] LOG:  database system was interrupted; last known up at 2021-11-20 17:23:43 EST
+2021-11-20 17:23:44.355 EST [19492] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-11-20 17:23:44.358 EST [19492] LOG:  invalid record length at 0/186BE60: wanted 24, got 0
+2021-11-20 17:23:44.358 EST [19492] LOG:  redo is not required
+2021-11-20 17:23:44.384 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 17:23:48.725 EST [71368] LOG:  background worker "logical replication launcher" (PID 71724) was terminated by exception 0xC000013A
+2021-11-20 17:23:48.725 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:48.725 EST [71368] LOG:  terminating any other active server processes
+2021-11-20 17:23:48.726 EST [72596] WARNING:  terminating connection because of crash of another server process
+2021-11-20 17:23:48.726 EST [72596] DETAIL:  The postmaster has commanded this server process to roll back the current transaction and exit, because another server process exited abnormally and possibly corrupted shared memory.
+2021-11-20 17:23:48.726 EST [72596] HINT:  In a moment you should be able to reconnect to the database and repeat your command.
+2021-11-20 17:23:48.728 EST [71368] LOG:  statistics collector process (PID 15112) was terminated by exception 0xC000013A
+2021-11-20 17:23:48.728 EST [71368] HINT:  See C include file "ntstatus.h" for a description of the hexadecimal value.
+2021-11-20 17:23:48.729 EST [71368] LOG:  all server processes terminated; reinitializing
+2021-11-20 17:23:48.921 EST [5820] LOG:  database system was interrupted; last known up at 2021-11-20 17:23:44 EST
+2021-11-20 17:23:49.239 EST [5820] LOG:  database system was not properly shut down; automatic recovery in progress
+2021-11-20 17:23:49.242 EST [5820] LOG:  invalid record length at 0/186BED8: wanted 24, got 0
+2021-11-20 17:23:49.242 EST [5820] LOG:  redo is not required
+2021-11-20 17:23:49.269 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 17:24:33.623 EST [71368] LOG:  received fast shutdown request
+2021-11-20 17:24:33.625 EST [71368] LOG:  aborting any active transactions
+2021-11-20 17:24:33.629 EST [71368] LOG:  background worker "logical replication launcher" (PID 71860) exited with exit code 1
+2021-11-20 17:24:33.631 EST [20744] LOG:  shutting down
+2021-11-20 17:24:33.649 EST [71368] LOG:  database system is shut down

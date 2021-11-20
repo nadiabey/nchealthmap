@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {{ JSGlue.include() }}
+
     <meta charset="UTF-8">
     <title>{{ display }} in North Carolina - HealthCarolina</title>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+        .annotation-note-label {
+            font-size: 10px;
+            fill: #000;
+        }
+
+    </style>
+
 </head>
 <body>
+        <svg width="960" height="500"></svg>
+        <button id="editMode">Toggle Edit Mode</button>
 {% block heading %}{{ display }}{% endblock %}
 {% block content %}
-    <div style="text-align: center"><p>(map goes here!)</p></div>
     <table>
     {% for item in query %}
         <tr>
@@ -23,7 +37,9 @@
         </tr>
     {% endfor %}
     </table>
+    
 {% endblock %}
+<script src="{{url_for('static', filename='js/map.js')}}"></script>
 </body>
 <footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
 </html>
