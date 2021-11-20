@@ -552,18 +552,20 @@ class Distance(db.Model):
     origin_long = db.Column(db.Float, nullable=False)
     facility_id = db.Column(db.Integer, db.ForeignKey(HealthFacilities.facility_id), nullable=False)
     facility_name = db.Column(db.String(256), nullable=False)
+    facility_type = db.Column(db.String(10), nullable=False)
     facility_lat = db.Column(db.Float, nullable=False)
     facility_long = db.Column(db.Float, nullable=False)
     distance_in_miles = db.Column(db.Float, nullable=False)
 
     fid = orm.relationship('HealthFacilities', foreign_keys=[facility_id])
 
-    def __init__(self, origin_lat, origin_long, facility_id, facility_name,
+    def __init__(self, origin_lat, origin_long, facility_id, facility_name, facility_type,
                  facility_lat, facility_long, distance_in_miles):
         self.origin_lat = origin_lat
         self.origin_long = origin_long
         self.facility_id = facility_id
         self.facility_name = facility_name
+        self.facility_type = facility_type
         self.facility_lat = facility_lat
         self.facility_long = facility_long
         self.distance_in_miles = distance_in_miles
