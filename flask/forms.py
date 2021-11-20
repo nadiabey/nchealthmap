@@ -1,14 +1,16 @@
 import math
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, DecimalField, SelectField, SubmitField
+from wtforms import StringField, IntegerField, FloatField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Email, length, InputRequired
 
 
 class Filter(FlaskForm):
     location_type = SelectField('Type', choices=[], validators=[DataRequired()], id='lt')
-    county = SelectField('County', choices=[], id='cty')
+    county = SelectField('County', choices=[], id='cty', coerce=int)
     zip = IntegerField('Zip Code', validators=[], id='zip')
     city = SelectField('City', choices=[], id='mun')
+    stats = SelectField('Statistic', choices=[], id='stat')
+    ft = SelectField('Facility Type', choices=[], id='fac')
     submit = SubmitField('Filter')
 
 
@@ -20,9 +22,10 @@ class FeedbackForm(FlaskForm):
 
 
 class Distance(FlaskForm):
-    latitude = DecimalField('Latitude')
-    longitude = DecimalField('Longitude')
+    latitude = FloatField('Latitude')
+    longitude = FloatField('Longitude')
     nearest = SelectField('Facility Type', choices=[])  # query health facilities
+    submit = SubmitField('Go')
 
     def to_rad(self, deg: float) -> float:
         return deg * math.pi / 180
