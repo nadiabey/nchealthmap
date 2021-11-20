@@ -38,9 +38,19 @@ def choose_search():
         if form.location_type.data == 'cty' and form.stats.data != "HealthFacilities":
             # get county link for anything that's not health facilities
             return redirect(url_for('county', cid=form.county.data, stat=form.stats.data))
-        if form.location_type.data == 'cty' and form.stats.data == "HealthFacilities":
-            # get facilities link with county id and facility type
-            return redirect(url_for('facilities', cty=form.county.data, ft=form.ft.data))
+        if form.stats.data == "HealthFacilities":
+            #  get facilities link with county id and facility type
+            if form.location_type.data == 'cty':
+                return redirect(url_for('facilities', cty=form.county.data, ft=form.ft.data))
+            if form.location_type.data == 'mun':
+                city_name = db.session.query(models.City.city).filter(models.City.entry == form.city.data).scalar()
+                cty_id = db.session.query(models.Zips.county_id).filter(models.Zips.city == city_name).scalar()
+                return redirect(url_for('facilities', cty=cty_id, ft=form.ft.data))
+            if form.location_type.data == 'zip':
+                cty_id = db.session.query(models.Zips.county_id).filter(models.Zips.zip_code == form.zip.data).scalar()
+                return redirect(url_for('facilities', cty=cty_id, ft=form.ft.data))
+            if form.location_type.data == 'NC':
+                return redirect(url_for('state', stat=form.stats.data))
         if form.location_type.data == 'mun':
             city = db.session.query(models.City.city).filter(models.City.entry == form.city.data).scalar()
             # get name of city
@@ -49,7 +59,7 @@ def choose_search():
             # redirect should have county id, name of city, and name of stats
             return redirect(url_for('city', cty=county, mun=city, stat=form.stats.data))
         if form.location_type.data == 'zip':
-            return redirect(url_for('zipcode', zc=form.zip.data))
+            return redirect(url_for('zipcode', zc=form.zip.data, stat=form.stats.data))
         if form.location_type.data == 'NC':
             return redirect(url_for('state', stat=form.stats.data))
     return render_template('landing.html', form=form)
@@ -84,7 +94,6 @@ def facilities(cty, ft):
     which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
                                                              models.HealthFacilities.type == ft).all()
     cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_']
-    print(which)
     # get list of facilities
     if not which:
         type_name = db.session.query(models.FacilityType.name).filter(models.FacilityType.short == ft).scalar()
@@ -102,10 +111,14 @@ def city(mun, cty, stat):
     return render_template('counties.html', county=county, query=query_dict(info, cols), city=mun)
 
 
-@app.route('/zipcode/<zc>')
-def zipcode(zc):
-    # make zips template, return county
-    return render_template('landing.html', form=filter_form())
+@app.route('/zipcode/<zc>/<stat>')
+def zipcode(zc, stat):
+    cty_id = db.session.query(models.Zips.county_id).filter(models.Zips.zip_code == zc).scalar()
+    cty_name = db.session.query(models.County.county).filter(models.County.id == cty_id).one()
+    src = getattr(models, stat)
+    info = db.session.query(src).filter(src.county_id == cty_id).all()
+    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    return render_template('counties.html', county=cty_name, query=query_dict(info, cols), zip=zc)
 
 
 @app.route('/feedback', methods=['GET', 'POST'])
