@@ -31,7 +31,6 @@
 
     type_select.onchange = function() {
         t = type_select.value;
-        s = stat.value;
         if (t === 'NC') {
             city.style.display = 'none';
             zip.style.display = 'none';
@@ -52,14 +51,21 @@
             zip.style.display = 'none';
             county.style.display = 'none';
         }
-        if (s === 'HealthFacilities') {
-            alert(s)
+    }
+
+    stat.onchange = function() {
+        s = stat.value;
+        if (s === 'HealthFacilities' && !(t === 'NC')) {
             facilities.style.display = 'block';
+        }
+        if (!(s === 'HealthFacilities')) {
+            facilities.style.display = 'none';
         }
     }
 </script>
 <div style="text-align: center;"><img src="/static/img/healthcarolina.png"></div>
 {% block content %}{% endblock %}
 </body>
-<footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
+<footer><div style="text-align: center;"><a href="{{ url_for('distance')}}">Find Closest Health Resources</a> |
+    <a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
 </html>
