@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Closest Resources - HealthCarolina</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<form method="POST" action="{{ url_for('distance') }}">
+    {{ form.csrf_token }}
+    <p>To get the coordinates of an address, you can use <a href="https://geoservices.tamu.edu/Services/Geocode/Interactive/">this</a> website.</p>
+    Latitude: {{ form.latitude }}
+    Longitude: {{ form.longitude }}
+    {{ form.nearest }}
+    {{ form.submit }}
+</form>
+{% block content %}{% endblock %}
+</body>
+<footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
+</html>
