@@ -1,0 +1,463 @@
+2021-11-20 14:50:12.429 EST [24560] LOG:  starting PostgreSQL 12.2, compiled by Visual C++ build 1916, 64-bit
+2021-11-20 14:50:12.432 EST [24560] LOG:  listening on IPv6 address "::1", port 5432
+2021-11-20 14:50:12.432 EST [24560] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-11-20 14:50:12.493 EST [70260] LOG:  database system was shut down at 2021-11-20 14:48:03 EST
+2021-11-20 14:50:12.511 EST [24560] LOG:  database system is ready to accept connections
+2021-11-20 14:53:03.881 EST [51748] ERROR:  canceling statement due to user request
+2021-11-20 14:53:03.882 EST [71360] ERROR:  canceling statement due to user request
+2021-11-20 14:53:03.882 EST [24560] LOG:  received fast shutdown request
+2021-11-20 14:53:03.884 EST [24560] LOG:  aborting any active transactions
+2021-11-20 14:53:03.884 EST [24560] LOG:  background worker "logical replication launcher" (PID 51748) exited with exit code 1
+2021-11-20 14:53:03.913 EST [2256] LOG:  shutting down
+2021-11-20 14:53:03.933 EST [24560] LOG:  database system is shut down
+2021-11-20 14:53:34.430 EST [70252] LOG:  starting PostgreSQL 12.2, compiled by Visual C++ build 1916, 64-bit
+2021-11-20 14:53:34.433 EST [70252] LOG:  listening on IPv6 address "::1", port 5432
+2021-11-20 14:53:34.433 EST [70252] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-11-20 14:53:34.481 EST [65068] LOG:  database system was shut down at 2021-11-20 14:53:03 EST
+2021-11-20 14:53:34.501 EST [70252] LOG:  database system is ready to accept connections
+2021-11-20 14:54:19.122 EST [69420] FATAL:  role "vagrant" does not exist
+2021-11-20 14:55:33.458 EST [46716] FATAL:  role "postgres" does not exist
+2021-11-20 15:03:43.728 EST [70252] LOG:  received fast shutdown request
+2021-11-20 15:03:43.728 EST [23724] ERROR:  canceling statement due to user request
+2021-11-20 15:03:43.728 EST [21208] ERROR:  canceling statement due to user request
+2021-11-20 15:03:43.730 EST [70252] LOG:  aborting any active transactions
+2021-11-20 15:03:43.731 EST [70252] LOG:  background worker "logical replication launcher" (PID 23724) exited with exit code 1
+2021-11-20 15:03:43.748 EST [10648] LOG:  shutting down
+2021-11-20 15:03:43.764 EST [70252] LOG:  database system is shut down
+2021-11-20 15:03:54.348 EST [71368] LOG:  starting PostgreSQL 12.2, compiled by Visual C++ build 1916, 64-bit
+2021-11-20 15:03:54.350 EST [71368] LOG:  listening on IPv6 address "::1", port 5432
+2021-11-20 15:03:54.351 EST [71368] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-11-20 15:03:54.402 EST [70836] LOG:  database system was shut down at 2021-11-20 15:03:43 EST
+2021-11-20 15:03:54.420 EST [71368] LOG:  database system is ready to accept connections
+2021-11-20 15:04:42.900 EST [51060] FATAL:  database "nchealthmap" does not exist
+2021-11-20 15:06:42.131 EST [45936] ERROR:  syntax error at or near ")" at character 205
+2021-11-20 15:06:42.131 EST [45936] STATEMENT:  CREATE TABLE vaccine(
+	  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+	  one_vaccination INTEGER NOT NULL,
+	  full_vaccination INTEGER NOT NULL, 
+	  total_vaccinations INTEGER NOT NULL,
+	);
+2021-11-20 15:09:34.906 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.906 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(1,96560,91525,169509);
+2021-11-20 15:09:34.913 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.913 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(2,15861,15065,37497);
+2021-11-20 15:09:34.919 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.919 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(3,6402,6002,11137);
+2021-11-20 15:09:34.926 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.926 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(4,11129,10223,24446);
+2021-11-20 15:09:34.933 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.933 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(5,14362,13449,27203);
+2021-11-20 15:09:34.941 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.941 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(6,9445,8819,17557);
+2021-11-20 15:09:34.947 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.947 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(7,25370,23695,46994);
+2021-11-20 15:09:34.954 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.954 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(8,10301,9351,18947);
+2021-11-20 15:09:34.961 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.961 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(9,16169,14987,32722);
+2021-11-20 15:09:34.967 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.967 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(10,88695,84329,142820);
+2021-11-20 15:09:34.976 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.976 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(11,165001,158249,261191);
+2021-11-20 15:09:34.982 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.982 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(12,41760,39401,90485);
+2021-11-20 15:09:34.989 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.989 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(13,114588,108030,216453);
+2021-11-20 15:09:34.995 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:34.995 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(14,38037,35860,82178);
+2021-11-20 15:09:35.003 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.003 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(15,5221,4990,10867);
+2021-11-20 15:09:35.009 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.009 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(16,39639,37156,69473);
+2021-11-20 15:09:35.016 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.016 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(17,10786,10012,22604);
+2021-11-20 15:09:35.025 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.025 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(18,82994,78701,159551);
+2021-11-20 15:09:35.031 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.031 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(19,41113,39149,74470);
+2021-11-20 15:09:35.038 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.038 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(20,13230,12316,28612);
+2021-11-20 15:09:35.047 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.047 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(21,7990,7104,13943);
+2021-11-20 15:09:35.055 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.055 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(22,5123,4828,11231);
+2021-11-20 15:09:35.062 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.062 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(23,47956,44576,97947);
+2021-11-20 15:09:35.071 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.071 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(24,24461,22784,55508);
+2021-11-20 15:09:35.077 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.077 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(25,60329,55973,102139);
+2021-11-20 15:09:35.085 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.085 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(26,217160,192079,335509);
+2021-11-20 15:09:35.092 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.092 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(27,11922,10622,27763);
+2021-11-20 15:09:35.100 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.100 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(28,26242,25111,37009);
+2021-11-20 15:09:35.106 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.106 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(29,78900,73549,167609);
+2021-11-20 15:09:35.114 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.114 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(30,23547,22470,42846);
+2021-11-20 15:09:35.122 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.122 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(31,25089,23048,58741);
+2021-11-20 15:09:35.130 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.130 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(32,218298,207430,321488);
+2021-11-20 15:09:35.137 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.137 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(33,24384,22477,51472);
+2021-11-20 15:09:35.143 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.143 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(34,228600,214246,382295);
+2021-11-20 15:09:35.152 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.152 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(35,35996,34079,69685);
+2021-11-20 15:09:35.159 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.159 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(36,109957,101603,224529);
+2021-11-20 15:09:35.167 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.167 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(37,4557,4208,11562);
+2021-11-20 15:09:35.173 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.173 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(38,4060,3725,8441);
+2021-11-20 15:09:35.181 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.181 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(39,37346,35269,60443);
+2021-11-20 15:09:35.188 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.188 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(40,10877,10154,21069);
+2021-11-20 15:09:35.195 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.195 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(41,317074,299352,537174);
+2021-11-20 15:09:35.202 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.202 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(42,26425,24556,50010);
+2021-11-20 15:09:35.210 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.210 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(43,54014,50079,135976);
+2021-11-20 15:09:35.216 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.216 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(44,35107,33246,62317);
+2021-11-20 15:09:35.224 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.224 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(45,65698,62824,117417);
+2021-11-20 15:09:35.232 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.232 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(46,11213,10224,23677);
+2021-11-20 15:09:35.240 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.240 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(47,18789,16833,55234);
+2021-11-20 15:09:35.246 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.246 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(48,3207,3043,4937);
+2021-11-20 15:09:35.253 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.253 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(49,92544,87533,181806);
+2021-11-20 15:09:35.261 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.261 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(50,23251,21645,43938);
+2021-11-20 15:09:35.269 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.269 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(51,108238,100756,209339);
+2021-11-20 15:09:35.276 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.276 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(52,4777,4439,9419);
+2021-11-20 15:09:35.283 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.283 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(53,33480,31074,61779);
+2021-11-20 15:09:35.290 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.290 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(54,30107,27869,55949);
+2021-11-20 15:09:35.296 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.296 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(55,41849,39403,86111);
+2021-11-20 15:09:35.304 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.304 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(56,20929,19832,35858);
+2021-11-20 15:09:35.310 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.310 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(57,12063,11621,21755);
+2021-11-20 15:09:35.316 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.316 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(58,11680,10856,22440);
+2021-11-20 15:09:35.323 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.323 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(59,23660,22052,45756);
+2021-11-20 15:09:35.329 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.329 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(60,678774,635196,1110356);
+2021-11-20 15:09:35.337 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.337 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(61,154725,160348,0);
+2021-11-20 15:09:35.343 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.343 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(62,7168,6648,14964);
+2021-11-20 15:09:35.350 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.350 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(63,11812,11066,27173);
+2021-11-20 15:09:35.356 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.356 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(64,56403,53161,100880);
+2021-11-20 15:09:35.365 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.365 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(65,53381,49928,94298);
+2021-11-20 15:09:35.373 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.373 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(66,144698,137209,234473);
+2021-11-20 15:09:35.381 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.381 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(67,9197,8518,19483);
+2021-11-20 15:09:35.388 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.388 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(68,119073,103589,197938);
+2021-11-20 15:09:35.397 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.397 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(69,108115,104469,148476);
+2021-11-20 15:09:35.403 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.403 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(70,98524,87336,0);
+2021-11-20 15:09:35.409 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.409 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(71,7175,6785,12726);
+2021-11-20 15:09:35.418 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.418 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(72,21053,18654,39824);
+2021-11-20 15:09:35.424 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.424 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(73,31901,29682,63060);
+2021-11-20 15:09:35.431 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.431 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(74,6261,5710,13463);
+2021-11-20 15:09:35.438 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.438 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(75,21642,20494,39490);
+2021-11-20 15:09:35.446 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.446 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(76,93634,87810,180742);
+2021-11-20 15:09:35.453 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.453 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(77,9430,8949,20724);
+2021-11-20 15:09:35.461 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.461 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(78,61458,58003,143667);
+2021-11-20 15:09:35.468 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.468 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(79,21336,19545,44829);
+2021-11-20 15:09:35.475 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.475 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(80,55314,49317,130625);
+2021-11-20 15:09:35.482 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.482 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(81,45202,42545,91010);
+2021-11-20 15:09:35.490 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.490 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(82,62045,57737,142088);
+2021-11-20 15:09:35.496 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.496 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(83,28078,25920,67029);
+2021-11-20 15:09:35.503 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.503 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(84,32613,29950,63531);
+2021-11-20 15:09:35.510 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.510 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(85,17081,15812,34823);
+2021-11-20 15:09:35.516 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.516 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(86,27131,25255,62806);
+2021-11-20 15:09:35.523 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.523 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(87,21097,19723,45591);
+2021-11-20 15:09:35.531 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.531 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(88,36765,34670,71783);
+2021-11-20 15:09:35.538 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.538 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(89,8198,7192,14271);
+2021-11-20 15:09:35.545 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.545 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(90,18208,17599,34385);
+2021-11-20 15:09:35.551 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.551 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(91,1949,1833,4016);
+2021-11-20 15:09:35.559 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.559 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(92,126482,120414,239859);
+2021-11-20 15:09:35.567 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.567 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(93,24775,22848,44535);
+2021-11-20 15:09:35.573 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.573 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(94,770970,737122,1111761);
+2021-11-20 15:09:35.580 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.580 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(95,10709,10069,19731);
+2021-11-20 15:09:35.589 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.589 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(96,6006,5339,11580);
+2021-11-20 15:09:35.595 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.595 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(97,31876,29814,56177);
+2021-11-20 15:09:35.603 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.603 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(98,63810,57417,123131);
+2021-11-20 15:09:35.609 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.609 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(99,32565,30040,68412);
+2021-11-20 15:09:35.617 EST [23316] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:09:35.617 EST [23316] STATEMENT:  INSERT INTO vaccine VALUES(100,41155,38356,81801);
+2021-11-20 15:09:39.732 EST [23316] ERROR:  syntax error at or near "INSERT" at character 56
+2021-11-20 15:09:39.732 EST [23316] STATEMENT:  INSERT INTO statistics VALUES('Dentists', 'Dentists')
+	INSERT INTO statistics VALUES('Diabetes', 'Diabetes');
+2021-11-20 15:10:41.484 EST [69332] FATAL:  database "healthmap" does not exist
+2021-11-20 15:12:36.032 EST [23524] ERROR:  syntax error at or near ")" at character 205
+2021-11-20 15:12:36.032 EST [23524] STATEMENT:  CREATE TABLE vaccine(
+	  county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+	  one_vaccination INTEGER NOT NULL,
+	  full_vaccination INTEGER NOT NULL, 
+	  total_vaccinations INTEGER NOT NULL,
+	);
+2021-11-20 15:12:41.958 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.958 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(1,96560,91525,169509);
+2021-11-20 15:12:41.965 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.965 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(2,15861,15065,37497);
+2021-11-20 15:12:41.970 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.970 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(3,6402,6002,11137);
+2021-11-20 15:12:41.978 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.978 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(4,11129,10223,24446);
+2021-11-20 15:12:41.984 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.984 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(5,14362,13449,27203);
+2021-11-20 15:12:41.993 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.993 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(6,9445,8819,17557);
+2021-11-20 15:12:41.999 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:41.999 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(7,25370,23695,46994);
+2021-11-20 15:12:42.007 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.007 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(8,10301,9351,18947);
+2021-11-20 15:12:42.013 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.013 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(9,16169,14987,32722);
+2021-11-20 15:12:42.020 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.020 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(10,88695,84329,142820);
+2021-11-20 15:12:42.028 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.028 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(11,165001,158249,261191);
+2021-11-20 15:12:42.035 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.035 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(12,41760,39401,90485);
+2021-11-20 15:12:42.043 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.043 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(13,114588,108030,216453);
+2021-11-20 15:12:42.050 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.050 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(14,38037,35860,82178);
+2021-11-20 15:12:42.058 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.058 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(15,5221,4990,10867);
+2021-11-20 15:12:42.064 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.064 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(16,39639,37156,69473);
+2021-11-20 15:12:42.070 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.070 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(17,10786,10012,22604);
+2021-11-20 15:12:42.077 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.077 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(18,82994,78701,159551);
+2021-11-20 15:12:42.083 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.083 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(19,41113,39149,74470);
+2021-11-20 15:12:42.092 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.092 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(20,13230,12316,28612);
+2021-11-20 15:12:42.098 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.098 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(21,7990,7104,13943);
+2021-11-20 15:12:42.106 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.106 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(22,5123,4828,11231);
+2021-11-20 15:12:42.112 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.112 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(23,47956,44576,97947);
+2021-11-20 15:12:42.119 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.119 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(24,24461,22784,55508);
+2021-11-20 15:12:42.126 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.126 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(25,60329,55973,102139);
+2021-11-20 15:12:42.132 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.132 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(26,217160,192079,335509);
+2021-11-20 15:12:42.141 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.141 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(27,11922,10622,27763);
+2021-11-20 15:12:42.147 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.147 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(28,26242,25111,37009);
+2021-11-20 15:12:42.156 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.156 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(29,78900,73549,167609);
+2021-11-20 15:12:42.162 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.162 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(30,23547,22470,42846);
+2021-11-20 15:12:42.170 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.170 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(31,25089,23048,58741);
+2021-11-20 15:12:42.176 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.176 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(32,218298,207430,321488);
+2021-11-20 15:12:42.184 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.184 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(33,24384,22477,51472);
+2021-11-20 15:12:42.190 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.190 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(34,228600,214246,382295);
+2021-11-20 15:12:42.198 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.198 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(35,35996,34079,69685);
+2021-11-20 15:12:42.205 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.205 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(36,109957,101603,224529);
+2021-11-20 15:12:42.212 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.212 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(37,4557,4208,11562);
+2021-11-20 15:12:42.218 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.218 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(38,4060,3725,8441);
+2021-11-20 15:12:42.224 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.224 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(39,37346,35269,60443);
+2021-11-20 15:12:42.232 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.232 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(40,10877,10154,21069);
+2021-11-20 15:12:42.238 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.238 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(41,317074,299352,537174);
+2021-11-20 15:12:42.246 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.246 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(42,26425,24556,50010);
+2021-11-20 15:12:42.252 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.252 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(43,54014,50079,135976);
+2021-11-20 15:12:42.259 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.259 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(44,35107,33246,62317);
+2021-11-20 15:12:42.266 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.266 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(45,65698,62824,117417);
+2021-11-20 15:12:42.272 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.272 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(46,11213,10224,23677);
+2021-11-20 15:12:42.280 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.280 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(47,18789,16833,55234);
+2021-11-20 15:12:42.286 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.286 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(48,3207,3043,4937);
+2021-11-20 15:12:42.294 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.294 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(49,92544,87533,181806);
+2021-11-20 15:12:42.301 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.301 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(50,23251,21645,43938);
+2021-11-20 15:12:42.308 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.308 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(51,108238,100756,209339);
+2021-11-20 15:12:42.315 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.315 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(52,4777,4439,9419);
+2021-11-20 15:12:42.321 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.321 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(53,33480,31074,61779);
+2021-11-20 15:12:42.329 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.329 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(54,30107,27869,55949);
+2021-11-20 15:12:42.336 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.336 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(55,41849,39403,86111);
+2021-11-20 15:12:42.344 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.344 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(56,20929,19832,35858);
+2021-11-20 15:12:42.350 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.350 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(57,12063,11621,21755);
+2021-11-20 15:12:42.358 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.358 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(58,11680,10856,22440);
+2021-11-20 15:12:42.365 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.365 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(59,23660,22052,45756);
+2021-11-20 15:12:42.373 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.373 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(60,678774,635196,1110356);
+2021-11-20 15:12:42.379 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.379 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(61,154725,160348,0);
+2021-11-20 15:12:42.387 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.387 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(62,7168,6648,14964);
+2021-11-20 15:12:42.393 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.393 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(63,11812,11066,27173);
+2021-11-20 15:12:42.400 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.400 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(64,56403,53161,100880);
+2021-11-20 15:12:42.407 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.407 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(65,53381,49928,94298);
+2021-11-20 15:12:42.414 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.414 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(66,144698,137209,234473);
+2021-11-20 15:12:42.421 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.421 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(67,9197,8518,19483);
+2021-11-20 15:12:42.427 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.427 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(68,119073,103589,197938);
+2021-11-20 15:12:42.435 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.435 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(69,108115,104469,148476);
+2021-11-20 15:12:42.442 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.442 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(70,98524,87336,0);
+2021-11-20 15:12:42.449 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.449 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(71,7175,6785,12726);
+2021-11-20 15:12:42.456 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.456 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(72,21053,18654,39824);
+2021-11-20 15:12:42.463 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.463 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(73,31901,29682,63060);
+2021-11-20 15:12:42.469 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.469 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(74,6261,5710,13463);
+2021-11-20 15:12:42.478 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.478 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(75,21642,20494,39490);
+2021-11-20 15:12:42.484 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.484 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(76,93634,87810,180742);
+2021-11-20 15:12:42.492 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.492 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(77,9430,8949,20724);
+2021-11-20 15:12:42.498 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.498 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(78,61458,58003,143667);
+2021-11-20 15:12:42.505 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.505 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(79,21336,19545,44829);
+2021-11-20 15:12:42.513 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.513 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(80,55314,49317,130625);
+2021-11-20 15:12:42.520 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.520 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(81,45202,42545,91010);
+2021-11-20 15:12:42.528 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.528 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(82,62045,57737,142088);
+2021-11-20 15:12:42.535 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.535 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(83,28078,25920,67029);
+2021-11-20 15:12:42.543 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.543 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(84,32613,29950,63531);
+2021-11-20 15:12:42.549 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.549 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(85,17081,15812,34823);
+2021-11-20 15:12:42.556 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.556 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(86,27131,25255,62806);
+2021-11-20 15:12:42.563 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.563 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(87,21097,19723,45591);
+2021-11-20 15:12:42.570 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.570 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(88,36765,34670,71783);
+2021-11-20 15:12:42.576 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.576 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(89,8198,7192,14271);
+2021-11-20 15:12:42.583 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.583 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(90,18208,17599,34385);
+2021-11-20 15:12:42.590 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.590 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(91,1949,1833,4016);
+2021-11-20 15:12:42.597 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.597 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(92,126482,120414,239859);
+2021-11-20 15:12:42.604 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.604 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(93,24775,22848,44535);
+2021-11-20 15:12:42.611 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.611 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(94,770970,737122,1111761);
+2021-11-20 15:12:42.619 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.619 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(95,10709,10069,19731);
+2021-11-20 15:12:42.625 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.625 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(96,6006,5339,11580);
+2021-11-20 15:12:42.631 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.631 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(97,31876,29814,56177);
+2021-11-20 15:12:42.638 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.638 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(98,63810,57417,123131);
+2021-11-20 15:12:42.645 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.645 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(99,32565,30040,68412);
+2021-11-20 15:12:42.652 EST [71252] ERROR:  relation "vaccine" does not exist at character 13
+2021-11-20 15:12:42.652 EST [71252] STATEMENT:  INSERT INTO vaccine VALUES(100,41155,38356,81801);
+2021-11-20 15:12:46.482 EST [71252] ERROR:  syntax error at or near "INSERT" at character 56
+2021-11-20 15:12:46.482 EST [71252] STATEMENT:  INSERT INTO statistics VALUES('Dentists', 'Dentists')
+	INSERT INTO statistics VALUES('Diabetes', 'Diabetes');
+2021-11-20 15:13:39.421 EST [14460] ERROR:  permission denied for table location_type
+2021-11-20 15:13:39.421 EST [14460] STATEMENT:  SELECT location_type.short AS location_type_short, location_type.type AS location_type_type 
+	FROM location_type
+2021-11-20 15:15:17.834 EST [4876] FATAL:  database "\conninfo" does not exist
+2021-11-20 15:15:22.062 EST [39712] FATAL:  database "conninfo" does not exist
+2021-11-20 15:20:53.045 EST [14460] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:20:53.045 EST [12172] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-11-20 15:20:53.046 EST [12172] LOG:  unexpected EOF on client connection with an open transaction

@@ -1,0 +1,16 @@
+pull latest version
+install all requirements in requiremnts.txt in conda
+open conda terminal
+cd to nchealthmap
+initdb -D /data
+pg_ctl -D /data -l logfile start
+pg_ctl status -D /data
+createuser vagrant
+createdb healthmap
+psql -af ../create.sql healthmap
+psql -af ../load.sql healthmap
+psql -af ../permissions.sql healthmap
+
+Then in the future to start psql server:
+cd to nchealthmap dir
+pg_ctl -D /data -l logfile start

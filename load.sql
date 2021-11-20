@@ -2075,7 +2075,7 @@ INSERT INTO statistics VALUES('CovidRace', 'COVID-19 Cases by Race');
 INSERT INTO statistics VALUES('COVID', 'COVID-19 Overview');
 INSERT INTO statistics VALUES('Vaccine', 'COVID-19 Vaccines');
 INSERT INTO statistics VALUES('CovidDeathRace', 'Deaths from COVID-19 by Race');
-INSERT INTO statistics VALUES('Dentists', 'Dentists')
+INSERT INTO statistics VALUES('Dentists', 'Dentists');
 INSERT INTO statistics VALUES('Diabetes', 'Diabetes');
 INSERT INTO statistics VALUES('Education', 'Education');
 INSERT INTO statistics VALUES('Ethnicity', 'Ethnicity');
