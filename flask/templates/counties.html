@@ -8,10 +8,21 @@
 <body>
 {% block heading %}{% if city %}{{ city }} - {% endif %}{{county.county}} County{% endblock %}
 {% block content %}
-    <p><img src="/static/img/{{county.county}}_County.png" style="width:500px;"/></p>
-{% for row in query %}
-<p>{{ row }}</p>
-{% endfor %}
+    <p><div style="text-align: center"><img src="/static/img/{{county.county}}_County.png" style="width:500px;"/></div></p>
+    <table>
+    {% for item in query %}
+        <tr>
+        {% for key in item.keys() %}
+            <td>{{ key }}</td>
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for value in item.values() %}
+            <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
 </body>
 <footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>

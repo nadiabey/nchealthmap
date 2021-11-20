@@ -2,16 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ stat.displayname }} in North Carolina - HealthCarolina</title>
+    <title>{{ display }} in North Carolina - HealthCarolina</title>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <body>
-{% block heading %}{{ stat.displayname }}{% endblock %}
+{% block heading %}{{ display }}{% endblock %}
 {% block content %}
-    <p>(map goes here!)</p>
-{% for row in query %}
-<p>{{ row }}</p>
-{% endfor %}
+    <div style="text-align: center"><p>(map goes here!)</p></div>
+    <table>
+    {% for item in query %}
+        <tr>
+        {% for key in item.keys() %}
+            <td>{{ key }}</td>
+        {% endfor %}
+        </tr>
+        <tr>
+        {% for value in item.values() %}
+            <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
 {% endblock %}
 </body>
 <footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
