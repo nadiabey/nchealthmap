@@ -44,8 +44,10 @@ def choose_search():
 
 @app.route('/state/<stat>', methods=['GET', 'POST'])
 def state(stat):
+    display = db.session.query(models.Statistics.displayname).filter(models.Statistics.name == stat).scalar()
     info = db.session.query(getattr(models, stat)).all()
-    return render_template('state.html', stat=stat, query=info)
+    columns = getattr(models, stat).__dict__.keys()
+    return render_template('state.html', stat=stat, query=info, display=display)
 
 
 @app.route('/county/<cid>/<stat>', methods=['GET', 'POST'])
@@ -58,15 +60,15 @@ def county(cid, stat):
 
 @app.route('/facilities/<cty>/<ft>')
 def facilities(cty, ft):
-    which = db.session.query(models.HealthFacilities). \
-        filter(models.HealthFacilities.type == ft, models.HealthFacilities.county_id == cty).all()
+    county_name = db.session.query(models.County.county).filter(models.County.id == cty).one()
+    which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
+                                                             models.HealthFacilities.type == ft).all()
     # get list of facilities
     if which is None:
-        county_name = db.session.query(models.County).filter(models.County.id == cty).scalar()
         type_name = db.session.query(models.FacilityType.name).filter(models.FacilityType.short == ft).scalar()
         nbr = db.session.query(models.Neighbors).filter(models.Neighbors.county == cty).all()
         return render_template('neighbors.html', county=county_name, what=type_name, neighbors=nbr, type=ft)
-    return render_template('counties.html', county=cty, query=which)
+    return render_template('counties.html', county=county_name, query=which)
 
 
 @app.route('/city/<mun>/<cty>/<stat>')
@@ -105,15 +107,16 @@ def distance():
     form = forms.Distance()
     form.nearest.choices = [(obj.short, obj.name) for obj in models.FacilityType.query.all()]
     if request.method == 'POST' and form.validate():
-        # check if coordinates in distance table
+        # check if coordinates + type in distance table
         coords = db.session.query(models.Distance). \
-            filter(models.Distance.latitude == form.latitude.data,
-                   models.Distance.longitude == form.longitude.data).one_or_none()
+            filter(models.Distance.origin_lat == form.latitude.data,
+                   models.Distance.origin_long == form.longitude.data,
+                   models.Distance.facility_type == form.nearest.data).one_or_none()
         if coords is None:
             listy = db.session.query(models.HealthFacilities.facility_id,
                                      models.HealthFacilities.latitude,
                                      models.HealthFacilities.longitude). \
-                filter(models.FacilityType.short == form.nearest.data).all()
+                filter(models.HealthFacilities.type == form.nearest.data).all()
             dist = form.calculate_distance(listy)
             fac_name = db.session.query(models.HealthFacilities.name). \
                 filter(models.HealthFacilities.facility_id == dist[0])
@@ -122,11 +125,11 @@ def distance():
             fac_long = db.session.query(models.HealthFacilities.longitude). \
                 filter(models.HealthFacilities.facility_id == dist[0])
             info = models.Distance(origin_lat=form.latitude.data, origin_long=form.longitude.data,
-                                   facility_id=dist[0], facility_name=fac_name,
+                                   facility_id=dist[0], facility_name=fac_name, facility_type=form.nearest.data,
                                    facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1])
             db.session.add(info)
             db.session.commit()
-        return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.latitude.data))
+        return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
     return render_template('distance.html', form=form)
 
 
