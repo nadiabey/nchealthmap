@@ -215,6 +215,7 @@ CREATE TABLE distance(
   origin_long FLOAT NOT NULL,
   facility_id INTEGER NOT NULL REFERENCES health_facilities(facility_id),
   facility_name VARCHAR(256) NOT NULL,
+  facility_type VARCHAR(10) NOT NULL,
   facility_lat FLOAT NOT NULL,
   facility_long FLOAT NOT NULL,
   distance_in_miles FLOAT NOT NULL
