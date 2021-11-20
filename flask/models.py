@@ -7,9 +7,6 @@ class LocationType(db.Model):
     short = db.Column(db.String(3), primary_key=True, nullable=False)
     type = db.Column(db.String(10), nullable=False, unique=True)
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
 
 class County(db.Model):
     __tablename__ = 'county'
@@ -23,9 +20,6 @@ class County(db.Model):
         unique=True,
         nullable=False
     )
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class Zips(db.Model):
@@ -54,9 +48,6 @@ class Zips(db.Model):
     )
 
     cty = orm.relationship('County', foreign_keys=[county_id])
-
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
 
 
 class Neighbors(db.Model):
@@ -378,23 +369,9 @@ class Vaccine(db.Model):
         nullable=False,
         primary_key=True
     )
+    one_vaccination = db.Column(db.Integer, nullable=False)
+    full_vaccination = db.Column(db.Integer, nullable=False)
     total_vaccinations = db.Column(
-        db.Integer,
-        nullable=False
-    )
-    pfizer = db.Column(
-        db.Integer,
-        nullable=False
-    )
-    moderna = db.Column(
-        db.Integer,
-        nullable=False
-    )
-    jnj = db.Column(
-        db.Integer,
-        nullable=False
-    )
-    other = db.Column(
         db.Integer,
         nullable=False
     )
