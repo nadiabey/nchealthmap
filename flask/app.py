@@ -18,6 +18,17 @@ def filter_form():
     return form
 
 
+def query_dict(r, c):
+    d = {}
+    ret = []
+    for row in r:
+        for col in c:
+            d[col] = getattr(row, col)
+        ret.append(d.copy())
+        print(ret)
+    return ret
+
+
 @app.route('/', methods=['GET', 'POST'])
 def choose_search():
     form = filter_form()
@@ -45,9 +56,11 @@ def choose_search():
 @app.route('/state/<stat>', methods=['GET', 'POST'])
 def state(stat):
     display = db.session.query(models.Statistics.displayname).filter(models.Statistics.name == stat).scalar()
-    info = db.session.query(getattr(models, stat)).all()
-    columns = getattr(models, stat).__dict__.keys()
-    return render_template('state.html', stat=stat, query=info, display=display)
+    src = getattr(models, stat)
+    info = db.session.query(src).all()
+    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    print("debug", query_dict(info, cols))
+    return render_template('state.html', stat=stat, query=query_dict(info, cols), display=display)
 
 
 @app.route('/county/<cid>/<stat>', methods=['GET', 'POST'])
@@ -55,7 +68,8 @@ def county(cid, stat):
     cty = db.session.query(models.County.county).filter(models.County.id == cid).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cid).all()
-    return render_template('counties.html', county=cty, query=info)
+    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    return render_template('counties.html', county=cty, query=query_dict(info, cols))
 
 
 @app.route('/facilities/<cty>/<ft>')
@@ -63,12 +77,14 @@ def facilities(cty, ft):
     county_name = db.session.query(models.County.county).filter(models.County.id == cty).one()
     which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
                                                              models.HealthFacilities.type == ft).all()
+    cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_']
+    print(which)
     # get list of facilities
-    if which is None:
+    if not which:
         type_name = db.session.query(models.FacilityType.name).filter(models.FacilityType.short == ft).scalar()
-        nbr = db.session.query(models.Neighbors).filter(models.Neighbors.county == cty).all()
+        nbr = db.session.query(models.Neighbors).filter(models.Neighbors.cty == cty).all()
         return render_template('neighbors.html', county=county_name, what=type_name, neighbors=nbr, type=ft)
-    return render_template('counties.html', county=county_name, query=which)
+    return render_template('counties.html', county=county_name, query=query_dict(which, cols))
 
 
 @app.route('/city/<mun>/<cty>/<stat>')
@@ -76,7 +92,8 @@ def city(mun, cty, stat):
     county = db.session.query(models.County.county).filter(models.County.id == cty).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cty).all()
-    return render_template('counties.html', county=county, query=info, city=mun)
+    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    return render_template('counties.html', county=county, query=query_dict(info, cols), city=mun)
 
 
 @app.route('/zipcode/<zc>')
