@@ -31,6 +31,16 @@ def query_dict(r, c):
     return ret
 
 
+def export(listy):
+    """take list of dicts produced by query_dict"""
+    with open('export.csv', 'w') as file:
+        writer = DictWriter(file, fieldnames=listy[0].keys())
+        writer.writeheader()
+        for dic in listy:
+            writer.writerow(dic)
+        return send_file('export.csv', mimetype='text/csv', as_attachment=True)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def choose_search():
     form = filter_form()
