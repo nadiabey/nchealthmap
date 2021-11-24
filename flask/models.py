@@ -52,7 +52,7 @@ class Zips(db.Model):
 
 class Neighbors(db.Model):
     __tablename__ = 'neighbors'
-    county = db.Column(
+    cty = db.Column(
         db.Integer,
         db.ForeignKey(County.id),
         primary_key=True
@@ -62,7 +62,7 @@ class Neighbors(db.Model):
         primary_key=True
     )
 
-    cty = orm.relationship('County', foreign_keys=[county])
+    county = orm.relationship('County', foreign_keys=[cty])
 
 
 class City(db.Model):
@@ -290,7 +290,6 @@ class COVID(db.Model):
     )
 
 
-
 class CovidDeathRace(db.Model):
     __tablename__ = 'covid_death_race'
     county_id = db.Column(
@@ -325,7 +324,6 @@ class CovidDeathRace(db.Model):
     )
 
 
-
 class CovidRace(db.Model):
     __tablename__ = 'covid_race'
     county_id = db.Column(
@@ -358,7 +356,6 @@ class CovidRace(db.Model):
         db.Integer,
         nullable=False
     )
-
 
 
 class Vaccine(db.Model):
@@ -396,7 +393,7 @@ class HealthFacilities(db.Model):
     facility_id = db.Column(
         db.Integer,
         primary_key=True,
-        nullable=False
+        autoincrement=True
     )
     name = db.Column(
         db.String(256),
@@ -422,7 +419,38 @@ class HealthFacilities(db.Model):
     )
 
 
-class DiabetesData(db.Model):
+class Diabetes(db.Model):
+    __tablename__ = 'diabetes'
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
+    prevalence = db.Column(db.Float, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
+
+
+class HeartDisease(db.Model):
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
+    deaths_per_100k = db.Column(db.Float, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
+
+
+class FoodInsecurity(db.Model):
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
+    food_insecurity_percentage = db.Column(db.Float, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
+
+
+class Dentists(db.Model):
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
+    dentists_count = db.Column(db.Float, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
+
+
+class PrimaryCare(db.Model):
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
+    primary_care_physicians_count = db.Column(db.Float, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
+
+
+"""class DiabetesData(db.Model):
     __tablename__ = 'diabetes_data'
     county_id = db.Column(
         db.Integer,
@@ -501,6 +529,7 @@ class HealthProfessionals(db.Model):
         db.Integer,
         nullable=False
     )
+"""
 
 
 class Comment(db.Model):
@@ -509,11 +538,13 @@ class Comment(db.Model):
     name = db.Column(db.String(256))
     email = db.Column(db.String(256))
     comment = db.Column(db.String(1000), nullable=False)
+    time_recorded = db.Column(db.String(256), nullable=False)
 
-    def __init__(self, name, email, comment):
+    def __init__(self, name, email, comment, time_recorded):
         self.name = name
         self.email = email
         self.comment = comment
+        self.time_recorded = time_recorded
 
 
 class Statistics(db.Model):
@@ -533,11 +564,12 @@ class Distance(db.Model):
     facility_lat = db.Column(db.Float, nullable=False)
     facility_long = db.Column(db.Float, nullable=False)
     distance_in_miles = db.Column(db.Float, nullable=False)
+    time_recorded = db.Column(db.String(256), nullable=False)
 
     fid = orm.relationship('HealthFacilities', foreign_keys=[facility_id])
 
     def __init__(self, origin_lat, origin_long, facility_id, facility_name, facility_type,
-                 facility_lat, facility_long, distance_in_miles):
+                 facility_lat, facility_long, distance_in_miles, time_recorded):
         self.origin_lat = origin_lat
         self.origin_long = origin_long
         self.facility_id = facility_id
@@ -546,5 +578,6 @@ class Distance(db.Model):
         self.facility_lat = facility_lat
         self.facility_long = facility_long
         self.distance_in_miles = distance_in_miles
+        self.time_recorded = time_recorded
 
 
