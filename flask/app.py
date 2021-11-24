@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jsglue import JSGlue
 from csv import DictWriter
 
-import models, forms
+import models, forms, datetime
 
 app = Flask(__name__)
 jsglue = JSGlue(app)
@@ -85,6 +85,7 @@ def state(stat):
     print("debug", query_dict(info, cols))
     return render_template('state.html', stat=stat, query=query_dict(info, cols), display=display)
 
+
 @app.route('/test', methods=['GET', 'POST'])
 def test():
     return render_template("test.html")
@@ -136,7 +137,8 @@ def zipcode(zc, stat):
 def feedback():
     form = forms.FeedbackForm()
     if request.method == 'POST' and form.validate():
-        info = models.Comment(name=form.name.data, email=form.email.data, comment=form.comment.data)
+        info = models.Comment(name=form.name.data, email=form.email.data, comment=form.comment.data,
+                              time_recorded=str(datetime.datetime.now()))
         db.session.add(info)
         db.session.commit()
         return redirect(url_for('success'))
@@ -173,7 +175,8 @@ def distance():
                 filter(models.HealthFacilities.facility_id == dist[0])
             info = models.Distance(origin_lat=form.latitude.data, origin_long=form.longitude.data,
                                    facility_id=dist[0], facility_name=fac_name, facility_type=form.nearest.data,
-                                   facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1])
+                                   facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1],
+                                   time_recorded = str(datetime.datetime.now()))
             db.session.add(info)
             db.session.commit()
         return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
