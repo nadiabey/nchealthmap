@@ -135,7 +135,7 @@ CREATE TABLE vaccine(
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
   one_vaccination INTEGER NOT NULL,
   full_vaccination INTEGER NOT NULL, -- REFERENCES covid(vaccinated_at_least_1),
-  total_vaccinations INTEGER NOT NULL,
+  total_vaccinations INTEGER NOT NULL
 );
 
 
@@ -151,7 +151,7 @@ name VARCHAR(50) NOT NULL UNIQUE
 
 
 CREATE TABLE health_facilities(
-facility_id INTEGER PRIMARY KEY NOT NULL,
+facility_id SERIAL PRIMARY KEY,
 name VARCHAR(256) NOT NULL,
 type VARCHAR(30) NOT NULL REFERENCES facility_type(short),
 county_id INTEGER NOT NULL REFERENCES county(id),
@@ -199,7 +199,8 @@ CREATE TABLE comments(
 comment_id SERIAL PRIMARY KEY,
 name VARCHAR(256),
 email VARCHAR(256),
-comment VARCHAR(1000) NOT NULL
+comment VARCHAR(1000) NOT NULL,
+time_recorded VARCHAR(256) NOT NULL
 );
 
 -- pull from stats tables
@@ -218,5 +219,6 @@ CREATE TABLE distance(
   facility_type VARCHAR(10) NOT NULL,
   facility_lat FLOAT NOT NULL,
   facility_long FLOAT NOT NULL,
-  distance_in_miles FLOAT NOT NULL
+  distance_in_miles FLOAT NOT NULL,
+  time_recorded VARCHAR(256) NOT NULL
 );
