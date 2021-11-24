@@ -156,29 +156,23 @@ def distance():
     form = forms.Distance()
     form.nearest.choices = [(obj.short, obj.name) for obj in models.FacilityType.query.all()]
     if request.method == 'POST' and form.validate():
-        # check if coordinates + type in distance table
-        coords = db.session.query(models.Distance). \
-            filter(models.Distance.origin_lat == form.latitude.data,
-                   models.Distance.origin_long == form.longitude.data,
-                   models.Distance.facility_type == form.nearest.data).one_or_none()
-        if coords is None:
-            listy = db.session.query(models.HealthFacilities.facility_id,
-                                     models.HealthFacilities.latitude,
-                                     models.HealthFacilities.longitude). \
-                filter(models.HealthFacilities.type == form.nearest.data).all()
-            dist = form.calculate_distance(listy)
-            fac_name = db.session.query(models.HealthFacilities.name). \
-                filter(models.HealthFacilities.facility_id == dist[0])
-            fac_lat = db.session.query(models.HealthFacilities.latitude). \
-                filter(models.HealthFacilities.facility_id == dist[0])
-            fac_long = db.session.query(models.HealthFacilities.longitude). \
-                filter(models.HealthFacilities.facility_id == dist[0])
-            info = models.Distance(origin_lat=form.latitude.data, origin_long=form.longitude.data,
-                                   facility_id=dist[0], facility_name=fac_name, facility_type=form.nearest.data,
-                                   facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1],
-                                   time_recorded = str(datetime.datetime.now()))
-            db.session.add(info)
-            db.session.commit()
+        listy = db.session.query(models.HealthFacilities.facility_id,
+                                 models.HealthFacilities.latitude,
+                                 models.HealthFacilities.longitude). \
+            filter(models.HealthFacilities.type == form.nearest.data).all()
+        dist = form.calculate_distance(listy)
+        fac_name = db.session.query(models.HealthFacilities.name). \
+            filter(models.HealthFacilities.facility_id == dist[0])
+        fac_lat = db.session.query(models.HealthFacilities.latitude). \
+            filter(models.HealthFacilities.facility_id == dist[0])
+        fac_long = db.session.query(models.HealthFacilities.longitude). \
+            filter(models.HealthFacilities.facility_id == dist[0])
+        info = models.Distance(origin_lat=form.latitude.data, origin_long=form.longitude.data,
+                               facility_id=dist[0], facility_name=fac_name, facility_type=form.nearest.data,
+                               facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1],
+                               time_recorded=str(datetime.datetime.now()))
+        db.session.add(info)
+        db.session.commit()
         return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
     return render_template('distance.html', form=form)
 
