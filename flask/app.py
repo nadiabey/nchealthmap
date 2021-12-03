@@ -1,14 +1,15 @@
+import os
 from flask import Flask, render_template, redirect, url_for, request, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_jsglue import JSGlue
 from csv import DictWriter
 
-import models, forms, datetime
-
 app = Flask(__name__)
 jsglue = JSGlue(app)
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
+
+import models, forms, datetime  # import below db to prevent circular loading
 
 
 def filter_form():
@@ -190,4 +191,5 @@ def result(ft, lat, long):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get('PORT', 5000))  # if environment has port use PORT else use 5000
+    app.run(host='0.0.0.0', port=port)
