@@ -11,19 +11,19 @@ Deploy in Vagrant:
 6. python app.py
 
 Deploy in Conda:
-pull latest version
-install all requirements in requiremnts.txt in conda
-open conda terminal
-cd to nchealthmap
-initdb -D /data
-pg_ctl -D /data -l logfile start
-pg_ctl status -D /data
-createuser vagrant
-createdb healthmap
-psql -af ../create.sql healthmap
-psql -af ../load.sql healthmap
-psql -af ../permissions.sql healthmap
+1. pull latest version
+2. install all requirements in requiremnts.txt in conda
+3. open conda terminal
+4. cd to nchealthmap
+5. initdb -D /data
+6. pg_ctl -D /data -l logfile start
+7. pg_ctl status -D /data
+8. createuser vagrant
+9. createdb healthmap
+10. psql -af ../create.sql healthmap
+11. psql -af ../load.sql healthmap
+12. psql -af ../permissions.sql healthmap
 
-Then in the future to start psql server:
-cd to nchealthmap dir
-pg_ctl -D /data -l logfile start
+Start psql server via conda:
+1. cd to nchealthmap dir
+2. pg_ctl -D /data -l logfile start
