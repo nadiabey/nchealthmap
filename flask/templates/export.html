@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Export Data - HealthCarolina</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<p>Use the dropdowns below to select the data you want to export.</p>
+<form method="POST" action="{{ url_for('export') }}">
+    {{ form.csrf_token }}
+    {{ form.location_type }}
+    {{ form.county }}
+    {{ form.city }}
+    {{ form.zip }}
+    {{ form.stats }}
+    {{ form.ft }}
+    {{ form.submit }}
+</form>
+<script src="/static/js/dynamicfilter.js"></script>
+{% block content %}{% endblock %}
+</body>
+</html>
