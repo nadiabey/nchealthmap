@@ -22,6 +22,32 @@ def filter_form():
     return form
 
 
+def distance_form():
+    form = forms.Distance()
+    form.nearest.choices = [(obj.short, obj.name) for obj in models.FacilityType.query.all()]
+    return form
+
+
+def run_distance(form):
+    listy = db.session.query(models.HealthFacilities.facility_id,
+                             models.HealthFacilities.latitude,
+                             models.HealthFacilities.longitude). \
+        filter(models.HealthFacilities.type == form.nearest.data).all()
+    dist = form.calculate_distance(listy)
+    fac_name = db.session.query(models.HealthFacilities.name). \
+        filter(models.HealthFacilities.facility_id == dist[0])
+    fac_lat = db.session.query(models.HealthFacilities.latitude). \
+        filter(models.HealthFacilities.facility_id == dist[0])
+    fac_long = db.session.query(models.HealthFacilities.longitude). \
+        filter(models.HealthFacilities.facility_id == dist[0])
+    info = models.Distance(origin_lat=form.latitude.data, origin_long=form.longitude.data,
+                           facility_id=dist[0], facility_name=fac_name, facility_type=form.nearest.data,
+                           facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1],
+                           time_recorded=str(datetime.datetime.now()))
+    db.session.add(info)
+    db.session.commit()
+
+
 def query_dict(r, c):
     d = {}
     ret = []
@@ -33,7 +59,7 @@ def query_dict(r, c):
     return ret
 
 
-def export(listy):
+def export_func(listy):
     """take list of dicts produced by query_dict"""
     with open('export.csv', 'w') as file:
         writer = DictWriter(file, fieldnames=listy[0].keys())
@@ -154,33 +180,30 @@ def success():
 @app.route('/distance', methods=['GET', 'POST'])
 def distance():
     # find closest facility of type ft
-    form = forms.Distance()
-    form.nearest.choices = [(obj.short, obj.name) for obj in models.FacilityType.query.all()]
-    zip = forms.ZipCoords()
-    if request.method == 'POST' and zip.validate():
-        coords = db.session.query(models.Zips.latitude, models.Zips.longitude).filter(
-            models.Zips.zip_code == zip.zip.data).one()
-        return render_template('distance.html', form=form, zip=zip, coords=coords)
-    if request.method == 'POST' and form.validate():
-        listy = db.session.query(models.HealthFacilities.facility_id,
-                                 models.HealthFacilities.latitude,
-                                 models.HealthFacilities.longitude). \
-            filter(models.HealthFacilities.type == form.nearest.data).all()
-        dist = form.calculate_distance(listy)
-        fac_name = db.session.query(models.HealthFacilities.name). \
-            filter(models.HealthFacilities.facility_id == dist[0])
-        fac_lat = db.session.query(models.HealthFacilities.latitude). \
-            filter(models.HealthFacilities.facility_id == dist[0])
-        fac_long = db.session.query(models.HealthFacilities.longitude). \
-            filter(models.HealthFacilities.facility_id == dist[0])
-        info = models.Distance(origin_lat=form.latitude.data, origin_long=form.longitude.data,
-                               facility_id=dist[0], facility_name=fac_name, facility_type=form.nearest.data,
-                               facility_lat=fac_lat, facility_long=fac_long, distance_in_miles=dist[1],
-                               time_recorded=str(datetime.datetime.now()))
-        db.session.add(info)
-        db.session.commit()
-        return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
-    return render_template('distance.html', form=form, zip=zip)
+    form = distance_form()
+    zipc = forms.ZipCoords()
+    if request.method == 'POST':
+        if form.submit.data and form.validate():
+            run_distance(form)
+            return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
+        if zipc.submits.data and zipc.validate():  # this if statement comes later to allow distance form override
+            return redirect(url_for('coords'))
+    return render_template('distance.html', form=form, zip=zipc)
+
+
+@app.route('/coords', methods=['GET', 'POST'])
+def coords():
+    form = distance_form()
+    zipc = forms.ZipCoords()
+    coords = db.session.query(models.Zips.latitude, models.Zips.longitude).filter(
+        models.Zips.zip_code == zipc.zip.data).one()
+    if request.method == 'POST':   # duplicated so user can submit form again
+        if form.submit.data and form.validate():
+            run_distance(form)
+            return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
+        if zipc.submits.data and zipc.validate():  # this if statement comes later to allow distance form override
+            return redirect(url_for('coords'))
+    return render_template('distance.html', form=form, zip=zipc, coords=coords)
 
 
 @app.route('/result/<ft>/<lat>/<long>')
@@ -193,6 +216,20 @@ def result(ft, lat, long):
     # actually write the result template; something like the closest {{name}} to you is {{place}} in {{county}} county
     # which is over {{number}} miles away. distance is calculated using great circle dist which is an underestimate.
     return render_template('landing.html', form=filter_form())
+
+
+@app.route('/export', methods=['GET', 'POST'])
+def export():
+    form = filter_form()
+    if request.method == 'POST':
+        stat = form.stats.data
+        src = getattr(models, stat)
+        rows = db.session.query(src).all()
+        columns = [item for item in src.__dict__.keys() if item[0] != '_']
+        dics = query_dict(rows, columns)
+        export_func(dics)
+        return render_template('export.html', form=form)
+    return render_template('export.html', form=form)
 
 
 if __name__ == '__main__':
