@@ -27,8 +27,8 @@ CREATE TABLE zips(
 zip_code INTEGER NOT NULL PRIMARY KEY,
 city VARCHAR(50) NOT NULL,
 county_id INTEGER NOT NULL REFERENCES county(id),
-latitude VARCHAR(50) NOT NULL,
-longitude VARCHAR(50) NOT NULL
+latitude REAL NOT NULL,
+longitude REAL NOT NULL
 );
 
 CREATE TABLE cities(
