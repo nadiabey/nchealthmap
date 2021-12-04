@@ -8,11 +8,13 @@
 <body>
 <form method="POST" action="{{ url_for('distance') }}">
     {{ form.csrf_token }}
-    <p>To get the coordinates of an address, you can use <a href="https://geoservices.tamu.edu/Services/Geocode/Interactive/">this</a> website.</p>
     Latitude: {{ form.latitude }}
     Longitude: {{ form.longitude }}
     {{ form.nearest }}
     {{ form.submit }}
+    <p>To get the coordinates of an address, you can use <a href="https://geoservices.tamu.edu/Services/Geocode/Interactive/">this</a> website.</p>
+    <p>You can also search for zip code coordinates: {{ zip.zip }}{{ zip.submit }}</p>
+    {% if coords %}<p>{{ coords }}</p>{% endif %}
 </form>
 {% block content %}{% endblock %}
 </body>
