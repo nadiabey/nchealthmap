@@ -51,3 +51,8 @@ class Distance(FlaskForm):
                 for x in fac]
         min_dist = min(dist, key=lambda x: x[1])
         return min_dist
+
+
+class ZipCoords(FlaskForm):
+    zip = IntegerField('Zip Code')
+    submit = SubmitField('Get')
