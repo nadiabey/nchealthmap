@@ -1,1 +1,14 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nearest {{ type }}</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+<p>The closest {{ type }} to this location is <b>{{ place }}</b> in {{ county }} County.</p>
+<p>It is approximately <b>{{ dist }}</b>* miles away.</p>
+<p>Click <a href="https://maps.google.com/?ll={{ there_lat }},{{ there_long }}">here</a> to view this location on Google Maps.</p>
+<p>Click <a href="https://www.google.com/maps/dir/{{ here_lat }},{{ here_long }}/{{ there_lat }},{{ there_long }}">here</a> for directions.</p>
+<p style="font-size:12px">*We calculated this using <a href="https://en.wikipedia.org/wiki/Great-circle_distance">Great Circle Distance</a>, which is generally an underestimate of walking or
+driving distance.</p>
