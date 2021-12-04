@@ -4,6 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_jsglue import JSGlue
 from csv import DictWriter
 
+from sqlalchemy import desc
+
 app = Flask(__name__)
 jsglue = JSGlue(app)
 app.config.from_object('config')
@@ -197,7 +199,7 @@ def coords():
     zipc = forms.ZipCoords()
     coords = db.session.query(models.Zips.latitude, models.Zips.longitude).filter(
         models.Zips.zip_code == zipc.zip.data).one()
-    if request.method == 'POST':   # duplicated so user can submit form again
+    if request.method == 'POST':  # duplicated so user can submit form again
         if form.submit.data and form.validate():
             run_distance(form)
             return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
@@ -208,14 +210,32 @@ def coords():
 
 @app.route('/result/<ft>/<lat>/<long>')
 def result(ft, lat, long):
+    table = models.Distance
     # use ft to get name of type for template
     name = db.session.query(models.FacilityType.name).filter(models.FacilityType.short == ft).scalar()
-    # get result
-    res = db.session.query(models.Distance).filter(models.Distance.origin_lat == lat,
-                                                   models.Distance.origin_long == long).scalar()
-    # actually write the result template; something like the closest {{name}} to you is {{place}} in {{county}} county
-    # which is over {{number}} miles away. distance is calculated using great circle dist which is an underestimate.
-    return render_template('landing.html', form=filter_form())
+    # get result; ordered descending to get most recent entry matching lat/long/type
+    # first() returns row, not individual values
+    res = db.session.query(table.distance_in_miles).filter(table.origin_lat == lat,
+                                                           table.origin_long == long,
+                                                           table.facility_type == ft).order_by(
+        desc(table.entry)).first()[0]
+    place = db.session.query(table.facility_name).filter(table.origin_lat == lat,
+                                                         table.origin_long == long,
+                                                         table.facility_type == ft).order_by(
+        desc(table.entry)).first()[0]
+    cid = db.session.query(models.HealthFacilities.county_id).filter(models.HealthFacilities.name == place).scalar()
+    cty = db.session.query(models.County.county).filter(models.County.id == cid).scalar()
+    # oo origin coords, ll target coords
+    oo = db.session.query(table.origin_lat, table.origin_long).filter(table.origin_lat == lat,
+                                                                          table.origin_long == long,
+                                                                          table.facility_type == ft).order_by(
+        desc(table.entry)).first()
+    ll = db.session.query(table.facility_lat, table.facility_long).filter(table.origin_lat == lat,
+                                                         table.origin_long == long,
+                                                         table.facility_type == ft).order_by(desc(table.entry)).first()
+    return render_template('result.html', type=name, dist=round(res, 2), place=place, county=cty,
+                           here_lat=oo[0], here_long=oo[1],
+                           there_lat=ll[0], there_long=ll[1])
 
 
 @app.route('/export', methods=['GET', 'POST'])
