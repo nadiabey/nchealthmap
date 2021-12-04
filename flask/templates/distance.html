@@ -12,10 +12,11 @@
     Longitude: {{ form.longitude }}
     {{ form.nearest }}
     {{ form.submit }}
-    <p>To get the coordinates of an address, you can use <a href="https://geoservices.tamu.edu/Services/Geocode/Interactive/">this</a> website.</p>
-    <p>You can also search for zip code coordinates: {{ zip.zip }}{{ zip.submit }}</p>
-    {% if coords %}<p>{{ coords }}</p>{% endif %}
 </form>
+<p>To get the coordinates of an address, you can use <a href="https://geoservices.tamu.edu/Services/Geocode/Interactive/">this</a> website.</p>
+<p>You can also search for zip code coordinates:</p>
+<form method="POST" action="{{ url_for('coords') }}">{{ zip.zip }}{{ zip.submits }}</form>
+{% if coords %}<p>{{ coords }}</p>{% endif %}
 {% block content %}{% endblock %}
 </body>
 <footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
