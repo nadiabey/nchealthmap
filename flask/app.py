@@ -156,6 +156,11 @@ def distance():
     # find closest facility of type ft
     form = forms.Distance()
     form.nearest.choices = [(obj.short, obj.name) for obj in models.FacilityType.query.all()]
+    zip = forms.ZipCoords()
+    if request.method == 'POST' and zip.validate():
+        coords = db.session.query(models.Zips.latitude, models.Zips.longitude).filter(
+            models.Zips.zip_code == zip.zip.data).one()
+        return render_template('distance.html', form=form, zip=zip, coords=coords)
     if request.method == 'POST' and form.validate():
         listy = db.session.query(models.HealthFacilities.facility_id,
                                  models.HealthFacilities.latitude,
@@ -175,7 +180,7 @@ def distance():
         db.session.add(info)
         db.session.commit()
         return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
-    return render_template('distance.html', form=form)
+    return render_template('distance.html', form=form, zip=zip)
 
 
 @app.route('/result/<ft>/<lat>/<long>')
