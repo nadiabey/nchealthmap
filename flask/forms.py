@@ -1,7 +1,7 @@
 import math
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, FloatField, SelectField, SubmitField
-from wtforms.validators import DataRequired, Email, length, InputRequired
+from wtforms import StringField, TextAreaField, IntegerField, FloatField, SelectField, SubmitField
+from wtforms.validators import DataRequired, Email, length, InputRequired, optional
 
 
 class Filter(FlaskForm):
@@ -16,8 +16,8 @@ class Filter(FlaskForm):
 
 class FeedbackForm(FlaskForm):
     name = StringField(label='Name', validators=[length(max=256)])
-    email = StringField(validators=[Email(), length(max=256)])
-    comment = StringField(validators=[InputRequired(), length(max=1000)])
+    email = StringField(validators=[optional(), Email(), length(max=256)])  # optional to allow comments w/o email
+    comment = TextAreaField(validators=[InputRequired(), length(max=1000)])
     submit = SubmitField('Send')
 
 
@@ -55,4 +55,4 @@ class Distance(FlaskForm):
 
 class ZipCoords(FlaskForm):
     zip = IntegerField('Zip Code')
-    submit = SubmitField('Get')
+    submits = SubmitField('Get')
