@@ -3102,6 +3102,6 @@ INSERT INTO statistics VALUES('HeartDisease', 'Heart Disease');
 INSERT INTO statistics VALUES('InfantMortality', 'Infant Mortality');
 INSERT INTO statistics VALUES('Insurance', 'Insurance');
 INSERT INTO statistics VALUES('LifeExpectancy', 'Life Expectancy');
-INSERT INTO statistics VALUES('Population', 'Population');
+INSERT INTO statistics VALUES('PopulationC', 'Population');
 INSERT INTO statistics VALUES('Prenatal', 'Prenatal Care');
 INSERT INTO statistics VALUES('PrimaryCare', 'Primary Care Physicians');
