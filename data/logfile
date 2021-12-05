@@ -1,0 +1,153 @@
+2021-12-05 15:37:50.362 EST [31096] LOG:  starting PostgreSQL 12.2, compiled by Visual C++ build 1916, 64-bit
+2021-12-05 15:37:50.365 EST [31096] LOG:  listening on IPv6 address "::1", port 5432
+2021-12-05 15:37:50.365 EST [31096] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2021-12-05 15:37:50.413 EST [12620] LOG:  database system was shut down at 2021-11-20 17:24:33 EST
+2021-12-05 15:37:50.433 EST [31096] LOG:  database system is ready to accept connections
+2021-12-05 15:43:44.171 EST [10284] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 15:43:44.171 EST [10284] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 15:43:44.171 EST [28688] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 15:43:44.171 EST [18676] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 15:43:44.171 EST [18676] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 15:53:02.393 EST [2216] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 15:54:03.435 EST [28964] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 15:56:31.765 EST [32792] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:14:02.203 EST [16788] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:14:02.203 EST [16788] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 16:14:02.203 EST [24440] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:14:02.204 EST [24440] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 16:14:02.204 EST [30716] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:14:02.204 EST [30716] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 16:14:02.204 EST [31296] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:14:02.204 EST [31592] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:14:02.204 EST [31296] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 16:21:35.243 EST [13244] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:28:45.219 EST [5012] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:30:34.847 EST [14356] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:30:58.815 EST [21744] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:30:58.815 EST [21744] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 16:34:34.155 EST [33716] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:34:34.155 EST [33716] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 16:35:15.327 EST [31132] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:39:34.773 EST [32808] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:40:05.965 EST [11604] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:40:20.491 EST [17980] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:43:26.721 EST [6996] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:44:53.768 EST [11220] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:46:37.786 EST [19000] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:48:58.786 EST [31500] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 16:54:35.231 EST [13780] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:09:17.350 EST [12148] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:13:07.300 EST [31396] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:25:28.855 EST [13628] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:26:22.711 EST [29660] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:26:51.343 EST [27888] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:27:28.134 EST [17340] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:28:32.228 EST [25444] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:29:55.960 EST [3876] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:34:55.766 EST [2224] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:36:15.772 EST [15776] ERROR:  relation "vaccine" does not exist at character 217
+2021-12-05 17:36:15.772 EST [15776] STATEMENT:  SELECT vaccine.county_id AS vaccine_county_id, vaccine.one_vaccination AS vaccine_one_vaccination, vaccine.full_vaccination AS vaccine_full_vaccination, vaccine.total_vaccinations AS vaccine_total_vaccinations 
+	FROM vaccine
+2021-12-05 17:38:42.262 EST [19000] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.262 EST [19000] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.262 EST [1528] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.262 EST [1528] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.262 EST [15764] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.262 EST [15764] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.262 EST [30636] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.262 EST [30636] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.262 EST [15776] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.262 EST [24372] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.262 EST [9224] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [24372] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [9224] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [11572] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [11572] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [10468] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [31656] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [31656] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [32168] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [10468] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [32168] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [22192] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [18548] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [18548] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [18668] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [22192] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [30808] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:38:42.263 EST [30808] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:38:42.263 EST [18668] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:41:57.795 EST [15476] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:41:57.795 EST [15476] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:41:57.796 EST [32012] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:41:57.796 EST [32012] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:41:57.796 EST [6424] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:41:57.796 EST [6424] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:41:57.796 EST [18740] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:41:57.796 EST [18740] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:41:57.796 EST [15660] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:41:57.796 EST [2404] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:41:57.797 EST [2404] LOG:  unexpected EOF on client connection with an open transaction
+2021-12-05 17:43:31.835 EST [16920] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:49:51.543 EST [23640] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:53:01.569 EST [22116] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2021-12-05 17:58:08.679 EST [31052] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
