@@ -11,4 +11,4 @@
 <p>Click <a href="https://maps.google.com/?ll={{ there_lat }},{{ there_long }}">here</a> to view this location on Google Maps.</p>
 <p>Click <a href="https://www.google.com/maps/dir/{{ here_lat }},{{ here_long }}/{{ there_lat }},{{ there_long }}">here</a> for directions.</p>
 <p style="font-size:12px">*We calculated this using <a href="https://en.wikipedia.org/wiki/Great-circle_distance">Great Circle Distance</a>, which is generally an underestimate of walking or
-driving distance.</p>
+driving distance. Think we're missing something? <a href="{{ url_for('feedback') }}">Send us feedback.</a></p>
