@@ -120,8 +120,8 @@ class Prenatal(db.Model):
     )
 
 
-class Population(db.Model):
-    __tablename__ = 'population'
+class PopulationC(db.Model):
+    __tablename__ = 'population_c'
     county_id = db.Column(
         db.Integer,
         db.ForeignKey(County.id),

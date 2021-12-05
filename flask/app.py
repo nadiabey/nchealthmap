@@ -233,7 +233,7 @@ def result(ft, lat, long):
     # first() returns type Row, not individual values
     res = db.session.query(table.distance_in_miles).order_by(desc(table.entry)).first()[0]
     place = db.session.query(table.facility_name).order_by(desc(table.entry)).first()[0]
-    cid = db.session.query(models.HealthFacilities.county_id).filter(models.HealthFacilities.name == place).scalar()
+    cid = db.session.query(models.HealthFacilities.county_id).filter(models.HealthFacilities.name == place).first()[0]
     cty = db.session.query(models.County.county).filter(models.County.id == cid).scalar()
     # target coords
     ll = db.session.query(table.facility_lat, table.facility_long).order_by(desc(table.entry)).first()
