@@ -1812,8 +1812,7 @@ INSERT INTO health_facilities (name, type, county_id, latitude, longitude) VALUE
  INSERT INTO diabetes (county_id, prevalence) VALUES (1, 9.2), (2, 15.1), (3, 9.7), (4, 11.6), (5, 10.6), (6, 10.1), (7, 7.3), (8, 19.0), (9, 19.6), (10, 10.2), (11, 7.0), (12, 6.6), (13, 11.2), (14, 13.8), (15, 8.7), (16, 11.1), (17, 12.4), (18, 10.8), (19, 8.7), (20, 8.8), (21, 13.5), (22, 3.5), (23, 12.3), (24, 16.9), (25, 11.7), (26, 12.3), (27, 8.8), (28, 9.1), (29, 13.6), (30, 9.4), (31, 13.7), (32, 7.2), (33, 16.7), (34, 10.1), (35, 10.0), (36, 9.5), (37, 12.7), (38, 4.8), (39, 10.2), (40, 13.5), (41, 10.1), (42, 20.2), (43, 14.6), (44, 8.7), (45, 8.4), (46, 22.4), (47, 12.9), (48, 16.6), (49, 10.2), (50, 9.0), (51, 11.4), (52, 24.7), (53, 9.4), (54, 12.8), (55, 7.8), (56, 11.4), (57, 5.4), (58, 18.4), (59, 9.8), (60, 8.3), (61, 9.3), (62, 19.6), (63, 6.1), (64, 13.6), (65, 6.4), (66, 18.6), (67, 10.8), (68, 6.9), (69, 16.6), (70, 11.0), (71, 13.4), (72, 9.1), (73, 9.5), (74, 10.5), (75, 11.1), (76, 10.1), (77, 21.2), (78, 14.2), (79, 13.1), (80, 9.7), (81, 11.9), (82, 15.8), (83, 17.4), (84, 8.6), (85, 13.5), (86, 9.1), (87, 10.9), (88, 9.6), (89, 17.0), (90, 8.6), (91, 16.0), (92, 8.5), (93, 9.5), (94, 14.9), (95, 7.4), (96, 15.5), (97, 13.9), (98, 9.3), (99, 9.6), (100, 12.3);
 
   -- heart disease data
-
-INSERT INTO heart_disease VALUES (1, 266);
+  INSERT INTO heart_disease VALUES (1, 266);
 INSERT INTO heart_disease VALUES (2, 54);
 INSERT INTO heart_disease VALUES (3, 17);
 INSERT INTO heart_disease VALUES (4, 55);
@@ -1913,16 +1912,115 @@ INSERT INTO heart_disease VALUES (97, 112);
 INSERT INTO heart_disease VALUES (98, 138);
 INSERT INTO heart_disease VALUES (99, 64);
 INSERT INTO heart_disease VALUES (100, 30);
+
   -- CONDITIONS
 
  -- food insecurity data
 
- INSERT INTO food_insecurity (county_id, food_insecurity_percentage) VALUES (1, 14.0),(2, 14.0),(3, 18.0),(4, 16.6),(5, 14.4),(6, 14.5),(7, 16.2),(8, 18.4),(9, 19.1),(10, 13.7),(11, 12.4),(12, 15.5),(13, 11.1),(14, 14.9),(15, 11.7),(16, 13.8),(17, 15.9),(18, 12.8),(19, 11.9),(20, 15.3),(21, 15.9),(22, 14.9),(23, 16.2),(24, 18.1),(25, 15.0),(26, 16.9),(27, 11.4),(28, 11.8),(29, 14.1),(30, 12.6),(31, 17.1),(32, 13.5),(33, 19.6),(34, 13.8),(35, 13.7),(36, 14.4),(37, 14.2),(38, 16.5),(39, 13.4),(40, 18.5),(41, 13.9),(42, 19.9),(43, 14.5),(44, 13.6),(45, 11.8),(46, 18.9),(47, 16.7),(48, 18.1),(49, 12.1),(50, 14.4),(51, 12.6),(52, 19.5),(53, 14.2),(54, 18.9),(55, 12.9),(56, 14.5),(57, 14.7),(58, 16.7),(59, 15.5),(60, 12.0),(61, 14.5),(62, 14.5),(63, 12.8),(64, 15.4),(65, 14.1),(66, 18.5),(67, 15.2),(68, 10.8),(69, 15.1),(70, 15.3),(71, 13.6),(72, 14.6),(73, 15.5),(74, 16.1),(75, 12.6),(76, 13.8),(77, 18.4),(78, 19.4),(79, 15.2),(80, 14.3),(81, 16.4),(82, 16.9),(83, 20.9),(84, 13.4),(85, 13.0),(86, 15.0),(87, 15.5),(88, 13.6),(89, 20.3),(90, 9.5),(91, 19.0),(92, 10.4),(93, 17.6),(94, 19.5),(95, 13.8),(96, 16.6),(97, 15.8),(98, 17.8),(99, 13.4),(100, 15.4);
+INSERT INTO food_insecurity VALUES (1, 23731);
+INSERT INTO food_insecurity VALUES (2, 5250);
+INSERT INTO food_insecurity VALUES (3, 2005);
+INSERT INTO food_insecurity VALUES (4, 4058);
+INSERT INTO food_insecurity VALUES (5, 3917);
+INSERT INTO food_insecurity VALUES (6, 2546);
+INSERT INTO food_insecurity VALUES (7, 7613);
+INSERT INTO food_insecurity VALUES (8, 3486);
+INSERT INTO food_insecurity VALUES (9, 6250);
+INSERT INTO food_insecurity VALUES (10, 19566);
+INSERT INTO food_insecurity VALUES (11, 32388);
+INSERT INTO food_insecurity VALUES (12, 14025);
+INSERT INTO food_insecurity VALUES (13, 24026);
+INSERT INTO food_insecurity VALUES (14, 12245);
+INSERT INTO food_insecurity VALUES (15, 1271);
+INSERT INTO food_insecurity VALUES (16, 9587);
+INSERT INTO food_insecurity VALUES (17, 3594);
+INSERT INTO food_insecurity VALUES (18, 20423);
+INSERT INTO food_insecurity VALUES (19, 8862);
+INSERT INTO food_insecurity VALUES (20, 4378);
+INSERT INTO food_insecurity VALUES (21, 2217);
+INSERT INTO food_insecurity VALUES (22, 1673);
+INSERT INTO food_insecurity VALUES (23, 15867);
+INSERT INTO food_insecurity VALUES (24, 10047);
+INSERT INTO food_insecurity VALUES (25, 15321);
+INSERT INTO food_insecurity VALUES (26, 56701);
+INSERT INTO food_insecurity VALUES (27, 3165);
+INSERT INTO food_insecurity VALUES (28, 4367);
+INSERT INTO food_insecurity VALUES (29, 23633);
+INSERT INTO food_insecurity VALUES (30, 5399);
+INSERT INTO food_insecurity VALUES (31, 10045);
+INSERT INTO food_insecurity VALUES (32, 43401);
+INSERT INTO food_insecurity VALUES (33, 10089);
+INSERT INTO food_insecurity VALUES (34, 52757);
+INSERT INTO food_insecurity VALUES (35, 9547);
+INSERT INTO food_insecurity VALUES (36, 32332);
+INSERT INTO food_insecurity VALUES (37, 1642);
+INSERT INTO food_insecurity VALUES (38, 1393);
+INSERT INTO food_insecurity VALUES (39, 8099);
+INSERT INTO food_insecurity VALUES (40, 3898);
+INSERT INTO food_insecurity VALUES (41, 74667);
+INSERT INTO food_insecurity VALUES (42, 9952);
+INSERT INTO food_insecurity VALUES (43, 19717);
+INSERT INTO food_insecurity VALUES (44, 8475);
+INSERT INTO food_insecurity VALUES (45, 13855);
+INSERT INTO food_insecurity VALUES (46, 4475);
+INSERT INTO food_insecurity VALUES (47, 9224);
+INSERT INTO food_insecurity VALUES (48, 894);
+INSERT INTO food_insecurity VALUES (49, 21999);
+INSERT INTO food_insecurity VALUES (50, 6327);
+INSERT INTO food_insecurity VALUES (51, 26377);
+INSERT INTO food_insecurity VALUES (52, 1837);
+INSERT INTO food_insecurity VALUES (53, 8773);
+INSERT INTO food_insecurity VALUES (54, 10574);
+INSERT INTO food_insecurity VALUES (55, 11108);
+INSERT INTO food_insecurity VALUES (56, 5199);
+INSERT INTO food_insecurity VALUES (57, 3198);
+INSERT INTO food_insecurity VALUES (58, 3747);
+INSERT INTO food_insecurity VALUES (59, 7092);
+INSERT INTO food_insecurity VALUES (60, 133243);
+INSERT INTO food_insecurity VALUES (61, 2170);
+INSERT INTO food_insecurity VALUES (62, 3940);
+INSERT INTO food_insecurity VALUES (63, 12913);
+INSERT INTO food_insecurity VALUES (64, 14522);
+INSERT INTO food_insecurity VALUES (65, 33061);
+INSERT INTO food_insecurity VALUES (66, 3604);
+INSERT INTO food_insecurity VALUES (67, 30087);
+INSERT INTO food_insecurity VALUES (68, 16035);
+INSERT INTO food_insecurity VALUES (69, 1922);
+INSERT INTO food_insecurity VALUES (70, 6093);
+INSERT INTO food_insecurity VALUES (71, 8576);
+INSERT INTO food_insecurity VALUES (72, 1966);
+INSERT INTO food_insecurity VALUES (73, 6121);
+INSERT INTO food_insecurity VALUES (74, 29099);
+INSERT INTO food_insecurity VALUES (75, 2611);
+INSERT INTO food_insecurity VALUES (76, 19826);
+INSERT INTO food_insecurity VALUES (77, 8249);
+INSERT INTO food_insecurity VALUES (78, 25341);
+INSERT INTO food_insecurity VALUES (79, 13834);
+INSERT INTO food_insecurity VALUES (80, 20319);
+INSERT INTO food_insecurity VALUES (81, 10993);
+INSERT INTO food_insecurity VALUES (82, 10737);
+INSERT INTO food_insecurity VALUES (83, 7278);
+INSERT INTO food_insecurity VALUES (84, 8416);
+INSERT INTO food_insecurity VALUES (85, 5927);
+INSERT INTO food_insecurity VALUES (86, 10767);
+INSERT INTO food_insecurity VALUES (87, 2212);
+INSERT INTO food_insecurity VALUES (88, 4676);
+INSERT INTO food_insecurity VALUES (89, 815);
+INSERT INTO food_insecurity VALUES (90, 22787);
+INSERT INTO food_insecurity VALUES (91, 8462);
+INSERT INTO food_insecurity VALUES (92, 115623);
+INSERT INTO food_insecurity VALUES (93, 3473);
+INSERT INTO food_insecurity VALUES (94, 2258);
+INSERT INTO food_insecurity VALUES (95, 7752);
+INSERT INTO food_insecurity VALUES (96, 20440);
+INSERT INTO food_insecurity VALUES (97, 10809);
+INSERT INTO food_insecurity VALUES (98, 14561);
+INSERT INTO food_insecurity VALUES (99, 5047);
+INSERT INTO food_insecurity VALUES (100, 2783);
 
   -- HEALTHCARE PROFESSIONALS
 
   -- number of primary care physicians
-
 INSERT INTO primary_care VALUES (1, 102);
 INSERT INTO primary_care VALUES (2, 7);
 INSERT INTO primary_care VALUES (3, 4);
@@ -2025,7 +2123,6 @@ INSERT INTO primary_care VALUES (99, 8);
 INSERT INTO primary_care VALUES (100, 7);
 
  --dentists
-
 INSERT INTO dentists VALUES (1, 68);
 INSERT INTO dentists VALUES (2, 4);
 INSERT INTO dentists VALUES (3, 1);
