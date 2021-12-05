@@ -130,7 +130,7 @@ def test():
 
 @app.route('/county/<cid>/<stat>', methods=['GET', 'POST'])
 def county(cid, stat):
-    cty = db.session.query(models.County.county).filter(models.County.id == cid).one()
+    cty = db.session.query(models.County.county).filter(models.County.id == cid).scalar()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cid).all()
     cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
@@ -139,7 +139,7 @@ def county(cid, stat):
 
 @app.route('/facilities/<cty>/<ft>')
 def facilities(cty, ft):
-    county_name = db.session.query(models.County.county).filter(models.County.id == cty).one()
+    county_name = db.session.query(models.County.county).filter(models.County.id == cty).scalar()
     which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
                                                              models.HealthFacilities.type == ft).all()
     cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_' and item != 'c']
@@ -164,7 +164,7 @@ def city(mun, cty, stat):
 @app.route('/zipcode/<zc>/<stat>')
 def zipcode(zc, stat):
     cty_id = db.session.query(models.Zips.county_id).filter(models.Zips.zip_code == zc).scalar()
-    cty_name = db.session.query(models.County.county).filter(models.County.id == cty_id).one()
+    cty_name = db.session.query(models.County.county).filter(models.County.id == cty_id).scalar()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cty_id).all()
     cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
@@ -175,7 +175,14 @@ def zipcode(zc, stat):
 def feedback():
     form = forms.FeedbackForm()
     if request.method == 'POST' and form.validate():
-        info = models.Comment(name=form.name.data, email=form.email.data, comment=form.comment.data,
+        # if form fields are empty pass null/none rather than empty string
+        name = None
+        if form.name.data:
+            name = form.name.data
+        email = None
+        if form.email.data:
+            email = form.email.data
+        info = models.Comment(name=name, email=email, comment=form.comment.data,
                               time_recorded=str(datetime.datetime.now()))
         db.session.add(info)
         db.session.commit()
