@@ -18,8 +18,9 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
     <script>
-
         var svg = d3.select("svg");
+        width = +svg.attr('width');
+        height = +svg.attr('height');
 
         //create projection for map and pass that to the path generator
         var projection = d3
@@ -28,16 +29,16 @@
 
         var path = d3.geoPath(projection);
 
-        var file = Flask.url_for("static", {"filename": "data/ncmap.json"});
-        d3.json(file, function (error, mapData) {
+
+        d3.json("/static/ncmap.geojson", function (error, mapData) {
             if (error) throw error;
 
             var projection = d3
                 .geoAlbers()
                 .rotate([0, 62, 0])
-                .fitSize([d3.select("svg").attr("width")-50, d3.select("svg").attr("height")], mapData);         
+                .fitSize([d3.select("svg").attr("width")-50, d3.select("svg").attr("height")], mapData);
 
-                var path = d3.geoPath(projection);
+            var path = d3.geoPath(projection);
 
             svg
                 .append("g")
@@ -46,9 +47,9 @@
                 .enter()
                 .append("path")
                 .attr("d", path)
-                .attr("class", "county")
+                .attr("class", "CountyName")
                 .attr("id", function (d) {
-                    return d.properties.county;
+                    return d.properties.CountyName;
                 })
                 .attr("fill", "#fff")
                 .style("stroke", "#d3d3d3")
@@ -61,7 +62,7 @@
             var annotations = mapData.features.map(function (el) {
 
                 return {
-                    note: { label: el.properties.county, orientation: "topBottom"},
+                    note: { label: el.properties.CountyName, orientation: "topBottom"},
                     x: path.centroid(el.geometry)[0],
                     y: path.centroid(el.geometry)[1] - 10
                 }
@@ -71,7 +72,7 @@
                 .type(d3.annotationLabel)
                 .annotations(annotations)
                 // .disable(["connector", "subject"])
-                .editMode(true);
+                .editMode(false);
 
             svg.append("g")
                 .attr("class", "annotation-group")
