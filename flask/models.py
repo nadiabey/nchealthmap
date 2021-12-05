@@ -254,10 +254,6 @@ class LifeExpectancy(db.Model):
         db.Float,
         nullable=False
     )
-    food_insecurity = db.Column(
-        db.Float,
-        nullable=False
-    )
     violent_crime = db.Column(
         db.Float,
         nullable=False
@@ -535,8 +531,8 @@ class HealthProfessionals(db.Model):
 class Comment(db.Model):
     __tablename__ = 'comments'
     comment_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(256))
-    email = db.Column(db.String(256))
+    name = db.Column(db.String(256), nullable=True)
+    email = db.Column(db.String(256), nullable=True)
     comment = db.Column(db.String(1000), nullable=False)
     time_recorded = db.Column(db.String(256), nullable=False)
 
