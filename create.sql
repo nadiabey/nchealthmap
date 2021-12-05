@@ -83,7 +83,6 @@ CREATE TABLE life_expectancy(
   life_exp_years INTEGER NOT NULL,
   poverty_rate FLOAT NOT NULL, -- % of people living in poverty
   unemployment_rate FLOAT NOT NULL, -- % of people unemployed
-  food_insecurity FLOAT NOT NULL, -- % of people suffering of food insecurity
   violent_crime FLOAT NOT NULL -- % of people affected by violent crimes
 );
 
