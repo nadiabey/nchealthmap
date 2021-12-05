@@ -239,8 +239,27 @@ def result(ft, lat, long):
 def export():
     form = filter_form()
     if request.method == 'POST':
-        stats = get_rows_cols(form.stats.data)
-        export_func(stats)
+        if form.location_type.data == 'NC':
+            stats = get_rows_cols(form.stats.data)
+            export_func(stats)
+        else:
+            cty = 0
+            if form.location_type.data == 'cty':
+                cty = form.county.data
+            if form.location_type.data == 'mun':
+                cty = db.session.query(models.City.county_id).filter(models.City.city == form.city.data).scalar()
+            if form.location_type.data == 'zip':
+                cty = db.session.query(models.Zips.county_id).filter(models.Zips.zip_code == form.zip.data).scalar()
+            if form.stats.data == 'HealthFacilities':
+                which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
+                                                                         models.HealthFacilities.type == form.ft.data).all()
+                cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_' and item != 'c']
+                export_func(query_dict(which, cols))
+            else:
+                src = getattr(models, form.stats.data)
+                info = db.session.query(src).filter(src.county_id == cty).all()
+                cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
+                export_func(query_dict(info, cols))
         return render_template('export.html', form=form)
     return render_template('export.html', form=form)
 
