@@ -142,7 +142,7 @@ def facilities(cty, ft):
     county_name = db.session.query(models.County.county).filter(models.County.id == cty).one()
     which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
                                                              models.HealthFacilities.type == ft).all()
-    cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
+    cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_' and item != 'c']
     # get list of facilities
     if not which:
         # get neighbors if query is empty
