@@ -1099,7 +1099,7 @@ INSERT INTO infant_mortality VALUES (100, 0);
 INSERT INTO insurance VALUES (1, 43.2, 55.7);
 
 -- life expectancy
-INSERT INTO life_expectancy VALUES (1, 78, 4.2, 33.8, 23.1, 45.1);
+INSERT INTO life_expectancy VALUES (1, 78, 4.2, 33.8, 45.1);
 
 -- population per county
 
