@@ -1,4 +1,6 @@
 import os
+import datetime
+import forms
 from flask import Flask, render_template, redirect, url_for, request, send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_jsglue import JSGlue
@@ -11,7 +13,7 @@ jsglue = JSGlue(app)
 app.config.from_object('config')
 db = SQLAlchemy(app, session_options={'autocommit': False})
 
-import models, forms, datetime  # import below db to prevent circular loading
+import models  # import below db to prevent circular loading
 
 
 def filter_form():
@@ -61,6 +63,14 @@ def query_dict(r, c):
     return ret
 
 
+def get_rows_cols(table):
+    """get dictionary of table values for non-filtered (i.e. no select/where) data"""
+    src = getattr(models, table)
+    info = db.session.query(src).all()
+    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    return query_dict(info, cols)
+
+
 def export_func(listy):
     """take list of dicts produced by query_dict"""
     with open('export.csv', 'w') as file:
@@ -108,11 +118,8 @@ def choose_search():
 @app.route('/state/<stat>', methods=['GET', 'POST'])
 def state(stat):
     display = db.session.query(models.Statistics.displayname).filter(models.Statistics.name == stat).scalar()
-    src = getattr(models, stat)
-    info = db.session.query(src).all()
-    cols = [item for item in src.__dict__.keys() if item[0] != '_']
-    print("debug", query_dict(info, cols))
-    return render_template('state.html', stat=stat, query=query_dict(info, cols), display=display)
+    stats = get_rows_cols(stat)
+    return render_template('state.html', stat=stat, query=stats, display=display)
 
 
 @app.route('/test', methods=['GET', 'POST'])
@@ -137,6 +144,7 @@ def facilities(cty, ft):
     cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_']
     # get list of facilities
     if not which:
+        # get neighbors if query is empty
         type_name = db.session.query(models.FacilityType.name).filter(models.FacilityType.short == ft).scalar()
         nbr = db.session.query(models.Neighbors).filter(models.Neighbors.cty == cty).all()
         return render_template('neighbors.html', county=county_name, what=type_name, neighbors=nbr, type=ft)
@@ -197,7 +205,7 @@ def distance():
 def coords():
     form = distance_form()
     zipc = forms.ZipCoords()
-    coords = db.session.query(models.Zips.latitude, models.Zips.longitude).filter(
+    ll = db.session.query(models.Zips.latitude, models.Zips.longitude).filter(
         models.Zips.zip_code == zipc.zip.data).one()
     if request.method == 'POST':  # duplicated so user can submit form again
         if form.submit.data and form.validate():
@@ -205,7 +213,7 @@ def coords():
             return redirect(url_for('result', ft=form.nearest.data, lat=form.latitude.data, long=form.longitude.data))
         if zipc.submits.data and zipc.validate():  # this if statement comes later to allow distance form override
             return redirect(url_for('coords'))
-    return render_template('distance.html', form=form, zip=zipc, coords=coords)
+    return render_template('distance.html', form=form, zip=zipc, coords=ll)
 
 
 @app.route('/result/<ft>/<lat>/<long>')
@@ -213,28 +221,16 @@ def result(ft, lat, long):
     table = models.Distance
     # use ft to get name of type for template
     name = db.session.query(models.FacilityType.name).filter(models.FacilityType.short == ft).scalar()
-    # get result; ordered descending to get most recent entry matching lat/long/type
-    # first() returns row, not individual values
-    res = db.session.query(table.distance_in_miles).filter(table.origin_lat == lat,
-                                                           table.origin_long == long,
-                                                           table.facility_type == ft).order_by(
-        desc(table.entry)).first()[0]
-    place = db.session.query(table.facility_name).filter(table.origin_lat == lat,
-                                                         table.origin_long == long,
-                                                         table.facility_type == ft).order_by(
-        desc(table.entry)).first()[0]
+    # get result; ordered descending to get most recent entry
+    # first() returns type Row, not individual values
+    res = db.session.query(table.distance_in_miles).order_by(desc(table.entry)).first()[0]
+    place = db.session.query(table.facility_name).order_by(desc(table.entry)).first()[0]
     cid = db.session.query(models.HealthFacilities.county_id).filter(models.HealthFacilities.name == place).scalar()
     cty = db.session.query(models.County.county).filter(models.County.id == cid).scalar()
-    # oo origin coords, ll target coords
-    oo = db.session.query(table.origin_lat, table.origin_long).filter(table.origin_lat == lat,
-                                                                          table.origin_long == long,
-                                                                          table.facility_type == ft).order_by(
-        desc(table.entry)).first()
-    ll = db.session.query(table.facility_lat, table.facility_long).filter(table.origin_lat == lat,
-                                                         table.origin_long == long,
-                                                         table.facility_type == ft).order_by(desc(table.entry)).first()
+    # target coords
+    ll = db.session.query(table.facility_lat, table.facility_long).order_by(desc(table.entry)).first()
     return render_template('result.html', type=name, dist=round(res, 2), place=place, county=cty,
-                           here_lat=oo[0], here_long=oo[1],
+                           here_lat=lat, here_long=long,
                            there_lat=ll[0], there_long=ll[1])
 
 
@@ -242,12 +238,8 @@ def result(ft, lat, long):
 def export():
     form = filter_form()
     if request.method == 'POST':
-        stat = form.stats.data
-        src = getattr(models, stat)
-        rows = db.session.query(src).all()
-        columns = [item for item in src.__dict__.keys() if item[0] != '_']
-        dics = query_dict(rows, columns)
-        export_func(dics)
+        stats = get_rows_cols(form.stats.data)
+        export_func(stats)
         return render_template('export.html', form=form)
     return render_template('export.html', form=form)
 
@@ -255,3 +247,4 @@ def export():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # if environment has port use PORT else use 5000
     app.run(host='0.0.0.0', port=port)
+    
