@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {{ JSGlue.include() }}
+
+    <meta charset="UTF-8">
+    <title>{{ display }} in North Carolina - HealthCarolina</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
+    <style>
+        .annotation-note-label {
+            font-size: 10px;
+            fill: #000;
+        }
+
+    </style>
+
+</head>
+<body>
+    <svg width="960" height="500"></svg>
+    <button id="editMode">Toggle Edit Mode</button>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js" integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
+
+{% block heading %}{{ display }}{% endblock %}
+{% block content %}
+    <table id="data_table">
+
+    <tr>
+    {% for item in query %}
+        
+            {% for key, value in item.items() if loop.first %}
+            <th>
+            {{ key }}
+            </th>
+        {% endfor %}
+        
+    {% endfor %}
+    </tr>
+
+    {% for item in query %}
+        <tr>
+        {% for value in item.values() %}
+            <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    
+{% endblock %}
+
+<script>
+    function tableToObj(table) {
+var rows = table.rows;
+var propCells = rows[0].cells;
+var propNames = [];
+var results = [];
+var obj, row, cells;
+
+// Use the first row for the property names
+// Could use a header section but result is the same if
+// there is only one header row
+for (var i=0, iLen=propCells.length; i<iLen; i++) {
+propNames.push(propCells[i].textContent || propCells[i].innerText);
+}
+
+// Use the rows for data
+// Could use tbody rows here to exclude header & footer
+// but starting from 1 gives required result
+for (var j=1, jLen=rows.length; j<jLen; j++) {
+cells = rows[j].cells;
+obj = {};
+
+for (var k=0; k<iLen; k++) {
+  obj[propNames[k]] = cells[k].textContent || cells[k].innerText;
+}
+results.push(obj)
+}
+return results;
+}
+
+function pickHex(percent) {
+    return `rgb(${percent *2.56}, ${(100 - percent) *2.56}, 0)`;
+}
+
+    //GETTING THE DATA IN JS
+    var table_obj = document.getElementById("data_table");
+    var table = tableToObj(table_obj);
+    console.log(table);
+    var data = [];
+    for(var j = 0; j<table.length; j++)
+    {
+        var i = 0;
+        for (let key in table[j]) {
+            if(i == 1)
+            {
+                data.push(parseFloat(table[j][key]));
+            }
+            i++;
+        }
+    }
+    console.log(data);
+
+
+    var global_color_counter = -1;
+    var global_data_counter = -1;
+
+    min_color = Math.min(...data);
+    max_color = Math.max(...data);
+    console.log(max_color);
+    var data_colors = [];
+    for(var i = 0; i<data.length; i++)
+    {
+        data_colors.push(pickHex(data[i]/max_color*100));
+    }
+    console.log(data_colors);
+
+    //THE MAP STUFF
+    var svg = d3.select("svg");
+    width = +svg.attr('width');
+    height = +svg.attr('height');
+
+    //create projection for map and pass that to the path generator
+    var projection = d3
+        .geoAlbers()
+        .rotate([0, 62, 0]);
+
+    var path = d3.geoPath(projection);
+
+
+    d3.json("/static/data/ncmap.json", function (error, mapData) {
+        if (error) throw error;
+
+        var projection = d3
+            .geoAlbers()
+            .rotate([0, 62, 0])
+            .fitSize([d3.select("svg").attr("width")-50, d3.select("svg").attr("height")], mapData);
+
+        var path = d3.geoPath(projection);
+
+        svg
+            .append("g")
+            .selectAll("path")
+            .data(mapData.features)
+            .enter()
+            .append("path")
+            .attr("d", path)
+            .attr("class", "CountyName")
+            .attr("id", function () {
+                global_data_counter++;
+                return data[global_data_counter];
+            })
+            .attr("fill", function() {
+                global_color_counter++;
+                return data_colors[global_color_counter];
+            })
+            .style("color", "black")
+            .style("stroke", "#d3d3d3")
+            .attr("transform", "translate(25, 0)")
+            .html(function () {
+                global_data_counter++;
+                return data[global_data_counter];
+            });
+
+        // make initial annotation estimations and start annotations tool
+        var annotations = mapData.features.map(function (el) {
+
+            return {
+                note: { label: el.properties.CountyName, orientation: "topBottom"},
+                x: path.centroid(el.geometry)[0],
+                y: path.centroid(el.geometry)[1] - 10
+            }
+        });
+
+        window.makeAnnotations = d3.annotation()
+            .type(d3.annotationLabel)
+            .annotations(annotations)
+            // .disable(["connector", "subject"])
+            .editMode(false);
+
+        svg.append("g")
+            .attr("class", "annotation-group")
+            .attr("transform", "translate(25, 0)")
+            .call(makeAnnotations);
+
+            var color = d3.scaleQuantile()
+                .range(["rgb(237, 248, 233)", "rgb(186, 228, 179)", "rgb(116,196,118)", "rgb(49,163,84)", "rgb(0,109,44)"]);
+
+        document.getElementById("editMode").addEventListener("click", function () {
+            makeAnnotations.editMode(!makeAnnotations.editMode()).update();
+        });
+    });
+
+</script>
+
+</body>
+<footer><div style="text-align: center;"><a href="{{ url_for('feedback') }}">Send Feedback</a></div></footer>
+</html>
