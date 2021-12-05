@@ -23,7 +23,7 @@
         </p>
         <p>
             <span style="color: #ff0000; ">*</span> Comment:</p>
-        <p>{{ form.comment(style='height:100px;width:250px;overflow:auto;') }}</p>
+        <p>{{ form.comment(style='padding: 0px 0px 50px 0px;word-wrap:break-word;') }}</p>
             {%  if form.comment.errors %}
                 <ul>{% for error in form.comment.errors %}<li>{{ error }}</li>{% endfor %}</ul>
             {% endif %}
