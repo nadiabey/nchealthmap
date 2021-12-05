@@ -67,7 +67,8 @@ def get_rows_cols(table):
     """get dictionary of table values for non-filtered (i.e. no select/where) data"""
     src = getattr(models, table)
     info = db.session.query(src).all()
-    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
+    # cols gets columns, excludes values beginning with underscores or orm.relationship
     return query_dict(info, cols)
 
 
@@ -132,7 +133,7 @@ def county(cid, stat):
     cty = db.session.query(models.County.county).filter(models.County.id == cid).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cid).all()
-    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
     return render_template('counties.html', county=cty, query=query_dict(info, cols))
 
 
@@ -141,7 +142,7 @@ def facilities(cty, ft):
     county_name = db.session.query(models.County.county).filter(models.County.id == cty).one()
     which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
                                                              models.HealthFacilities.type == ft).all()
-    cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_']
+    cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
     # get list of facilities
     if not which:
         # get neighbors if query is empty
@@ -156,7 +157,7 @@ def city(mun, cty, stat):
     county = db.session.query(models.County.county).filter(models.County.id == cty).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cty).all()
-    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
     return render_template('counties.html', county=county, query=query_dict(info, cols), city=mun)
 
 
@@ -166,7 +167,7 @@ def zipcode(zc, stat):
     cty_name = db.session.query(models.County.county).filter(models.County.id == cty_id).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cty_id).all()
-    cols = [item for item in src.__dict__.keys() if item[0] != '_']
+    cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
     return render_template('counties.html', county=cty_name, query=query_dict(info, cols), zip=zc)
 
 
@@ -247,4 +248,3 @@ def export():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # if environment has port use PORT else use 5000
     app.run(host='0.0.0.0', port=port)
-    
