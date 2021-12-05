@@ -36,8 +36,8 @@ def run_distance(form):
     listy = db.session.query(models.HealthFacilities.facility_id,
                              models.HealthFacilities.latitude,
                              models.HealthFacilities.longitude). \
-        filter(models.HealthFacilities.type == form.nearest.data).all()
-    dist = form.calculate_distance(listy)
+        filter(models.HealthFacilities.type == form.nearest.data).all() # facility ids with coordinates
+    dist = form.calculate_distance(listy) # gets id with shortest distance
     fac_name = db.session.query(models.HealthFacilities.name). \
         filter(models.HealthFacilities.facility_id == dist[0])
     fac_lat = db.session.query(models.HealthFacilities.latitude). \
@@ -130,7 +130,7 @@ def test():
 
 @app.route('/county/<cid>/<stat>', methods=['GET', 'POST'])
 def county(cid, stat):
-    cty = db.session.query(models.County.county).filter(models.County.id == cid).scalar()
+    cty = db.session.query(models.County.county).filter(models.County.id == cid).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cid).all()
     cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
@@ -139,7 +139,7 @@ def county(cid, stat):
 
 @app.route('/facilities/<cty>/<ft>')
 def facilities(cty, ft):
-    county_name = db.session.query(models.County.county).filter(models.County.id == cty).scalar()
+    county_name = db.session.query(models.County.county).filter(models.County.id == cty).one()
     which = db.session.query(models.HealthFacilities).filter(models.HealthFacilities.county_id == cty,
                                                              models.HealthFacilities.type == ft).all()
     cols = [item for item in models.HealthFacilities.__dict__.keys() if item[0] != '_' and item != 'c']
@@ -164,7 +164,7 @@ def city(mun, cty, stat):
 @app.route('/zipcode/<zc>/<stat>')
 def zipcode(zc, stat):
     cty_id = db.session.query(models.Zips.county_id).filter(models.Zips.zip_code == zc).scalar()
-    cty_name = db.session.query(models.County.county).filter(models.County.id == cty_id).scalar()
+    cty_name = db.session.query(models.County.county).filter(models.County.id == cty_id).one()
     src = getattr(models, stat)
     info = db.session.query(src).filter(src.county_id == cty_id).all()
     cols = [item for item in src.__dict__.keys() if item[0] != '_' and item != 'c']
