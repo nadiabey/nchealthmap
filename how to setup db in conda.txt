@@ -14,3 +14,4 @@ psql -af ../permissions.sql healthmap
 Then in the future to start psql server:
 cd to nchealthmap dir
 pg_ctl -D /data -l logfile start
+pg_ctl -D /data -l logfile stop
