@@ -4,20 +4,61 @@
     <meta charset="UTF-8">
     <title>HealthCarolina - Determinants of Health in North Carolina</title>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+    #main_form {
+        color:black;
+    }
+    </style>
 </head>
 <body>
-<form method="POST" action="/">
-    {{ form.csrf_token }}
-    {{ form.location_type }}
-    {{ form.county }}
-    {{ form.city }}
-    {{ form.zip }}
-    {{ form.stats }}
-    {{ form.ft }}
-    {{ form.submit }}
-</form>
+
+    <br>
+
+    <div class="container">
+        <div class="row text-center">
+          <div class="col-lg-2">
+          </div>
+          <div class="col-lg-8">
+            <form id="main_form" method="POST" action="/">
+                {{ form.csrf_token }}
+                {{ form.location_type }}
+                {{ form.county }}
+                {{ form.city }}
+                {{ form.zip }}
+                {{ form.stats }}
+                {{ form.ft }}
+                {{ form.submit }}
+            </form>
+          </div>
+          <div class="col-lg-2">
+          </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-lg-3">
+            </div>
+            <div class="col-lg-6">
+                <img class="img img-responsive" src="/static/img/healthcarolina.png"></img>
+            </div>
+            <div class="col-lg-3">
+            </div>
+        </div>
+
+    </div>
+
+
+
 <script src="/static/js/dynamicfilter.js"></script>
-<div style="text-align: center;"><img src="/static/img/healthcarolina.png"></div>
 {% block content %}{% endblock %}
 </body>
 <footer><div style="text-align: center;"><a href="{{ url_for('distance')}}">Find Closest Health Resources</a> |
