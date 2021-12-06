@@ -271,6 +271,11 @@ def export():
     return render_template('export.html', form=form)
 
 
+@app.route('/acknowledgements')
+def acknowledgements():
+    return render_template('acknowledgements.html')
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))  # if environment has port use PORT else use 5000
     app.run(host='0.0.0.0', port=port)
