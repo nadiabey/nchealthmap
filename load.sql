@@ -1,7 +1,3 @@
---GENERAL
-
--- counties
-
 INSERT INTO county VALUES(1, 'Alamance');
 INSERT INTO county VALUES(2, 'Alexander');
 INSERT INTO county VALUES(3, 'Alleghany');
@@ -2320,7 +2316,7 @@ INSERT INTO primary_care VALUES (98, 49);
 INSERT INTO primary_care VALUES (99, 8);
 INSERT INTO primary_care VALUES (100, 7);
 
- --dentists
+
 INSERT INTO dentists VALUES (1, 68);
 INSERT INTO dentists VALUES (2, 4);
 INSERT INTO dentists VALUES (3, 1);
@@ -3281,10 +3277,9 @@ INSERT INTO zips VALUES(28905, 'Marble', 20, '35.1630643', '-83.9409356');
 INSERT INTO zips VALUES(28906, 'Murphy', 20, '35.0872445', '-84.1366351');
 INSERT INTO zips VALUES(28909, 'Warne', 22, '35.0011378', '-83.9032633');
 
---cities from zips
+
 INSERT INTO cities (county_id, city) SELECT DISTINCT zips.county_id, zips.city FROM zips ORDER BY zips.city;
 
---insert stats
 INSERT INTO statistics VALUES('Births', 'Births by Gender');
 INSERT INTO statistics VALUES('CovidRace', 'COVID-19 Cases by Race');
 INSERT INTO statistics VALUES('COVID', 'COVID-19 Overview');
