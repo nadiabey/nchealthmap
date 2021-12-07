@@ -14,21 +14,22 @@ PRIMARY KEY(cty, neighbor)
 
 CREATE TABLE hospitalizations(
 county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
-inpatient_bed_capacity INTEGER NOT NULL, 
-ICU_bed_capacity INTEGER NOT NULL,
+inpatient_bed_capacity INTEGER NOT NULL,
+icu_bed_capacity INTEGER NOT NULL,
 all_beds INTEGER NOT NULL
 );
 
 CREATE TABLE outbreaks(
 county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
 total_outbreaks INTEGER NOT NULL,
-nursing_home INTEGER NOT NULL, 
-residential_care INTEGER NOT NULL, 
-correctional_facility INTEGER NOT NULL, 
-child_care INTEGER NOT NULL, 
-k12_school INTEGER NOT NULL, 
+nursing_home INTEGER NOT NULL,
+residential_care INTEGER NOT NULL,
+correctional_facility INTEGER NOT NULL,
+child_care INTEGER NOT NULL,
+k12_school INTEGER NOT NULL,
 other INTEGER NOT NULL
 );
+
 CREATE TABLE location_type(
 short VARCHAR(3) NOT NULL PRIMARY KEY,
 type VARCHAR(10) NOT NULL UNIQUE);
