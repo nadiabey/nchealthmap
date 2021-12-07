@@ -580,7 +580,7 @@ INSERT INTO neighbors VALUES(100, 59);
 INSERT INTO neighbors VALUES(100, 57);
 INSERT INTO neighbors VALUES(100, 11);
 
--- hospitalizations 
+-- hospitalizations
 INSERT INTO hospitalizations VALUES(1, 67.9, 54.6, 238);
 INSERT INTO hospitalizations VALUES(2, 54.2, 0, 25);
 INSERT INTO hospitalizations VALUES(3, 0.0, 0, 6);
@@ -990,7 +990,6 @@ INSERT INTO births_prenatalcare VALUES (99, 242, 87, 31, 13);
 INSERT INTO births_prenatalcare VALUES (100, 146, 15, 4, 3);
 
 -- education
-INSERT INTO education VALUES (0, 8191194, 2233962, 9187562);
 INSERT INTO education VALUES (1, 132217, 38818, 143235);
 INSERT INTO education VALUES (2, 30035, 5212, 32697);
 INSERT INTO education VALUES (3, 9244, 2083, 10491);
@@ -3503,7 +3502,5 @@ INSERT INTO statistics VALUES('LifeExpectancy', 'Life Expectancy');
 INSERT INTO statistics VALUES('PopulationC', 'Population');
 INSERT INTO statistics VALUES('Prenatal', 'Prenatal Care');
 INSERT INTO statistics VALUES('PrimaryCare', 'Primary Care Physicians');
-INSERT INTO statistics VALUES('hospitalizations', 'Hospital Capacity');
-INSERT INTO statistics VALUES('outbreaks', 'Outbreaks and Clusters');
-
-
+INSERT INTO statistics VALUES('Hospitalizations', 'Hospital Capacity');
+INSERT INTO statistics VALUES('Outbreaks', 'Outbreaks and Clusters');
