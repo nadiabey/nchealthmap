@@ -5,6 +5,11 @@
     <title>Send Feedback - HealthCarolina</title>
 </head>
 <body>
+    
+    <div class="header">
+    <div style="text-align:center"><h3>HealthCarolina</h3>
+    <p>Determinants of Health in North Carolina</p></div>
+  </div>
 {% block heading %}Send Feedback{% endblock %}
 {% block content %}
     <form action="{{ url_for('feedback')}}" method="POST">
