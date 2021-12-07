@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     <title>HealthCarolina - Determinants of Health in North Carolina</title>
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <title>{{ display }} in North Carolina - HealthCarolina</title>
 
 
@@ -16,9 +16,6 @@
     <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-
-
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.1.0/d3-annotation.min.js"></script>
     <style>
         .annotation-note-label {
@@ -40,7 +37,7 @@
 <br>
 
 <div class="container">
-    
+
     <div class="row text-center">
         <div class ="col-lg-12">
             <a class="link-primary" href="/">Return To Main Page</a>
@@ -66,20 +63,20 @@
         <table class="table" id="data_table">
             <tr>
             {% for item in query %}
-                
+
                     {% for key, value in item.items() if loop.first %}
                     <th scope="col">
                     {{ key }}
                     </th>
                 {% endfor %}
-                
+
             {% endfor %}
             </tr>
-        
+
             {% for item in query %}
                 <tr>
                 {% for value in item.values() %}
-                    <td>{{ value }}</td>
+                    <td class ="data">{{ value }}</td>
                 {% endfor %}
                 </tr>
             {% endfor %}
@@ -90,7 +87,7 @@
       </div>
     </div>
 </div>
-    
+
 {% endblock %}
 
 <script>
@@ -100,6 +97,7 @@ var propCells = rows[0].cells;
 var propNames = [];
 var results = [];
 var obj, row, cells;
+
 
 // Use the first row for the property names
 // Could use a header section but result is the same if
@@ -127,10 +125,110 @@ function pickHex(percent) {
     return `rgb(${percent *2.56}, ${(100 - percent) *2.56}, 0)`;
 }
 
+var id_to_name = {1: 'Alamance',
+2: 'Alexander',
+3: 'Alleghany',
+4: 'Anson',
+5: 'Ashe',
+6: 'Avery',
+7: 'Beaufort',
+8: 'Bertie',
+9: 'Bladen',
+10: 'Brunswick',
+11: 'Buncombe',
+12: 'Burke',
+13: 'Cabarrus',
+14: 'Caldwell',
+15: 'Camden',
+16: 'Carteret',
+17: 'Caswell',
+18: 'Catawba',
+19: 'Chatham',
+20: 'Cherokee',
+21: 'Chowan',
+22: 'Clay',
+23: 'Cleveland',
+24: 'Columbus',
+25: 'Craven',
+26: 'Cumberland',
+27: 'Currituck',
+28: 'Dare',
+29: 'Davidson',
+30: 'Davie',
+31: 'Duplin',
+32: 'Durham',
+33: 'Edgecombe',
+34: 'Forsyth',
+35: 'Franklin',
+36: 'Gaston',
+37: 'Gates',
+38: 'Graham',
+39: 'Granville',
+40: 'Greene',
+41: 'Guilford',
+42: 'Halifax',
+43: 'Harnett',
+44: 'Haywood',
+45: 'Henderson',
+46: 'Hertford',
+47: 'Hoke',
+48: 'Hyde',
+49: 'Iredell',
+50: 'Jackson',
+51: 'Johnston',
+52: 'Jones',
+53: 'Lee',
+54: 'Lenoir',
+55: 'Lincoln',
+56: 'Macon',
+57: 'Madison',
+58: 'Martin',
+59: 'McDowell',
+60: 'Mecklenburg',
+61: 'Mitchell',
+62: 'Montgomery',
+63: 'Moore',
+64: 'Nash',
+65: 'New Hanover',
+66: 'Northampton',
+67: 'Onslow',
+68: 'Orange',
+69: 'Pamlico',
+70: 'Pasquotank',
+71: 'Pender',
+72: 'Perquimans',
+73: 'Person',
+74: 'Pitt',
+75: 'Polk',
+76: 'Randolph',
+77: 'Richmond',
+78: 'Robeson',
+79: 'Rockingham',
+80: 'Rowan',
+81: 'Rutherford',
+82: 'Sampson',
+83: 'Scotland',
+84: 'Stanly',
+85: 'Stokes',
+86: 'Surry',
+87: 'Swain',
+88: 'Transylvania',
+89: 'Tyrrell',
+90: 'Union',
+91: 'Vance',
+92: 'Wake',
+93: 'Warren',
+94: 'Washington',
+95: 'Watauga',
+96: 'Wayne',
+97: 'Wilkes',
+98: 'Wilson',
+99: 'Yadkin',
+100: 'Yance'};
+
     //GETTING THE DATA IN JS
     var table_obj = document.getElementById("data_table");
     var table = tableToObj(table_obj);
-    console.log(table);
     var data = [];
     for(var j = 0; j<table.length; j++)
     {
@@ -143,7 +241,6 @@ function pickHex(percent) {
             i++;
         }
     }
-    console.log(data);
 
 
     var global_color_counter = -1;
@@ -151,13 +248,11 @@ function pickHex(percent) {
 
     min_color = Math.min(...data);
     max_color = Math.max(...data);
-    console.log(max_color);
     var data_colors = [];
     for(var i = 0; i<data.length; i++)
     {
         data_colors.push(pickHex(data[i]/max_color*100));
     }
-    console.log(data_colors);
 
     //THE MAP STUFF
     var svg = d3.select("svg");
@@ -235,6 +330,26 @@ function pickHex(percent) {
         });
     });
 
+    $(document).ready(function() {
+        var global_data_counter = 0;
+        var no_of_cols = 0;
+         $.each($('th'), function(i, val) {
+             no_of_cols++;
+         });
+
+         console.log(no_of_cols);
+
+        $.each($('.data'), function(i, val) {
+    var data = parseInt($(val).html());
+    if(global_data_counter % no_of_cols == 0)
+    {
+        console.log(data);
+        global_data_counter++;
+    }
+
+       //your action
+    });
+});
 </script>
 
 </body>
