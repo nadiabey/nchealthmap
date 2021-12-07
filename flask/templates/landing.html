@@ -72,7 +72,8 @@
 <script src="/static/js/dynamicfilter.js"></script>
 {% block content %}{% endblock %}
 </body>
-<footer><div style="text-align: center;"><a href="{{ url_for('distance')}}">Find Closest Health Resources</a> |
+<footer><div style="text-align: center;"><input type="button" onclick="{{ url_for('distance')}}" style="background-color:red;color:white;width:150px;font-size:20px;
+height:30px;" value="Find Closest Health Resources"> |
     <a href="{{ url_for('feedback') }}">Send Feedback</a>
 | <a href="{{ url_for('export') }}">Export Data</a> | <a href="{{url_for('acknowledgements')}}">Acknowledgements</a></div></footer>
 </html>
