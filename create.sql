@@ -16,7 +16,7 @@ CREATE TABLE hospitalizations(
 county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
 inpatient_bed_capacity INTEGER NOT NULL, 
 ICU_bed_capacity INTEGER NOT NULL,
-all_beds INTEGER NOT NULL, 
+all_beds INTEGER NOT NULL
 );
 
 CREATE TABLE outbreaks(
