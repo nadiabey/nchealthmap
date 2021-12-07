@@ -12,6 +12,14 @@ neighbor INTEGER REFERENCES county(id),
 PRIMARY KEY(cty, neighbor)
 );
 
+CREATE TABLE hospitalizations(
+county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
+county VARCHAR(30) NOT NULL UNIQUE,
+all_beds INTEGER NOT NULL, 
+inpatient_bed_capacity INTEGER NOT NULL, 
+ICU_bed_capacity INTEGER NOT NULL
+);
+
 CREATE TABLE location_type(
 short VARCHAR(3) NOT NULL PRIMARY KEY,
 type VARCHAR(10) NOT NULL UNIQUE);
