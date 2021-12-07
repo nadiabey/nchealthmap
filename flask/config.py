@@ -13,7 +13,7 @@ SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostnam
     username="IreVia",
     password="nchealthmappers",
     hostname="IreVia.mysql.pythonanywhere-services.com",
-    databasename="IreVia$healthmap")
+    databasename="IreVia$healthmaps")
 
 SQLALCHEMY_POOL_RECYCLE = 299
 
