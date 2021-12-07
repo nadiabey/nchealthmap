@@ -45,10 +45,10 @@ CREATE TABLE births_prenatalcare(
   none_prenatalcare FLOAT NOT NULL
 );
 
-CREATE TABLE education(
+CREATE TABLE education (
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
-  adults_no INTEGER NOT NULL, -- REFERENCES population_c(population_adults),
-  college_education FLOAT NOT NULL, --% of adults receiving higher education
+  adults_no INTEGER NOT NULL,
+  college_education FLOAT NOT NULL,
   highschool_education FLOAT NOT NULL
 );
 
@@ -83,7 +83,8 @@ CREATE TABLE life_expectancy(
   life_exp_years INTEGER NOT NULL,
   poverty_rate FLOAT NOT NULL, -- % of people living in poverty
   unemployment_rate FLOAT NOT NULL, -- % of people unemployed
-  violent_crime FLOAT NOT NULL -- % of people affected by violent crimes
+  violent_crime FLOAT NOT NULL,
+  additional FLOAT NOT NULL
 );
 
 
@@ -208,7 +209,7 @@ CREATE TABLE statistics(
   displayname VARCHAR(256) NOT NULL
 );
 
---table for storing closest Facilities
+
 CREATE TABLE distance(
   entry SERIAL PRIMARY KEY,
   origin_lat FLOAT NOT NULL,
