@@ -3502,3 +3502,7 @@ INSERT INTO statistics VALUES('LifeExpectancy', 'Life Expectancy');
 INSERT INTO statistics VALUES('PopulationC', 'Population');
 INSERT INTO statistics VALUES('Prenatal', 'Prenatal Care');
 INSERT INTO statistics VALUES('PrimaryCare', 'Primary Care Physicians');
+INSERT INTO statistics VALUES('hospitalizations', 'Hospital Capacity');
+INSERT INTO statistics VALUES('outbreaks', 'Outbreaks and Clusters');
+
+
