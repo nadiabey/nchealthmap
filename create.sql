@@ -195,7 +195,7 @@ CREATE TABLE heart_disease(
 
 CREATE TABLE food_insecurity (
   county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
-  food_insecurity_percentage FLOAT NOT NULL
+  food_insecurity_no FLOAT NOT NULL
 );
 
 
