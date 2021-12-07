@@ -19,7 +19,6 @@ all_beds INTEGER NOT NULL,
 inpatient_bed_capacity INTEGER NOT NULL, 
 ICU_bed_capacity INTEGER NOT NULL
 );
-INSERT INTO outbreaks VALUES(100, 'Yancey', 0, 1.0, 0.0, 0.0, 5.0, 0.0);
 
 CREATE TABLE outbreaks(
 county_id INTEGER NOT NULL PRIMARY KEY REFERENCES county(id),
