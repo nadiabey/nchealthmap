@@ -423,109 +423,55 @@ class Diabetes(db.Model):
 
 
 class HeartDisease(db.Model):
+    __tablename__ = 'heart_disease'
     county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
     deaths_per_100k = db.Column(db.Float, nullable=False)
     c = orm.relationship('County', foreign_keys=[county_id])
 
 
 class FoodInsecurity(db.Model):
+    __tablename__ = 'food_insecurity'
     county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
     food_insecurity_percentage = db.Column(db.Float, nullable=False)
     c = orm.relationship('County', foreign_keys=[county_id])
 
 
 class Dentists(db.Model):
+    __tablename__ = 'dentists'
     county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
     dentists_count = db.Column(db.Float, nullable=False)
     c = orm.relationship('County', foreign_keys=[county_id])
 
 
 class PrimaryCare(db.Model):
-    county_id = db.Column(db.Integer, db.ForeignKey(County.id), primary_key=True, nullable=False)
+    __tablename__ = 'primary_care'
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id),
+    primary_key=True, nullable=False)
     primary_care_physicians_count = db.Column(db.Float, nullable=False)
     c = orm.relationship('County', foreign_keys=[county_id])
 
 
-"""class DiabetesData(db.Model):
-    __tablename__ = 'diabetes_data'
-    county_id = db.Column(
-        db.Integer,
-        db.ForeignKey(County.id),
-        nullable=False,
-        primary_key=True
-    )
-    year = db.Column(
-        db.Integer,
-        nullable=False,
-        primary_key=True
-    )
-    diagnoseddiabetesprevalence = db.Column(
-        db.Float
-    )
-    undiagnoseddiabetesprevalence = db.Column(
-        db.Float
-    )
-    awareness = db.Column(
-        db.Float
-    )
-    control = db.Column(
-        db.Float
-    )
-    sex = db.Column(
-        db.String(15),
-        primary_key=True
-    )
+class Hospitalizations(db.Model):
+    __tablename__ = 'hospitalizations'
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id),
+    primary_key=True, nullable=False)
+    inpatient_bed_capacity = db.Column(db.Integer, nullable=False)
+    icu_bed_capacity = db.Column(db.Integer, nullable=False)
+    all_beds = db.Column(db.Integer, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
 
 
-class AlcoholData(db.Model):
-    __tablename__ = 'alcohol_data'
-    county_id = db.Column(
-        db.Integer,
-        db.ForeignKey(County.id),
-        nullable=False,
-        primary_key=True
-    )
-    year = db.Column(
-        db.Integer,
-        nullable=False,
-        primary_key=True
-    )
-    alcoholprevalence = db.Column(
-        db.Float
-    )
-    type = db.Column(
-        db.String(15)
-    )
-    sex = db.Column(
-        db.String(15),
-        primary_key=True
-    )
-
-
-class HealthProfessionals(db.Model):
-    __tablename__ = 'health_professionals'
-    county_id = db.Column(
-        db.Integer,
-        db.ForeignKey(County.id),
-        nullable=False,
-        primary_key=True
-    )
-    year = db.Column(
-        db.Integer,
-        nullable=False
-    )
-    county_population = db.Column(
-        db.Integer
-    )
-    professional_type = db.Column(
-        db.String(50),
-        nullable=False
-    )
-    total_professionals = db.Column(
-        db.Integer,
-        nullable=False
-    )
-"""
+class Outbreaks(db.Model):
+    __tablename__ = 'outbreaks'
+    county_id = db.Column(db.Integer, db.ForeignKey(County.id),
+    primary_key=True, nullable=False)
+    nursing_home = db.Column(db.Integer, nullable=False)
+    residential_care = db.Column(db.Integer, nullable=False)
+    correctional_facility = db.Column(db.Integer, nullable=False)
+    child_care = db.Column(db.Integer, nullable=False)
+    k12_school = db.Column(db.Integer, nullable=False)
+    other = db.Column(db.Integer, nullable=False)
+    c = orm.relationship('County', foreign_keys=[county_id])
 
 
 class Comment(db.Model):
@@ -575,5 +521,3 @@ class Distance(db.Model):
         self.facility_long = facility_long
         self.distance_in_miles = distance_in_miles
         self.time_recorded = time_recorded
-
-
